@@ -22,14 +22,14 @@ export default function Navbar() {
       </ul>
 
       {/* Centered Logo */}
-      <Link href="/" className="font-extrabold text-3xl">
+      <Link href="/home" className="font-extrabold text-3xl">
         Earthycrafts
       </Link>
 
       {/* Right-side links list */}
       <ul className="flex gap-6 font-medium items-center">
         <SearchComponent />
-        <Link className="hover:text-neutral-600 transition-all" href="/inspiration">
+        <Link className="hover:text-neutral-600 transition-all" href="/gallery">
           Inspiration
         </Link>
         <Link className="hover:text-neutral-600 transition-all" href="/about">

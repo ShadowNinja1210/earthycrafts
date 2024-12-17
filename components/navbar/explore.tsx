@@ -169,9 +169,11 @@ export default function Explore() {
 
   return (
     <HoverCard openDelay={150}>
-      <HoverCardTrigger className="group cursor-pointer hover:text-neutral-600 transition-all flex">
-        Explore
-        <ChevronDown className="group-hover:-rotate-180 transition-all duration-500 w-5" />
+      <HoverCardTrigger asChild className="group cursor-pointer hover:text-neutral-600 transition-all flex">
+        <Link href="/products">
+          Explore
+          <ChevronDown className="group-hover:-rotate-180 transition-all duration-300 w-5" />
+        </Link>
       </HoverCardTrigger>
 
       <HoverCardContent

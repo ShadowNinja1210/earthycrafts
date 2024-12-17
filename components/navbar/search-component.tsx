@@ -1,14 +1,12 @@
-import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
 import { Input } from "../ui/input";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import TooltipContext from "../contexts/tooltip-context";
 
 import { Search } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchAllProducts } from "@/lib/api";
-import useProductData from "@/hooks/use-products";
 import { IProduct } from "@/lib/schema";
 import _ from "lodash";
 import SearchCards from "./search-cards";
@@ -17,11 +15,7 @@ export default function SearchComponent() {
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  const {
-    data: products,
-    error: productError,
-    isLoading,
-  } = useQuery({
+  const { data: products, isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: fetchAllProducts,
   });
@@ -45,8 +39,13 @@ export default function SearchComponent() {
     setSearchResults(results);
   }, [query, products]);
 
+  const onclose = () => {
+    setQuery("");
+    setSearchResults([]);
+  };
+
   return (
-    <Dialog>
+    <Dialog onOpenChange={onclose}>
       <TooltipContext context="Search products">
         <DialogTrigger asChild>
           <Button variant="ghost" size="icon" className="rounded-full">
@@ -57,17 +56,29 @@ export default function SearchComponent() {
       <DialogContent className="flex flex-col h-[80vh]">
         <DialogHeader className="gap-2">
           <DialogTitle className="text-center">Search Products</DialogTitle>
-          <Input disabled={isLoading} placeholder="Search" onChange={(e) => setQuery(e.target.value)} />
-          <DialogDescription>
-            {isLoading ? "Getting products..." : `Search results for ${query && "${query}"}`}
-          </DialogDescription>
+          <Input disabled={isLoading} value={query} placeholder="Search" onChange={(e) => setQuery(e.target.value)} />
+          <DialogDescription>{`Searched results for ${query && query}`}</DialogDescription>
         </DialogHeader>
 
         <div className="px-2 space-y-4">
           <div className="grid grid-cols-2 gap-4">
-            {searchResults.map((product: IProduct) => (
-              <SearchCards key={product.productCode} product={product} />
-            ))}
+            {query.length > 2 ? (
+              isLoading ? (
+                // Loading state
+                <p className="text-center col-span-2">Searching products</p>
+              ) : searchResults.length === 0 ? (
+                // No results found
+                <p className="text-center col-span-2">No results found</p>
+              ) : (
+                // Display search results
+                searchResults.map((product: IProduct) => <SearchCards key={product.productCode} product={product} />)
+              )
+            ) : (
+              // Search query is less than 3 characters
+              <p className="text-center text-muted-foreground text-sm col-span-2">
+                Enter 3 or more characters to search
+              </p>
+            )}
           </div>
         </div>
       </DialogContent>

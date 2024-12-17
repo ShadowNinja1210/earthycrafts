@@ -1,5 +1,5 @@
 import { IProduct, Product } from "@/lib/schema";
-import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
+import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { imgPlaceholder } from "@/public/assets/some-data";
 import Link from "next/link";
@@ -16,8 +16,7 @@ export default function ProductCard({
   className?: string;
   style?: any;
 }) {
-  if()
-  const mainImage = product?.images.find((img) => img.main);
+  const mainImage = product?.images?.find((img) => img.main);
 
   return (
     <Link href={`/products/${kebabCase(product.productCode)}`}>

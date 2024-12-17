@@ -12,12 +12,12 @@ export default function SearchCards({ product }: { product: IProduct }) {
   return (
     <TooltipContext context={product.name}>
       <Link
-        href={"/home/product/" + kebabCase(product.productCode)}
+        href={"/products/" + kebabCase(product.productCode)}
         className=" grid grid-cols-3 gap-2 hover:shadow-md shadow-sm rounded-md bg-neutral-50 overflow-hidden"
       >
         <Image
           src={imageUrl || imgPlaceholder}
-          alt="Earthycrafts Logo"
+          alt={product.name}
           width={200}
           height={200}
           className=" h-full object-cover overflow-hidden"

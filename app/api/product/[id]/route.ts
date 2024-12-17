@@ -12,17 +12,17 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
 
     const { id } = params; // Get the product ID
 
-    // Validate the ID format
-    if (!Types.ObjectId.isValid(id)) {
-      return NextResponse.json(
-        { message: "Invalid ID format" },
-        {
-          status: 400,
-        }
-      );
-    }
+    // // Validate the ID format
+    // if (!Types.ObjectId.isValid(id)) {
+    //   return NextResponse.json(
+    //     { message: "Invalid ID format" },
+    //     {
+    //       status: 400,
+    //     }
+    //   );
+    // }
 
-    const product = await Product.findById(id); // Query the product
+    const product = await Product.findOne({ productCode: id.toUpperCase() }); // Query the product
 
     if (!product) {
       return NextResponse.json(
