@@ -163,7 +163,6 @@ export default function Explore() {
     const navbar = document.querySelector("nav");
     if (navbar) {
       setNavbarHeight(navbar.offsetHeight + 2);
-      console.log(navbar.offsetHeight);
     }
   }, []);
 

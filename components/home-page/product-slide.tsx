@@ -14,25 +14,24 @@
 
 import { fetchFeaturedProducts } from "@/lib/api";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
 import { Carousel, CarouselResponsiveOption } from "primereact/carousel";
-import ProductCard from "../product-card";
+import ProductCard from "@/components/products/product-card";
 
-interface Product {
-  id: string;
-  code: string;
-  name: string;
-  description: string;
-  image: string;
-  price: number;
-  category: string;
-  quantity: number;
-  inventoryStatus: string;
-  rating: number;
-}
+// interface Product {
+//   id: string;
+//   code: string;
+//   name: string;
+//   description: string;
+//   image: string;
+//   price: number;
+//   category: string;
+//   quantity: number;
+//   inventoryStatus: string;
+//   rating: number;
+// }
 
 export default function BasicDemo() {
-  const [products, setProducts] = useState<Product[]>([]);
+  // const [products, setProducts] = useState<Product[]>([]);
 
   const { data: featuredProducts, isLoading } = useQuery({
     queryKey: ["featured-products"],

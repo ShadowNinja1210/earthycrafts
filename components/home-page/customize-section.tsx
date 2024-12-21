@@ -1,6 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { Button } from "../ui/button";
-import BackgroundVideo from "../video/background-video";
+
 import Link from "next/link";
 import Image from "next/image";
 

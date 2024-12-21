@@ -7,7 +7,6 @@ import { IProduct } from "@/lib/schema";
 import {
   Sidebar,
   SidebarContent,
-  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -40,86 +39,90 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
   );
 
   return (
-    <SidebarProvider>
-      <Sidebar>
-        <SidebarHeader>
-          <h2 className="px-4 text-xl font-bold">Categories</h2>
-        </SidebarHeader>
-        <SidebarContent>
-          <SidebarMenu>
-            {categories.map((category) => (
-              <Collapsible className="group/collapsible" defaultOpen={false} key={category.name} title={category.name}>
-                <SidebarMenuItem>
-                  <CollapsibleTrigger asChild>
-                    <SidebarMenuButton
-                      onClick={() => {
-                        setSelectedCategory(category.name);
-                        setSelectedSubCategory("");
-                      }}
-                      className={cn("p-4 justify-between", selectedCategory === category.name ? "bg-accent" : "")}
-                    >
-                      {category.name}{" "}
-                      <ChevronRight className="transition-transform group-data-[state=open]/collapsible:rotate-90" />
-                    </SidebarMenuButton>
-                  </CollapsibleTrigger>
-                  <CollapsibleContent>
-                    <SidebarMenuSub className="space-y-1">
-                      {category.subCategories.map((subCategory: string) => (
-                        <SidebarMenuItem key={subCategory}>
-                          <SidebarMenuButton
-                            className={cn("", selectedSubCategory === subCategory ? "bg-accent" : "")}
-                            onClick={() => {
-                              setSelectedCategory(category.name);
-                              setSelectedSubCategory(subCategory);
-                            }}
-                          >
-                            <Link
-                              href={`/products?category=${_.kebabCase(category.name)}&subCategory=${_.kebabCase(
-                                subCategory
-                              )}`}
+    <main>
+      <SidebarProvider>
+        <Sidebar className="inset-y-16">
+          <SidebarContent>
+            <SidebarMenu>
+              {categories.map((category) => (
+                <Collapsible
+                  className="group/collapsible"
+                  defaultOpen={false}
+                  key={category.name}
+                  title={category.name}
+                >
+                  <SidebarMenuItem>
+                    <CollapsibleTrigger asChild>
+                      <SidebarMenuButton
+                        onClick={() => {
+                          setSelectedCategory(category.name);
+                          setSelectedSubCategory("");
+                        }}
+                        className={cn("p-4 justify-between", selectedCategory === category.name ? "bg-accent" : "")}
+                      >
+                        {category.name}{" "}
+                        <ChevronRight className="transition-transform group-data-[state=open]/collapsible:rotate-90" />
+                      </SidebarMenuButton>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent>
+                      <SidebarMenuSub className="space-y-1">
+                        {category.subCategories.map((subCategory: string) => (
+                          <SidebarMenuItem key={subCategory}>
+                            <SidebarMenuButton
+                              className={cn("", selectedSubCategory === subCategory ? "bg-accent" : "")}
+                              onClick={() => {
+                                setSelectedCategory(category.name);
+                                setSelectedSubCategory(subCategory);
+                              }}
                             >
-                              {subCategory}
-                            </Link>
-                          </SidebarMenuButton>
-                        </SidebarMenuItem>
-                      ))}
-                    </SidebarMenuSub>
-                  </CollapsibleContent>
-                </SidebarMenuItem>
-              </Collapsible>
+                              <Link
+                                href={`/products?category=${_.kebabCase(category.name)}&subCategory=${_.kebabCase(
+                                  subCategory
+                                )}`}
+                              >
+                                {subCategory}
+                              </Link>
+                            </SidebarMenuButton>
+                          </SidebarMenuItem>
+                        ))}
+                      </SidebarMenuSub>
+                    </CollapsibleContent>
+                  </SidebarMenuItem>
+                </Collapsible>
+              ))}
+            </SidebarMenu>
+          </SidebarContent>
+        </Sidebar>
+
+        <div className="flex-1 p-6">
+          <div className="mb-6 flex items-center gap-2 text-sm text-muted-foreground">
+            <Link href="/" className="flex items-center gap-1 hover:text-foreground">
+              <Home className="h-4 w-4" />
+              Home
+            </Link>
+            <ChevronRight className="h-4 w-4" />
+            <span className="text-foreground">Products</span>
+            {selectedCategory && (
+              <>
+                <ChevronRight className="h-4 w-4" />
+                <span className="text-foreground">{selectedCategory}</span>
+              </>
+            )}
+            {selectedSubCategory && (
+              <>
+                <ChevronRight className="h-4 w-4" />
+                <span className="text-foreground">{selectedSubCategory}</span>
+              </>
+            )}
+          </div>
+
+          <div className="grid justify-items-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
             ))}
-          </SidebarMenu>
-        </SidebarContent>
-      </Sidebar>
-
-      <div className="flex-1 p-6">
-        <div className="mb-6 flex items-center gap-2 text-sm text-muted-foreground">
-          <Link href="/" className="flex items-center gap-1 hover:text-foreground">
-            <Home className="h-4 w-4" />
-            Home
-          </Link>
-          <ChevronRight className="h-4 w-4" />
-          <span className="text-foreground">Products</span>
-          {selectedCategory && (
-            <>
-              <ChevronRight className="h-4 w-4" />
-              <span className="text-foreground">{selectedCategory}</span>
-            </>
-          )}
-          {selectedSubCategory && (
-            <>
-              <ChevronRight className="h-4 w-4" />
-              <span className="text-foreground">{selectedSubCategory}</span>
-            </>
-          )}
+          </div>
         </div>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      </div>
-    </SidebarProvider>
+      </SidebarProvider>
+    </main>
   );
 }

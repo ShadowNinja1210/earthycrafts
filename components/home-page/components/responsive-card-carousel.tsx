@@ -1,11 +1,9 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import ProductCard from "@/components/product-card";
+import ProductCard from "@/components/products/product-card";
 import { IProduct } from "@/lib/schema";
 
 interface ResponsiveCardCarouselProps {
@@ -44,7 +42,7 @@ export default function ResponsiveCardCarousel({ cards }: ResponsiveCardCarousel
       const cardWidth = carouselRef.current.offsetWidth / (isMobile ? 1 : cardsToShow + 0.2);
       carouselRef.current.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
     }
-  }, [currentIndex, isMobile]);
+  }, [currentIndex, isMobile]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="relative w-full max-w-6xl mx-auto px-4">

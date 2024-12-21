@@ -15,6 +15,7 @@ import {
 import { Images, PackageSearch, SquareChartGantt } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Button } from "../ui/button";
 
 const projects = [
   {
@@ -62,7 +63,9 @@ export default function AppSideBar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SignOutButton redirectUrl={url}>
-              <SidebarMenuButton variant="destructive">Sign out</SidebarMenuButton>
+              <SidebarMenuButton asChild>
+                <Button variant="destructive">Sign out</Button>
+              </SidebarMenuButton>
             </SignOutButton>
           </SidebarMenuItem>
         </SidebarMenu>

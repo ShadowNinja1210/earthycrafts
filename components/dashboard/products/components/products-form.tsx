@@ -25,6 +25,8 @@ import { DropCombo } from "@/components/drop-combo";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
+// import { UploadDropzone } from "@/lib/uploadthing";
+import { FileUpload } from "@/components/file-upload";
 
 // Form Schema
 const productFormSchema = z.object({
@@ -55,6 +57,8 @@ type ProductFormProps = {
 // Product Form Component
 export default function ProductsForm({ categories, subCategories, stoneNames, edit }: ProductFormProps) {
   const [productCodeError, setProductCodeError] = useState<string | null>(null);
+  const [imageUrls, setImageUrls] = useState<string[]>([]);
+  const [mainImg, setMainImg] = useState<string | null>(null);
 
   // Query Mutations for adding and editing products
   const addSubmission = useMutation({
@@ -92,6 +96,7 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
       form.setValue("subCategory", edit.subCategory);
       form.setValue("isFeatured", edit.isFeatured);
       form.setValue("tags", edit.tags);
+      setImageUrls(edit.images.map((image) => image.image));
     }
   }, [edit, form]);
 
@@ -102,15 +107,78 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
     if (edit) {
       editSubmission.mutate({ formData: values, id: edit._id.toString() });
     } else {
-      // @ts-ignore
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       addSubmission.mutate(values);
     }
     setProductCodeError(null);
   };
 
+  const handleImageUrls = (urls?: string[], removeUrl?: string) => {
+    // Deleting an image from the list
+    if (removeUrl) {
+      console.log("Remove URL:", removeUrl);
+      // Handle deletion from the list
+      const updatedImages = imageUrls.filter((url) => url !== removeUrl);
+
+      console.log("Current Images:", imageUrls);
+      console.log("Updated Images:", updatedImages);
+
+      // Update the form and state
+      setImageUrls(updatedImages);
+
+      form.setValue(
+        "images",
+        updatedImages.map((url) => ({
+          image: url,
+          main: mainImg === url,
+        }))
+      );
+
+      // Update main image if deleted
+      if (mainImg === removeUrl) {
+        const newMainImg = updatedImages.length > 0 ? updatedImages[0] : null;
+        setMainImg(newMainImg);
+        if (newMainImg) {
+          form.setValue(
+            "images",
+            updatedImages.map((url) => ({
+              image: url,
+              main: url === newMainImg,
+            }))
+          );
+        }
+        return;
+      }
+    }
+
+    if (urls && urls.length > 0) {
+      const newImages = [...imageUrls, ...urls];
+      setImageUrls(newImages);
+
+      form.setValue(
+        "images",
+        newImages.map((url, index) => {
+          if (imageUrls.length === 0) {
+            setMainImg(url);
+            return { image: url, main: true };
+          } else if (mainImg === url) {
+            return { image: url, main: true };
+          } else if (mainImg === null && index === 0) {
+            setMainImg(url);
+            return { image: url, main: true };
+          } else {
+            return { image: url, main: false };
+          }
+        })
+      );
+    }
+  };
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-h-[80vh] overflow-y-scroll">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-h-[80vh] overflow-y-scroll px-2">
+        <FileUpload onChange={handleImageUrls} value={imageUrls} setMainImg={setMainImg} main={mainImg} />
+
         {/* Product name & code */}
         <div className="grid grid-cols-2 gap-8">
           {/* Product Name */}
@@ -260,17 +328,6 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
             </FormItem>
           )}
         />
-
-        {/* <FileUpload onChange={handleImageUrls} value={imageUrls} />
-          <UploadDropzone
-            className=""
-            endpoint="imageUploader"
-            onClientUploadComplete={(res) => {
-              console.log("onClientUploadComplete triggered", res);
-              if (res) console.log("Files:", res);
-            }}
-            onUploadError={(err) => console.error(err)}
-          /> */}
 
         {/* Submit */}
         <div className="grid grid-cols-2 gap-8 items-end">

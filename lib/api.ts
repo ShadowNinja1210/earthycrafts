@@ -24,6 +24,7 @@ export const fetchFeaturedProducts = async () => {
 };
 
 // Add a new product to the API
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const addProduct = async (data: any) => {
   const response = await fetch("/api/product", {
     method: "POST",
@@ -41,6 +42,7 @@ export const addProduct = async (data: any) => {
 };
 
 // Edit a product in the API by ID
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const editProduct = async (data: any, id: string) => {
   const response = await fetch(`/api/product/${id}`, {
     method: "PATCH",
