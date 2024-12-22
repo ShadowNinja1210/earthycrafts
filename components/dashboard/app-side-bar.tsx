@@ -12,7 +12,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "../ui/sidebar";
-import { Images, PackageSearch, SquareChartGantt } from "lucide-react";
+import { Hammer, Images, NotebookPen, PackageSearch, SquareChartGantt } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
@@ -32,6 +32,16 @@ const projects = [
     name: "Gallery",
     url: "/dashboard/admin/gallery",
     icon: () => <Images className="inline-flex w-5 mr-1" />,
+  },
+  {
+    name: "Enquiries",
+    url: "/dashboard/admin/enquiry",
+    icon: () => <NotebookPen className="inline-flex w-5 mr-1" />,
+  },
+  {
+    name: "Customizations",
+    url: "/dashboard/admin/customizations",
+    icon: () => <Hammer className="inline-flex w-5 mr-1 " />,
   },
 ];
 

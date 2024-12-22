@@ -4,7 +4,6 @@
 import { useEffect, useState } from "react";
 
 // ----File Upload (Temporary Disabled due to a bug of not triggering the onClientUploadComplete event) ---- //
-// import { FileUpload } from "@/components/file-upload";
 // import { UploadDropzone } from "@/lib/uploadthing";
 
 // ----React Query & Schema---- //
@@ -26,7 +25,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 // import { UploadDropzone } from "@/lib/uploadthing";
-import { FileUpload } from "@/components/file-upload";
+import { FilesUpload } from "@/components/files-upload";
 
 // Form Schema
 const productFormSchema = z.object({
@@ -177,7 +176,7 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-h-[80vh] overflow-y-scroll px-2">
-        <FileUpload onChange={handleImageUrls} value={imageUrls} setMainImg={setMainImg} main={mainImg} />
+        <FilesUpload onChange={handleImageUrls} value={imageUrls} setMainImg={setMainImg} main={mainImg} />
 
         {/* Product name & code */}
         <div className="grid grid-cols-2 gap-8">

@@ -1,3 +1,5 @@
+import { ICustomization } from "./schema";
+
 // Fetch all products from the API
 export const fetchAllProducts = async () => {
   const res = await fetch("/api/product");
@@ -57,4 +59,20 @@ export const editProduct = async (data: any, id: string) => {
   }
 
   return response.json();
+};
+
+export const updateStatus = async (status: string, id: string) => {
+  const response = await fetch(`/api/customization/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ status }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to update the product status");
+  }
+
+  return response.ok;
 };

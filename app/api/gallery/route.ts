@@ -1,5 +1,6 @@
 import { connectDB } from "@/lib/db";
 import { Gallery } from "@/lib/schema";
+import _ from "lodash";
 import { NextResponse } from "next/server";
 
 // -------------------------------------
@@ -33,15 +34,15 @@ export async function POST(req: Request) {
     await connectDB(); // Connect to the database
 
     const body = await req.json(); // Get the request body
-    const { image, productLink } = body; // Get the title and content from the request body
+    const { image, productCode } = body; // Get the title and content from the request body
 
     // Check if the title & content is not provided (Return an error if the title is not provided)
-    if (!image && !productLink) {
+    if (!image && !productCode) {
       return NextResponse.json({ status: 400, message: "Missing required fields" });
     }
 
     // Create a new gallery post
-    const gallery = await Gallery.create({ productLink, image });
+    const gallery = await Gallery.create({ productLink: `/products/${_.kebabCase(productCode)}`, image });
 
     return NextResponse.json(gallery);
   } catch (error) {

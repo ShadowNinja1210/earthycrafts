@@ -7,17 +7,7 @@ import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
 
-export function FileUpload({
-  onChange,
-  value,
-  main,
-  setMainImg,
-}: {
-  onChange: (url?: string[], removeUrl?: string) => void;
-  value: string[];
-  main?: string | null;
-  setMainImg?: (url: string) => void;
-}) {
+export function FileUpload({ onChange, value }: { onChange: (url?: string) => void; value: string }) {
   const deleteFile = async (url: string) => {
     try {
       const key = url.split("/").pop();
@@ -26,7 +16,7 @@ export function FileUpload({
       });
       if (res.ok) {
         console.log("File deleted successfully, changing state", value, url);
-        onChange([], url);
+        onChange("");
       }
     } catch (error) {
       console.error("Error deleting file", error);
@@ -35,41 +25,26 @@ export function FileUpload({
 
   return (
     <>
-      {value.length > 0 && (
+      {value && (
         <div className="flex flex-wrap gap-2">
-          {value.map((image, index) => (
-            <HoverCard key={index}>
-              <HoverCardTrigger>
-                <div className="relative h-24 w-20">
-                  <Image
-                    src={image}
-                    fill
-                    alt="Design"
-                    className={cn(
-                      "rounded-lg object-contain cursor-pointer",
-                      main === image ? "border-2 border-green-500 bg-green-500/60" : ""
-                    )}
-                    onClick={() => setMainImg && setMainImg(image)}
-                  />
-                  <button
-                    className={cn(" absolute top-0 right-0 p-0.5 bg-red-500 rounded-full text-white ")}
-                    type="button"
-                    onClick={() => {
-                      deleteFile(image);
-                      onChange(value.filter((_, i) => i !== index));
-                    }}
-                  >
-                    {" "}
-                    <X size={18} />{" "}
-                  </button>
-                </div>
-              </HoverCardTrigger>
+          <HoverCard>
+            <HoverCardTrigger>
+              <div className="relative h-24 w-20">
+                <Image src={value} fill alt="Design" className={cn("rounded-lg object-contain cursor-pointer")} />
+                <button
+                  className={cn(" absolute top-0 right-0 p-0.5 bg-red-500 rounded-full text-white ")}
+                  type="button"
+                  onClick={() => deleteFile(value)}
+                >
+                  <X size={18} />{" "}
+                </button>
+              </div>
+            </HoverCardTrigger>
 
-              <HoverCardContent>
-                <Image src={image} alt={"Uploaded Image" + index} width={400} height={400} />
-              </HoverCardContent>
-            </HoverCard>
-          ))}
+            <HoverCardContent>
+              <Image src={value} alt={"Uploaded Image for the Gallery"} width={400} height={400} />
+            </HoverCardContent>
+          </HoverCard>
         </div>
       )}
 
@@ -77,8 +52,8 @@ export function FileUpload({
         className="cursor-pointer"
         endpoint="imageUploader"
         onClientUploadComplete={(res) => {
-          res.map((r) => console.log(r.url));
-          onChange(res.map((r) => r.url));
+          onChange(res[0]?.url);
+          console.log("Client upload complete", res[0]?.url);
         }}
         onUploadError={(error: Error) => {
           console.log(error);

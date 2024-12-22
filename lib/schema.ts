@@ -198,4 +198,92 @@ if (mongoose.models.User) {
   User = mongoose.model<IUser>("User", UserSchema);
 }
 
-export { Gallery, Product, Blog, User };
+export interface IEnquiry extends Document {
+  _id: Types.ObjectId;
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+const EnquirySchema: Schema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+    },
+    message: {
+      type: String,
+      required: true,
+    },
+  },
+  {
+    timestamps: true, // Automatically manages `createdAt` and `updatedAt`
+  }
+);
+
+let Enquiry: Model<IEnquiry>;
+if (mongoose.models.Enquiry) {
+  Enquiry = mongoose.models.Enquiry;
+} else {
+  Enquiry = mongoose.model<IEnquiry>("Enquiry", EnquirySchema);
+}
+
+export interface ICustomization extends Document {
+  _id: Types.ObjectId;
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  status: "Pending" | "Delivered";
+  url: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+const CustomizationSchema: Schema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+    },
+    message: {
+      type: String,
+      required: true,
+    },
+    url: {
+      type: String,
+      required: true,
+    },
+  },
+  {
+    timestamps: true, // Automatically manages `createdAt` and `updatedAt`
+  }
+);
+
+let Customization: Model<ICustomization>;
+if (mongoose.models.Customization) {
+  Customization = mongoose.models.Customization;
+} else {
+  Customization = mongoose.model<ICustomization>("Customization", CustomizationSchema);
+}
+
+export { Gallery, Product, Blog, User, Enquiry, Customization };
