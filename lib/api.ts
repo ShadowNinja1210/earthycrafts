@@ -1,5 +1,3 @@
-import { ICustomization } from "./schema";
-
 // Fetch all products from the API
 export const fetchAllProducts = async () => {
   const res = await fetch("/api/product");

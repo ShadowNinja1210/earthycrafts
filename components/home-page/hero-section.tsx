@@ -11,7 +11,7 @@ export default function HeroSection() {
       {/* public/videos/intro-landscape.MP4 */}
       <BackgroundVideo
         src="/videos/intro-landscape.MP4"
-        className="md:absolute md:block hidden top-0 right-0 brightness-75"
+        className="md:absolute md:block hidden top-0 right-0 brightness-75 z-0"
       />
       <BackgroundVideo src="/videos/intro-portrait.mp4" className="md:hidden absolute top-0 right-0 brightness-75" />
 

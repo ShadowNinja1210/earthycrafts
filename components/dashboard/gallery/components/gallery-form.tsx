@@ -3,8 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { z } from "zod";
+import { GalleryFormSchema } from "./gallery-dialog";
 
-export default function GalleryForm({ form, onSubmit }: { form: any; onSubmit: (values: any) => void }) {
+export default function GalleryForm({
+  form,
+  onSubmit,
+}: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  form: any;
+  onSubmit: (values: z.infer<typeof GalleryFormSchema>) => void;
+}) {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -15,7 +24,7 @@ export default function GalleryForm({ form, onSubmit }: { form: any; onSubmit: (
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <FileUpload value={form.getValues("image")} onChange={(url) => url && form.setValue("image", url)} />
+                <FileUpload value={field.value} onChange={field.onChange} />
               </FormControl>
 
               <FormMessage />

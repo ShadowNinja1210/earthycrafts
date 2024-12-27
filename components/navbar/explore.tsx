@@ -178,7 +178,7 @@ export default function Explore() {
       <HoverCardContent
         sideOffset={20}
         align="start"
-        className=" flex flex-col gap-2 font-medium h-[90vh] w-screen rounded-none"
+        className=" flex flex-col gap-2 font-medium  w-screen rounded-none"
         style={{ height: `calc(100vh - ${navbarHeight}px)` }}
       >
         <div className="flex gap-20 p-4 max-w-screen-lg mx-auto">
@@ -231,7 +231,7 @@ export default function Explore() {
                   )}
                 >
                   <div className="h-[177px] relative">
-                    <video muted loop width={100} height={200} className={cn("brightness-50")}>
+                    <video muted loop width={100} height={200} className={cn("brightness-50 blur-sm")}>
                       <source src={item.image} />
                     </video>
                     <h3 className="text-center text-sm absolute text-white z-50 top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2">

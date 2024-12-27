@@ -14,7 +14,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import GalleryForm from "./gallery-form";
 
-const GalleryFormSchema = z.object({
+export const GalleryFormSchema = z.object({
   image: z.string(),
   productCode: z.string(),
   aspect: z.enum(["landscape", "portrait"]),
@@ -36,25 +36,27 @@ export default function GalleryDialog({ edit }: { edit?: IGallery }) {
         },
   });
 
+  const postingImage = useMutation<void, unknown, z.infer<typeof GalleryFormSchema>>({
+    mutationKey: ["gallery-images"],
+    mutationFn: async (values) => {
+      const response = await fetch("/api/gallery", {
+        method: "POST",
+        body: JSON.stringify(values),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      return response.json();
+    },
+  });
+
   const onSubmit = (values: z.infer<typeof GalleryFormSchema>) => {
-    console.log(values);
-
-    const postedImage = useMutation({
-      mutationKey: ["gallery-images"],
-      mutationFn: async (values) => {
-        const response = await fetch("/api/gallery", {
-          method: "POST",
-          body: JSON.stringify(values),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        return response.json();
-      },
-    });
-
-    if (postedImage.isSuccess) {
+    try {
+      console.log(values);
+      postingImage.mutate(values);
       form.reset();
+    } catch (error) {
+      console.error(error);
     }
   };
 

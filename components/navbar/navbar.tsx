@@ -3,6 +3,7 @@
 import Link from "next/link";
 import SearchComponent from "./search-component";
 import Explore from "./explore";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
@@ -23,7 +24,7 @@ export default function Navbar() {
 
       {/* Centered Logo */}
       <Link href="/home" className="font-extrabold text-3xl">
-        Earthycrafts
+        <Image src="/images/logo.svg" width={150} height={70} alt="Logo" />
       </Link>
 
       {/* Right-side links list */}
