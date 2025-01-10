@@ -35,7 +35,7 @@ export default function ProductDetails({ product }: { product: IProduct }) {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8 space-y-4">
+    <div className="container mx-auto px-4 py-8 space-y-4 md:w-fit w-full">
       <BreadcrumbsContext items={crumbs} className="px-4" />
       <div className="grid md:grid-cols-2 gap-8">
         <div className="space-y-4">
@@ -48,7 +48,7 @@ export default function ProductDetails({ product }: { product: IProduct }) {
                 key={index}
                 onClick={() => setSelectedImage(img.image)}
                 className={`relative w-20 h-20 rounded-md overflow-hidden ${
-                  selectedImage === img.image ? "ring-2 ring-primary" : ""
+                  selectedImage === img.image ? "brightness-50" : ""
                 }`}
               >
                 <Image

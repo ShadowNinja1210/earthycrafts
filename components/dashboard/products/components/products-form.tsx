@@ -3,9 +3,6 @@
 // ----Dependencies---- //
 import { useEffect, useState } from "react";
 
-// ----File Upload (Temporary Disabled due to a bug of not triggering the onClientUploadComplete event) ---- //
-// import { UploadDropzone } from "@/lib/uploadthing";
-
 // ----React Query & Schema---- //
 import { useMutation } from "@tanstack/react-query";
 import { IProduct } from "@/lib/schema";
@@ -15,17 +12,17 @@ import { addProduct, editProduct } from "@/lib/api";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import { Form, FormLabel, FormControl, FormDescription, FormField, FormItem, FormMessage } from "@/components/ui/form";
 
 // ----UI Components---- //
-import { Label } from "@/components/ui/label";
+// import { Label } from "@/components/ui/Label";
 import { Input } from "@/components/ui/input";
-import { DropCombo } from "@/components/drop-combo";
+// import { DropCombo } from "@/components/drop-combo";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
-// import { UploadDropzone } from "@/lib/uploadthing";
 import { FilesUpload } from "@/components/files-upload";
+import { SearchableMultiDropdown } from "@/components/searchable-multi-dropdown";
 
 // Form Schema
 const productFormSchema = z.object({
@@ -50,11 +47,12 @@ type ProductFormProps = {
   categories: string[];
   subCategories: string[];
   stoneNames: string[];
+  setOpen: (params: { isOpen: boolean; productCode: string }) => void;
   edit?: IProduct;
 };
 
 // Product Form Component
-export default function ProductsForm({ categories, subCategories, stoneNames, edit }: ProductFormProps) {
+export default function ProductsForm({ categories, subCategories, stoneNames, edit, setOpen }: ProductFormProps) {
   const [productCodeError, setProductCodeError] = useState<string | null>(null);
   const [imageUrls, setImageUrls] = useState<string[]>([]);
   const [mainImg, setMainImg] = useState<string | null>(null);
@@ -72,32 +70,24 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
   const form = useForm<z.infer<typeof productFormSchema>>({
     resolver: zodResolver(productFormSchema),
     defaultValues: {
-      name: "",
-      images: [],
-      productCode: "",
-      description: "",
-      stoneName: "",
-      category: "",
-      subCategory: "",
-      isFeatured: false,
-      tags: [],
+      name: edit ? edit.name : "",
+      images: edit ? edit.images : [],
+      productCode: edit ? edit.productCode : "",
+      description: edit ? edit.description : "",
+      stoneName: edit ? edit.stoneName : "",
+      category: edit ? edit.category : "",
+      subCategory: edit ? edit.subCategory : "",
+      isFeatured: edit ? edit.isFeatured : false,
+      tags: edit ? edit.tags : [],
     },
   });
 
   // Use Effect for setting the form values when editing
   useEffect(() => {
     if (edit) {
-      form.setValue("name", edit.name);
-      form.setValue("productCode", edit.productCode);
-      form.setValue("description", edit.description);
-      form.setValue("stoneName", edit.stoneName);
-      form.setValue("category", edit.category);
-      form.setValue("subCategory", edit.subCategory);
-      form.setValue("isFeatured", edit.isFeatured);
-      form.setValue("tags", edit.tags);
       setImageUrls(edit.images.map((image) => image.image));
     }
-  }, [edit, form]);
+  }, [edit]);
 
   // Form Submit Handler
   const onSubmit = (values: z.infer<typeof productFormSchema>) => {
@@ -111,6 +101,7 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
       addSubmission.mutate(values);
     }
     setProductCodeError(null);
+    setOpen({ isOpen: false, productCode: "" });
   };
 
   const handleImageUrls = (urls?: string[], removeUrl?: string) => {
@@ -173,6 +164,7 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
       );
     }
   };
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-h-[80vh] overflow-y-scroll px-2">
@@ -186,8 +178,20 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
             name="name"
             render={({ field }) => (
               <FormItem>
-                <Label>Product Name</Label>
-                <Input {...field} />
+                <FormLabel>Product Name</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    onClick={() => {
+                      console.log("Product Name Input Clicked");
+                    }}
+                    onChange={(e) => {
+                      console.log(e.target.value);
+                      field.onChange(e.target.value);
+                    }}
+                    value={field.value}
+                  />
+                </FormControl>
               </FormItem>
             )}
           />
@@ -198,8 +202,10 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
             name="productCode"
             render={({ field }) => (
               <FormItem>
-                <Label>Product Code</Label>
-                <Input {...field} />
+                <FormLabel>Product Code</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
                 <FormMessage>{productCodeError}</FormMessage>
               </FormItem>
             )}
@@ -214,8 +220,24 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
             name="category"
             render={({ field }) => (
               <FormItem>
-                <Label>Product Category</Label>
-                <DropCombo items={categories} onSelect={field.onChange} defaultValue={field.value} />
+                <FormLabel>Product Category</FormLabel>
+
+                <FormControl>
+                  <SearchableMultiDropdown
+                    items={categories?.map((category) => ({ value: category, label: category }))}
+                    onSelect={(selectedItems) => field.onChange(selectedItems?.map((item) => item.value)?.join(", "))}
+                    onAdd={(newCategory) => {
+                      // Here you would typically add the new category to your backend
+                      console.log(`New category added: ${newCategory}`);
+                    }}
+                    placeholder="Search categories..."
+                    selectedItems={
+                      field.value === ""
+                        ? []
+                        : field.value.split(",").map((category) => ({ value: category, label: category }))
+                    }
+                  />
+                </FormControl>
               </FormItem>
             )}
           />
@@ -226,8 +248,24 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
             name="subCategory"
             render={({ field }) => (
               <FormItem>
-                <Label>Product Sub Category</Label>
-                <DropCombo items={subCategories} onSelect={field.onChange} defaultValue={field.value} />
+                <FormLabel>Product Sub Category</FormLabel>
+                <FormControl>
+                  <SearchableMultiDropdown
+                    items={subCategories?.map((subCategory) => ({ value: subCategory, label: subCategory }))}
+                    onSelect={(selectedItems) => field.onChange(selectedItems?.map((item) => item.value)?.join(", "))}
+                    onAdd={(newSubCategory) => {
+                      // Here you would typically add the new sub category to your backend
+                      console.log(`New sub category added: ${newSubCategory}`);
+                    }}
+                    placeholder="Search sub categories..."
+                    selectedItems={
+                      field.value === ""
+                        ? []
+                        : field.value.split(",").map((subCategory) => ({ value: subCategory, label: subCategory }))
+                    }
+                  />
+                  {/* <DropCombo items={subCategories} onSelect={field.onChange} defaultValue={field.value} /> */}
+                </FormControl>
               </FormItem>
             )}
           />
@@ -239,7 +277,7 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
           name="description"
           render={({ field }) => (
             <FormItem>
-              <Label>Product Description</Label>
+              <FormLabel>Product Description</FormLabel>
               <Textarea {...field} />
             </FormItem>
           )}
@@ -251,7 +289,7 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
           name="tags"
           render={({ field }) => (
             <FormItem>
-              <Label>Tags</Label>
+              <FormLabel>Tags</FormLabel>
               <div className="space-y-2">
                 {/* Input for adding tags */}
                 <div className="flex items-center space-x-2">
@@ -321,7 +359,7 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
                 />
               </FormControl>
               <div className="space-y-1 leading-none">
-                <Label htmlFor="isFeatured">Want the product to be featured?</Label>
+                <FormLabel htmlFor="isFeatured">Want the product to be featured?</FormLabel>
                 <FormDescription>Featured products will be shown on the homepage.</FormDescription>
               </div>
             </FormItem>
@@ -336,8 +374,23 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
             name="stoneName"
             render={({ field }) => (
               <FormItem>
-                <Label>Stone Name</Label>
-                <DropCombo items={stoneNames} onSelect={field.onChange} defaultValue={field.value} />
+                <FormLabel>Stone Name</FormLabel>
+                <FormControl>
+                  <SearchableMultiDropdown
+                    items={stoneNames?.map((stoneName) => ({ value: stoneName, label: stoneName }))}
+                    onSelect={(selectedItems) => field.onChange(selectedItems?.map((item) => item.value)?.join(", "))}
+                    onAdd={(newStoneName) => {
+                      // Here you would typically add the new stone name to your backend
+                      console.log(`New stone name added: ${newStoneName}`);
+                    }}
+                    placeholder="Search stone names..."
+                    selectedItems={
+                      field.value === ""
+                        ? []
+                        : field.value.split(",").map((stoneName) => ({ value: stoneName, label: stoneName }))
+                    }
+                  />
+                </FormControl>
               </FormItem>
             )}
           />

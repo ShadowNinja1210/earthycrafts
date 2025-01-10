@@ -7,6 +7,7 @@ import { IProduct } from "@/lib/schema";
 import {
   Sidebar,
   SidebarContent,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -17,6 +18,8 @@ import ProductCard from "./product-card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible";
 import { cn } from "@/lib/utils";
 import _ from "lodash";
+import { Separator } from "../ui/separator";
+import { Button } from "../ui/button";
 
 export type ICategory = {
   name: string;
@@ -40,10 +43,23 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
 
   return (
     <main>
-      <SidebarProvider>
-        <Sidebar className="inset-y-16">
-          <SidebarContent>
-            <SidebarMenu>
+      <SidebarProvider className=" bg-sidebar-primary-foreground">
+        <Sidebar className=" inset-y-[71px]   -z-0">
+          <SidebarHeader>
+            <Button
+              variant="ghost"
+              onClick={() => {
+                setSelectedCategory("");
+                setSelectedSubCategory("");
+              }}
+              className="text-2xl font-semibold"
+            >
+              All Products
+            </Button>
+            <Separator className="border-t " />
+          </SidebarHeader>
+          <SidebarContent className="">
+            <SidebarMenu className=" ">
               {categories.map((category) => (
                 <Collapsible
                   className="group/collapsible"

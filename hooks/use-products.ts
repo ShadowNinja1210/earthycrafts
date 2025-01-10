@@ -11,8 +11,6 @@ export default function useProductData(products: IProduct[]) {
         }
         return acc;
       }, []);
-      console.log("Calling getCategories");
-      console.log("Calling getCategories uniqueCategories", uniqueCategories);
       return uniqueCategories;
     };
   }, [products]);

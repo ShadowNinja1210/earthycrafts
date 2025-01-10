@@ -13,7 +13,10 @@ export default function HeroSection() {
         src="/videos/intro-landscape.MP4"
         className="md:absolute md:block hidden top-0 right-0 brightness-75 z-0"
       />
-      <BackgroundVideo src="/videos/intro-portrait.mp4" className="md:hidden absolute top-0 right-0 brightness-75" />
+      <BackgroundVideo
+        src="/videos/intro-portrait.mp4"
+        className="md:hidden absolute top-0 right-0 brightness-75 z-0"
+      />
 
       <div className="z-10 text-white drop-shadow-lg h-screen flex flex-col gap-2 items-center justify-center text-center ">
         <Image src="/images/logo-white.svg" width={400} height={400} alt="Earthycrafts logo" />

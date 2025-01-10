@@ -226,12 +226,12 @@ export default function Explore() {
                   onMouseEnter={() => setActiveItem(item)}
                   href={item.link}
                   className={cn(
-                    " cursor-pointer h-32 w-fit overflow-hidden rounded-xl flex items-center transition-all duration-300",
+                    " cursor-pointer h-[100px] w-fit overflow-hidden rounded-xl flex items-center transition-all duration-300",
                     activeItem?.id === item.id ? "shadow-lg scale-105 shadow-neutral-500 " : ""
                   )}
                 >
                   <div className="h-[177px] relative">
-                    <video muted loop width={100} height={200} className={cn("brightness-50 blur-sm")}>
+                    <video muted loop width={100} height={200} className={cn("brightness-[0.3] ")}>
                       <source src={item.image} />
                     </video>
                     <h3 className="text-center text-sm absolute text-white z-50 top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2">
@@ -255,34 +255,36 @@ export default function Explore() {
                   key={item.id}
                   onMouseEnter={() => setActiveItem(item)}
                   href={item.link}
-                  className={cn(
-                    "cursor-pointer h-20 w-20 overflow-hidden rounded-full flex items-center transition-all duration-300",
-                    activeItem?.id === item.id ? "shadow-lg scale-105 shadow-neutral-500 " : ""
-                  )}
+                  className={cn("cursor-pointer flex flex-col items-center transition-all duration-300")}
                 >
                   {item.image.includes("videos") ? (
-                    <div className="relative">
-                      <video muted loop width={100} height={300} src={item.image} className={cn("brightness-50")}>
+                    <div
+                      className={cn(
+                        "h-20 w-20  overflow-hidden rounded-full transition-all duration-300",
+                        activeItem?.id === item.id ? "shadow-lg scale-105 shadow-neutral-500 " : ""
+                      )}
+                    >
+                      <video muted loop width={100} height={300} src={item.image} className={cn("")}>
                         <source src={item.image} />
                       </video>
-                      <h3 className="text-center text-sm absolute text-white z-50 top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2">
-                        {item.title}
-                      </h3>
                     </div>
                   ) : (
-                    <div className=" relative">
+                    <div
+                      className={cn(
+                        "h-20 w-20  overflow-hidden rounded-full",
+                        activeItem?.id === item.id ? "shadow-lg scale-105 shadow-neutral-500 " : ""
+                      )}
+                    >
                       <Image
                         src={item.image || imgPlaceholder}
                         alt={item.title}
                         width={200}
                         height={200}
-                        className={cn("rounded-full h-20 w-20 overflow-hidden object-cover brightness-50")}
+                        className={cn("rounded-full h-20 w-20 overflow-hidden object-cover")}
                       />
-                      <h3 className="text-center text-sm absolute text-white z-50 top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2">
-                        {item.title}
-                      </h3>
                     </div>
                   )}
+                  <h3 className="text-center text-sm ">{item.title}</h3>
                 </Link>
               ))}
             </div>

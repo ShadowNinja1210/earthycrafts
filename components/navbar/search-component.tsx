@@ -26,8 +26,11 @@ export default function SearchComponent() {
       return;
     }
 
+    console.log("Searching products for ", query);
+
     const results = products.filter((product: IProduct) => {
       return (
+        _.lowerCase(_.camelCase(product.productCode)).includes(_.lowerCase(_.camelCase(query))) ||
         _.kebabCase(product.name).includes(_.kebabCase(query)) ||
         _.kebabCase(product.stoneName).includes(_.kebabCase(query)) ||
         _.kebabCase(product.subCategory).includes(_.kebabCase(query)) ||
