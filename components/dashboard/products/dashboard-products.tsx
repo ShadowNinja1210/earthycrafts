@@ -3,7 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { IProduct } from "@/lib/schema";
+import { INewProduct } from "@/lib/schema";
 import Image from "next/image";
 import { format } from "date-fns";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
@@ -35,7 +35,6 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchAllProducts } from "@/lib/api";
 import { useEffect, useState } from "react";
 import FilterSort from "./filter-sort";
-import { string } from "zod";
 
 export default function DashboardProducts() {
   const {
@@ -50,10 +49,10 @@ export default function DashboardProducts() {
   // UseStates
   const [addOpen, setAddOpen] = useState(false); // Add Dialog
   const [editOpen, setEditOpen] = useState<{ isOpen: boolean; productCode?: string }>({ isOpen: false }); // Edit Dialog for a specific product
-  const [filteredSortedProducts, setFilteredSortedProducts] = useState<IProduct[]>(products || []); // Filtered and Sorted Products
+  const [filteredSortedProducts, setFilteredSortedProducts] = useState<INewProduct[]>(products || []); // Filtered and Sorted Products
 
-  // Getting the categories, subcategories, and stone names from the fetched products
-  const { getCategories, getSubCategories, getStoneNames } = useProductData(products);
+  // Getting the primaryCategories, subcategories, and stone names from the fetched products
+  const { primaryCategories, secondaryCategories, subCategories, stoneNames } = useProductData(products);
 
   // Setting the filteredSortedProducts when products are fetched
   useEffect(() => {
@@ -114,10 +113,10 @@ export default function DashboardProducts() {
                 <DialogDescription>Fill in the details for adding a new product.</DialogDescription>
               </DialogHeader>
               <ProductsForm
-                categories={getCategories()}
-                subCategories={getSubCategories()}
-                stoneNames={getStoneNames()}
-                setOpen={setAddOpen}
+                categories={primaryCategories}
+                subCategories={subCategories}
+                stoneNames={stoneNames}
+                setOpen={() => setAddOpen(false)}
               />
             </DialogContent>
           </Dialog>
@@ -152,10 +151,10 @@ export default function DashboardProducts() {
                       <DialogDescription>Fill in the details for adding a new product.</DialogDescription>
                     </DialogHeader>
                     <ProductsForm
-                      setOpen={setAddOpen}
-                      categories={getCategories()}
-                      subCategories={getSubCategories()}
-                      stoneNames={getStoneNames()}
+                      setOpen={() => setAddOpen(false)}
+                      categories={primaryCategories}
+                      subCategories={subCategories}
+                      stoneNames={stoneNames}
                     />
                   </DialogContent>
                 </Dialog>
@@ -163,7 +162,7 @@ export default function DashboardProducts() {
             </div>
           ) : (
             // Mapping the fetched products
-            filteredSortedProducts?.map((product: IProduct, index: number) => (
+            filteredSortedProducts?.map((product: INewProduct, index: number) => (
               <Card key={product.id || index} className="group">
                 {/* Card Header contains Edit, Delete button & Title with tags ||++++|| Also the Product Code on right side and Featured mark for featured products only  */}
                 <CardHeader>
@@ -268,7 +267,7 @@ export default function DashboardProducts() {
     </main>
   );
 
-  function confirmProductDeletion(product: IProduct) {
+  function confirmProductDeletion(product: INewProduct) {
     return (
       <AlertDialog>
         <AlertDialogTrigger asChild>
@@ -294,7 +293,7 @@ export default function DashboardProducts() {
     );
   }
 
-  function openEditProductModal(product: IProduct) {
+  function openEditProductModal(product: INewProduct) {
     return (
       <Dialog
         open={editOpen.isOpen && editOpen.productCode === product.productCode}
@@ -313,10 +312,10 @@ export default function DashboardProducts() {
             <DialogDescription>Edit the details for {`${product.name}`}</DialogDescription>
           </DialogHeader>
           <ProductsForm
-            categories={getCategories()}
+            categories={primaryCategories}
             edit={product}
-            stoneNames={getStoneNames()}
-            subCategories={getSubCategories()}
+            stoneNames={stoneNames}
+            subCategories={subCategories}
             setOpen={setEditOpen}
           />
         </DialogContent>

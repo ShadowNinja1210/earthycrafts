@@ -1,845 +1,1743 @@
 [
   {
+    "primaryCategory": [],
+    "name": "Vibrant Mosaic Tropical Fish Art",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMmBRmWCc4RNSTBnVIzav1wxUG3Zrg5qDJ7Efe",
+        "main": true,
+        "_id": "6779c234f4f74f6bdfc578f9"
+      }
+    ],
+    "description": "Brighten up your space with this vibrant tropical fish mosaic artwork, a perfect example of Tukdi Art. This piece is meticulously crafted with a kaleidoscope of colors, capturing the lively essence of underwater beauty. Ideal for wall decor, this mosaic art blends traditional craftsmanship with modern aesthetics, making it an eye-catching addition to any home or office decor.",
+    "productCode": "TA004",
+    "stoneName": "Mixed",
+    "secondaryCategory": ["Tukdi Art"],
+    "subCategory": "",
+    "isFeatured": true,
+    "inStock": true,
+    "tags": [
+      "Tukdi Art",
+      "mosaic art",
+      "tropical fish design",
+      "wall decor",
+      "handcrafted",
+      "vibrant colors",
+      "artistic"
+    ]
+  },
+  {
+    "primaryCategory": [],
+    "name": "Grand Agra Red Sandstone Pavilion",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMlu5KLJPmbTwQXCaxq8uKPWeUftE3FHD7r6iS",
+        "main": true,
+        "_id": "6779b2722b201dc8a571e3ee"
+      }
+    ],
+    "description": "Make a statement with this majestic Agra Red Sandstone pavilion, showcasing intricate carvings and timeless design. Perfect for gardens, courtyards, or architectural projects, this handcrafted masterpiece brings the grandeur of traditional Indian architecture to any outdoor setting. Durable and elegant, it adds a regal charm to its surroundings.",
+    "productCode": "AG006",
+    "stoneName": "Agra Red",
+    "secondaryCategory": ["Agra Red"],
+    "subCategory": "",
+    "isFeatured": true,
+    "inStock": true,
+    "tags": [
+      "Agra Red",
+      "sandstone pavilion",
+      "architectural art",
+      "handcrafted",
+      "traditional design",
+      "garden decor",
+      "outdoor structure"
+    ]
+  },
+  {
+    "primaryCategory": [],
+    "_id": "67759c3e20614f48ba6dd52a",
+    "name": "Intricate Agra Red Sandstone Pavilion",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMWcS0y9NIjvAsLRFtSlNQH5M7yXCiZ8guw2mT",
+        "main": true,
+        "_id": "6779b39a2b201dc8a571e5e0"
+      }
+    ],
+    "description": "Experience the grandeur of Indian architecture with this stunning Agra Red Sandstone pavilion. Crafted with intricate details, this masterpiece reflects the rich heritage and artistry of Agra's traditional sandstone work. Ideal for garden decor, architectural projects, or as a centerpiece, this structure captures timeless elegance and cultural significance.",
+    "productCode": "AG001",
+    "stoneName": "Agra Red",
+    "secondaryCategory": ["Agra Red"],
+    "subCategory": "",
+    "isFeatured": true,
+    "inStock": true,
+    "tags": ["Agra Red", "sandstone art", "architectural design", "pavilion", "heritage", "handcrafted", "traditional"],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-04T22:18:02.571Z",
+    "__v": 0
+  },
+  {
+    "primaryCategory": [],
+    "_id": "67759c3e20614f48ba6dd526",
+    "name": "Radiant Mosaic Mandala Art",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMNSUxcCKzeHKBX1QuRbt8Iag9rV6YAZDTwEfO",
+        "main": true,
+        "_id": "6779c242f4f74f6bdfc578fc"
+      }
+    ],
+    "description": "Immerse yourself in the vibrant beauty of Tukdi Art with this exquisite mosaic mandala design. Featuring a harmonious blend of red, yellow, and golden tones, this artwork radiates energy and positivity. Perfect as a wall decor centerpiece, it embodies traditional craftsmanship with a modern aesthetic, making it a stunning addition to your home or office space.",
+    "productCode": "TA002",
+    "stoneName": "Mixed",
+    "secondaryCategory": ["Tukdi Art"],
+    "subCategory": "",
+    "isFeatured": true,
+    "inStock": true,
+    "tags": ["Tukdi Art", "mosaic art", "mandala design", "wall decor", "handcrafted", "vibrant colors", "artistic"],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-04T23:20:34.473Z",
+    "__v": 0
+  },
+  {
+    "primaryCategory": [],
+    "_id": "67759c3e20614f48ba6dd51e",
+    "name": "Vibrant Mosaic Fish Art",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMuOQfKOiZ4IC6KFY9NBJiwHjk3VgMbpEGU7ys",
+        "main": true,
+        "_id": "6779c253f4f74f6bdfc578ff"
+      }
+    ],
+    "description": "Immerse yourself in the vibrant world of Tukdi Art with this stunning mosaic fish design. Each piece is crafted with precision, combining vivid colors and intricate patterns to bring this aquatic masterpiece to life. Perfect for wall decor or as a centerpiece, this artwork showcases the beauty of traditional mosaic craftsmanship, blending contemporary aesthetics with timeless artistry.",
+    "productCode": "TA005",
+    "stoneName": "Mixed",
+    "secondaryCategory": ["Tukdi Art"],
+    "subCategory": "",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": ["Tukdi Art", "mosaic art", "fish design", "wall decor", "handcrafted", "vibrant colors", "artistic"],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-04T23:20:51.577Z",
+    "__v": 0
+  },
+  {
+    "primaryCategory": [],
+    "_id": "67759c3e20614f48ba6dd528",
+    "name": "Geometric Mosaic Sunburst Art",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMEWDBsn4u6lmEPpLjJQkSgBohyn1WvZCR09ce",
+        "main": true,
+        "_id": "6779c263f4f74f6bdfc57902"
+      }
+    ],
+    "description": "Enhance your space with this stunning Tukdi Art mosaic featuring a geometric sunburst design. This masterpiece combines vibrant blue, red, and green tones with a golden accent, creating a captivating centerpiece. Ideal for floor or wall decor, this artwork reflects the timeless charm of traditional mosaic craftsmanship, perfect for adding a touch of elegance to any setting.",
+    "productCode": "TA001",
+    "stoneName": "Mixed",
+    "secondaryCategory": ["Tukdi Art"],
+    "subCategory": "",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "Tukdi Art",
+      "mosaic art",
+      "sunburst design",
+      "geometric art",
+      "wall decor",
+      "floor decor",
+      "handcrafted",
+      "vibrant colors"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-04T23:21:07.015Z",
+    "__v": 0
+  },
+  {
+    "primaryCategory": [],
+    "_id": "67759c3e20614f48ba6dd520",
+    "name": "Exquisite Mosaic Octopus Art",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMP0DaCUQ21qAVMsc69BIRkwmuLOg80ZKW7Qeh",
+        "main": true,
+        "_id": "6779c270f4f74f6bdfc57905"
+      }
+    ],
+    "description": "Dive into the captivating world of Tukdi Art with this intricate mosaic octopus design. Showcasing a blend of vibrant yellows, oranges, and blues, this masterpiece reflects the delicate craftsmanship of traditional mosaic techniques. Perfect for enhancing any wall space, this unique artwork combines artistic brilliance with an underwater charm, making it a standout addition to your decor collection.",
+    "productCode": "TA006",
+    "stoneName": "Mixed",
+    "secondaryCategory": ["Tukdi Art"],
+    "subCategory": "",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": ["Tukdi Art", "mosaic art", "octopus design", "wall decor", "handcrafted", "vibrant colors", "artistic"],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-04T23:21:20.813Z",
+    "__v": 0
+  },
+  {
+    "primaryCategory": [],
+    "_id": "67759c3e20614f48ba6dd52c",
+    "name": "Decorative Agra Red Sandstone Lantern",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMAoHO2AIq4LUXmRJGSt8wEVKnyY2FuCNHsMhD",
+        "main": true,
+        "_id": "6779b6102b201dc8a571e7a5"
+      }
+    ],
+    "description": "Enhance your outdoor or indoor spaces with this beautifully designed Agra Red Sandstone lantern. Featuring an intricate lattice pattern, this handcrafted piece exemplifies the elegance of traditional Indian craftsmanship. Perfect for gardens, patios, or architectural accents, this sandstone lantern is a timeless addition to any decor.",
+    "productCode": "AG002",
+    "stoneName": "Agra Red",
+    "secondaryCategory": ["Agra Red"],
+    "subCategory": "",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": ["Agra Red", "sandstone art", "lantern design", "decorative", "handcrafted", "latticework", "traditional"],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-04T22:28:32.424Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd51c",
     "name": "Handcrafted Blue Pottery Cup & Saucer Set",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMYmbd3tm0cjM7UnriH6SFwubhEqzGAdBsLo4T",
+        "main": true,
+        "_id": "67666397a6a73a2eae4bd7fa"
+      }
+    ],
     "description": "Elevate your tea time experience with this exquisite blue pottery cup and saucer set, meticulously handcrafted to bring charm and style to your table. Each piece showcases delicate floral patterns in rich blue tones, adding a touch of artistry and elegance to your collection. Made from high-quality blue pottery, this set is perfect for both daily use and special occasions, seamlessly blending beauty with durability. The intricate design and natural finish make it a timeless addition to any kitchen or dining room decor.",
-    "productCode": "BP-001",
+    "productCode": "BP001",
+    "primaryCategory": ["Home"],
     "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Tableware",
+    "secondaryCategory": ["Blue Pottery"],
+    "subCategory": "Blue Pottery",
     "isFeatured": false,
-    "tags": ["handcrafted", "blue pottery", "cup and saucer set", "floral design", "tableware", "elegant", "decorative"]
-  },
-  {
-    "name": "Handcrafted Blue Pottery Floral Planter",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Transform your living space with this stunning handcrafted blue pottery planter, adorned with vibrant floral patterns. Perfect for showcasing your favorite plants, this planter brings a touch of elegance and traditional craftsmanship to any room. Made from high-quality blue pottery, it combines durability with a beautiful design, ideal for both indoor and outdoor decor. Enhance your home’s aesthetic with the timeless charm and natural appeal of this decorative piece.",
-    "productCode": "BP-002",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Planter",
-    "isFeatured": false,
-    "tags": ["handcrafted", "blue pottery", "planter", "floral design", "home decor", "elegant", "decorative"]
-  },
-  {
-    "name": "Handcrafted Blue Pottery Tea Light Holder Set",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Create a serene ambiance with this set of handcrafted blue pottery tea light holders. Featuring intricate floral patterns, each holder adds a touch of elegance and warmth to your decor. Ideal for festive occasions or cozy evenings, these tea light holders enhance any space with their timeless charm and soothing light.",
-    "productCode": "BP-003",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Decor",
-    "isFeatured": false,
-    "tags": ["handcrafted", "blue pottery", "tea light holder", "decor", "floral design", "elegant", "decorative"]
-  },
-  {
-    "name": "Elegant Blue Pottery Bathroom Accessory Set",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Upgrade your bathroom with this elegant blue pottery accessory set, featuring a wastebasket, soap dispenser, cotton jar, and more. Crafted with intricate designs, each piece in the set adds sophistication to your space. Perfect for organizing essentials while adding a decorative touch to modern and traditional bathrooms alike.",
-    "productCode": "BP-004",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Bathroom Accessories",
-    "isFeatured": false,
+    "inStock": true,
     "tags": [
       "handcrafted",
       "blue pottery",
-      "bathroom accessory set",
-      "decor",
-      "elegant",
-      "organizational",
-      "functional"
-    ]
-  },
-  {
-    "name": "Handcrafted Blue Pottery Storage Jar",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Store your essentials in style with this handcrafted blue pottery jar. Its striking design and vibrant blue finish make it a perfect blend of beauty and functionality. Ideal for the kitchen or as a decorative accent, this jar adds a touch of traditional charm to your home.",
-    "productCode": "BP-005",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Storage",
-    "isFeatured": false,
-    "tags": ["handcrafted", "blue pottery", "storage jar", "kitchen decor", "functional", "traditional"]
-  },
-  {
-    "name": "Peacock Design Blue Pottery Decorative Plate",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Add elegance to your decor with this decorative plate featuring a beautifully hand-painted peacock design. Made from high-quality blue pottery, this plate serves as a stunning wall accent or tabletop display, enhancing your home with its intricate artistry and vibrant colors.",
-    "productCode": "BP-006",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Decorative Plate",
-    "isFeatured": false,
-    "tags": ["handcrafted", "blue pottery", "decorative plate", "peacock design", "wall decor", "elegant", "colorful"]
-  },
-  {
-    "name": "Floral Blue Pottery Decorative Plate",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Brighten up your living space with this floral decorative plate crafted from blue pottery. Featuring a vibrant floral pattern, this plate is perfect as a wall hanging or a unique tabletop piece. Its timeless design brings a touch of artistic charm to any room.",
-    "productCode": "BP-007",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Decorative Plate",
-    "isFeatured": false,
-    "tags": ["handcrafted", "blue pottery", "decorative plate", "floral design", "wall decor", "vibrant", "artistic"]
-  },
-  {
-    "name": "Floral Design Blue Pottery Serving Plate",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Serve in style with this exquisite blue pottery serving plate, adorned with floral designs. Perfect for adding an elegant touch to any meal, this plate is both functional and decorative, bringing a piece of traditional craftsmanship to your dining experience.",
-    "productCode": "BP-008",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Serveware",
-    "isFeatured": false,
-    "tags": ["handcrafted", "blue pottery", "serving plate", "floral design", "serveware", "elegant", "decorative"]
-  },
-  {
-    "name": "Pomegranate Design Blue Pottery Plate",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Enhance your dining decor with this blue pottery plate, showcasing a unique pomegranate design. Handcrafted with care, this plate is perfect for serving or as a decorative display, adding a touch of traditional artistry to your home.",
-    "productCode": "BP-009",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Decorative Plate",
-    "isFeatured": false,
-    "tags": [
-      "handcrafted",
-      "blue pottery",
-      "decorative plate",
-      "pomegranate design",
-      "serveware",
-      "artistic",
-      "traditional"
-    ]
-  },
-  {
-    "name": "Traditional Blue Pottery Plate Set",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Bring elegance to your table setting with this traditional blue pottery plate set. Each plate features intricate designs that reflect the beauty of craftsmanship. Perfect for formal dinners or casual gatherings, this set adds a classic touch to any dining experience.",
-    "productCode": "BP-010",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Dinnerware",
-    "isFeatured": false,
-    "tags": ["handcrafted", "blue pottery", "plate set", "dinnerware", "traditional", "elegant", "dining"]
-  },
-  {
-    "name": "Blue Pottery Decorative Plate Set",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Enhance your dining experience with this decorative plate set featuring intricate blue pottery designs. Perfect as wall decor or serving pieces, these plates add an artistic and traditional charm to any setting.",
-    "productCode": "BP-011",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Decorative Plate",
-    "isFeatured": false,
-    "tags": ["handcrafted", "blue pottery", "decorative plate", "table decor", "artistic", "traditional"]
-  },
-  {
-    "name": "Blue Pottery Floral Vase",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Bring elegance to your home decor with this floral blue pottery vase. Handcrafted with intricate patterns, this vase is perfect for displaying flowers or as a standalone decorative piece.",
-    "productCode": "BP-012",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Vase",
-    "isFeatured": false,
-    "tags": ["handcrafted", "blue pottery", "vase", "floral design", "home decor", "elegant"]
-  },
-  {
-    "name": "Blue Pottery Cylinder Vase",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Add sophistication to your space with this cylindrical blue pottery vase, adorned with floral motifs. Perfect for a minimalistic yet artistic touch to your home decor.",
-    "productCode": "BP-013",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Vase",
-    "isFeatured": false,
-    "tags": ["handcrafted", "blue pottery", "cylinder vase", "minimalistic", "decorative", "artistic"]
-  },
-  {
-    "name": "Round Blue Pottery Vase",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "A unique round blue pottery vase with intricate white floral designs, perfect for adding a traditional touch to any decor. Display this vase as a centerpiece or as an accent on a shelf.",
-    "productCode": "BP-014",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Vase",
-    "isFeatured": false,
-    "tags": ["handcrafted", "blue pottery", "round vase", "traditional", "decorative", "centerpiece"]
-  },
-  {
-    "name": "Blue Pottery Bulb Vase",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "This bulb-shaped blue pottery vase features beautiful floral designs, making it a perfect addition to both traditional and modern decor styles.",
-    "productCode": "BP-015",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Vase",
-    "isFeatured": false,
-    "tags": ["handcrafted", "blue pottery", "bulb vase", "decor", "traditional", "modern"]
-  },
-  {
-    "name": "Blue Pottery Decorative Vase",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "A beautifully crafted decorative vase in blue pottery, perfect for adding a touch of elegance to your decor. Ideal for flowers or as a standalone accent.",
-    "productCode": "BP-016",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Vase",
-    "isFeatured": false,
-    "tags": ["handcrafted", "blue pottery", "decorative vase", "elegant", "accent", "home decor"]
-  },
-  {
-    "name": "Blue Pottery Floral Bathroom Set",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Upgrade your bathroom with this floral blue pottery bathroom set, including essentials like a soap dispenser, tumbler, and more. This set combines functionality with artistic elegance, enhancing your space with vibrant colors and traditional designs.",
-    "productCode": "BP-017",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Bathroom Accessories",
-    "isFeatured": false,
-    "tags": ["handcrafted", "blue pottery", "bathroom set", "floral design", "functional", "decorative"]
-  },
-  {
-    "name": "Blue Pottery Condiment Set",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Add a touch of elegance to your dining experience with this beautifully handcrafted blue pottery condiment set. Perfect for storing and serving condiments, spices, or small snacks, each piece features intricate floral designs, bringing both functionality and charm to your table. Ideal for gatherings and everyday use, this set combines traditional craftsmanship with a unique aesthetic.",
-    "productCode": "BP-018",
-    "stoneName": "Blue Pottery",
-    "category": "Pottery",
-    "subCategory": "Condiment Set",
-    "isFeatured": false,
-    "tags": [
-      "handcrafted",
-      "blue pottery",
-      "condiment set",
+      "cup and saucer set",
       "floral design",
-      "kitchen decor",
       "tableware",
-      "traditional"
-    ]
-  },
-  {
-    "name": "Oval Marble Coffee Table Set",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Transform your living room with this luxurious oval marble coffee table set, designed to bring elegance and style to your space. Featuring two tables with sleek marble tops and gold-finished metal frames, this set includes a large and a smaller table that can be used together or separately for a versatile layout. The rich marble surface is both durable and easy to clean, while the modern design complements any interior decor. Perfect for displaying books, vases, or serving coffee, this set adds sophistication to your daily routines and special gatherings.",
-    "productCode": "FM-001",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Coffee Table",
-    "isFeatured": false,
-    "tags": ["furniture", "marble", "coffee table", "modern", "living room", "gold accents", "luxurious", "versatile"]
-  },
-  {
-    "name": "Round Marble Side Table",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Add a modern and minimalist touch to your home with this round marble side table, perfect for any room needing a sophisticated accent. The table’s marble top showcases natural veining that adds character and elegance, while the slim black metal frame offers stability without overpowering the design. This versatile piece works well as a bedside table, a side table in your living room, or a decorative display for plants and photo frames. Durable and timeless, it’s crafted to enhance both functionality and aesthetic appeal in your space.",
-    "productCode": "FM-002",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Side Table",
-    "isFeatured": false,
-    "tags": ["furniture", "marble", "side table", "minimalist", "bedroom", "living room", "elegant", "versatile"]
-  },
-  {
-    "name": "Tall Marble Console Table",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Perfect for entryways, hallways, or as an accent in any room, this tall marble console table is a statement of refined luxury and modern elegance. The slender design and sturdy metal frame allow it to fit seamlessly against walls without taking up too much space, making it ideal for smaller areas. The marble top brings a touch of sophistication and is spacious enough for decor pieces, plants, or keys and other essentials. With its clean lines and stylish appeal, this console table elevates your home decor with both function and flair.",
-    "productCode": "FM-003",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Console Table",
-    "isFeatured": false,
-    "tags": ["furniture", "marble", "console table", "entryway", "modern", "hallway", "sophisticated", "luxury"]
-  },
-  {
-    "name": "Square Marble Coffee Table",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "A contemporary addition to any living room, this square marble coffee table combines style and functionality in one sleek design. The spacious marble top provides ample space for drinks, books, and decor, while the sturdy metal frame ensures stability and modern appeal. Its clean lines and sophisticated finish make it suitable for various decor styles, from modern to traditional. This coffee table not only serves as a functional piece of furniture but also as an elegant centerpiece, enhancing the overall ambiance of your living area.",
-    "productCode": "FM-004",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Coffee Table",
-    "isFeatured": false,
-    "tags": ["furniture", "marble", "coffee table", "square table", "modern", "contemporary", "living room", "elegant"]
-  },
-  {
-    "name": "Rectangular Marble Dining Table",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Elevate your dining experience with this rectangular marble dining table, a blend of timeless beauty and contemporary design. The generous marble surface is perfect for family meals and gatherings, providing ample space for dishes and decor. Crafted with a strong base to support the luxurious marble top, this dining table is built for durability and style. Its classic rectangular shape and clean lines make it an easy fit for any dining room, while the natural marble variations add uniqueness and charm to your home.",
-    "productCode": "FM-005",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Dining Table",
-    "isFeatured": false,
-    "tags": [
-      "furniture",
-      "marble",
-      "dining table",
-      "rectangular",
-      "luxurious",
       "elegant",
-      "dining room",
-      "contemporary"
-    ]
+      "decorative"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-01T19:49:18.081Z",
+    "__v": 0
   },
   {
-    "name": "Pedestal Marble Table",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Add an artistic focal point to your decor with this unique pedestal marble table. Featuring a sculptural base and a sleek marble top, this table stands out as a statement piece in any space. Ideal for entryways or as a decorative accent in living rooms, its design is both contemporary and timeless. The pedestal base adds a touch of sophistication while ensuring stability, and the marble surface is perfect for showcasing your favorite decor items. Transform your home with this blend of artistry and functionality.",
-    "productCode": "FM-006",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Accent Table",
+    "primaryCategory": [],
+    "_id": "67759c3e20614f48ba6dd524",
+    "name": "Majestic Mosaic Eagle Art",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMmiU9oyc4RNSTBnVIzav1wxUG3Zrg5qDJ7Efe",
+        "main": true,
+        "_id": "6779c27df4f74f6bdfc57908"
+      }
+    ],
+    "description": "Embrace the grandeur of Tukdi Art with this stunning mosaic eagle artwork. Carefully composed with natural stone pieces, this design captures the strength and elegance of the eagle. Perfect as wall decor, this piece reflects the artistry and meticulous craftsmanship of traditional mosaic techniques. Add a bold and timeless statement to your space with this exceptional creation.",
+    "productCode": "TA003",
+    "stoneName": "Mixed",
+    "secondaryCategory": ["Tukdi Art"],
+    "subCategory": "",
     "isFeatured": false,
+    "inStock": true,
+    "tags": ["Tukdi Art", "mosaic art", "eagle design", "wall decor", "handcrafted", "natural tones", "artistic"],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-04T23:21:33.722Z",
+    "__v": 0
+  },
+  {
+    "primaryCategory": [],
+    "_id": "67759c3e20614f48ba6dd52e",
+    "name": "Agra Red Sandstone Elephant Pair",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMA63RuNfIq4LUXmRJGSt8wEVKnyY2FuCNHsMh",
+        "main": true,
+        "_id": "6779b6852b201dc8a571e889"
+      }
+    ],
+    "description": "Celebrate traditional craftsmanship with this exquisite pair of Agra Red Sandstone elephant sculptures. Each piece is beautifully carved to showcase the grace and strength of elephants, making it a perfect decorative item for gardens, patios, or interiors. Combining elegance and cultural heritage, this pair adds a touch of charm to any space.",
+    "productCode": "AG003",
+    "stoneName": "Agra Red",
+    "secondaryCategory": ["Agra Red"],
+    "subCategory": "",
+    "isFeatured": false,
+    "inStock": true,
     "tags": [
-      "furniture",
-      "marble",
-      "pedestal table",
-      "accent table",
-      "contemporary",
-      "statement piece",
-      "artistic",
-      "decor"
-    ]
+      "Agra Red",
+      "sandstone art",
+      "elephant sculptures",
+      "decorative",
+      "handcrafted",
+      "traditional",
+      "garden decor"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-04T22:30:29.352Z",
+    "__v": 0
   },
   {
-    "name": "Dual Pedestal Oval Marble Table",
-    "images": [{ "image": "/path-to-image/image1.png", "main": true }],
-    "description": "Elegance meets modern design in this dual pedestal oval marble table, perfect for contemporary spaces. The table features two beautifully crafted pedestal bases that support a smooth, luxurious marble top with natural veining. Ideal for spacious dining areas or as a centerpiece in grand living rooms, this table brings both sophistication and functionality. Its sturdy base design ensures stability, while the marble surface offers ample space for decorative items or dining essentials. Create a refined and stylish setting with this unique blend of modern elegance.",
-    "productCode": "FM-007",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Dining Table",
+    "primaryCategory": [],
+    "_id": "67759c3e20614f48ba6dd536",
+    "name": "Agra Red Sandstone Elephant Statue",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVM7HRow7BNOm2R3rqQyGPSJ5EFfCMHn46IotjL",
+        "main": true,
+        "_id": "6779b69e2b201dc8a571e88c"
+      }
+    ],
+    "description": "Enhance your space with this majestic Agra Red Sandstone elephant statue. Featuring intricate carvings and a regal design, this handcrafted masterpiece symbolizes strength and grace. Perfect for gardens, courtyards, or as a centerpiece in any decor, this statue reflects the timeless charm of traditional Indian craftsmanship.",
+    "productCode": "AG008",
+    "stoneName": "Agra Red",
+    "secondaryCategory": ["Agra Red"],
+    "subCategory": "",
     "isFeatured": false,
-    "tags": ["furniture", "marble", "dining table", "pedestal", "oval table", "contemporary", "luxurious"]
+    "inStock": true,
+    "tags": [
+      "Agra Red",
+      "sandstone art",
+      "elephant statue",
+      "decorative",
+      "handcrafted",
+      "traditional design",
+      "garden decor",
+      "outdoor art"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-04T22:30:54.246Z",
+    "__v": 0
   },
   {
-    "name": "Round Pedestal Marble Table",
-    "images": [{ "image": "/path-to-image/image2.png", "main": true }],
-    "description": "This round pedestal marble table brings a sophisticated charm to any room, making it a versatile addition to modern decor. With its sleek, round marble top and sturdy pedestal base, this table is perfect for compact spaces while making a bold statement. The marble top showcases delicate natural patterns, adding an elegant touch to the functional design. Whether used as a coffee table or a decorative accent, its timeless appeal and solid construction make it a standout piece in any interior setting.",
-    "productCode": "FM-008",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Coffee Table",
+    "primaryCategory": [],
+    "_id": "67759c3e20614f48ba6dd53a",
+    "name": "Agra Red Sandstone Decorative Collection",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMVGzhkmvAHPcRYpkvyWnaCqo5OijexuDf7LQU",
+        "main": true,
+        "_id": "6779b6bb2b201dc8a571e88f"
+      }
+    ],
+    "description": "Explore an array of handcrafted Agra Red Sandstone decorative items, including domes, lanterns, and artistic panels. This collection embodies traditional craftsmanship and versatile design, perfect for enhancing gardens, patios, or architectural projects. Each piece showcases the timeless elegance and durability of Agra Red Sandstone, making it an ideal choice for both indoor and outdoor decor.",
+    "productCode": "AG010",
+    "stoneName": "Agra Red",
+    "secondaryCategory": ["Agra Red"],
+    "subCategory": "",
     "isFeatured": false,
-    "tags": ["furniture", "marble", "round table", "pedestal", "coffee table", "modern decor", "compact", "elegant"]
+    "inStock": true,
+    "tags": [
+      "Agra Red",
+      "sandstone art",
+      "decorative collection",
+      "handcrafted",
+      "traditional design",
+      "garden decor",
+      "architectural elements"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-04T22:31:23.856Z",
+    "__v": 0
   },
   {
-    "name": "Archway Black Marble Console Table",
-    "images": [{ "image": "/path-to-image/image3.png", "main": true }],
-    "description": "The Archway Black Marble Console Table combines luxurious black marble with a unique archway design, creating a dramatic focal point in any space. Its elegant silhouette and rich black finish make it ideal for entryways, hallways, or as a statement piece in living rooms. The console's spacious surface is perfect for displaying artwork, floral arrangements, or decorative accents. Crafted with precision and attention to detail, this console table seamlessly blends bold design with practical functionality, enhancing any modern or classic interior.",
-    "productCode": "FM-009",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Console Table",
+    "primaryCategory": [],
+    "_id": "67759c3e20614f48ba6dd538",
+    "name": "Agra Red Sandstone Canopy Pavilion",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMNvrMu2KzeHKBX1QuRbt8Iag9rV6YAZDTwEfO",
+        "main": true,
+        "_id": "6779b6d02b201dc8a571e892"
+      }
+    ],
+    "description": "Adorn your space with this magnificent Agra Red Sandstone canopy pavilion. Featuring intricate carvings and a layered dome design, this handcrafted structure is perfect for gardens, courtyards, or cultural settings. It combines traditional Indian architectural charm with enduring durability, making it an ideal centerpiece for outdoor decor.",
+    "productCode": "AG009",
+    "stoneName": "Agra Red",
+    "secondaryCategory": ["Agra Red"],
+    "subCategory": "",
     "isFeatured": true,
+    "inStock": true,
     "tags": [
-      "furniture",
-      "marble",
-      "console table",
-      "black marble",
-      "archway design",
-      "statement piece",
-      "elegant",
-      "modern classic"
-    ]
+      "Agra Red",
+      "sandstone art",
+      "canopy pavilion",
+      "architectural design",
+      "handcrafted",
+      "traditional art",
+      "garden decor"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-04T22:31:44.811Z",
+    "__v": 0
   },
   {
-    "name": "Natural Stone Console Table",
-    "images": [{ "image": "/path-to-image/image4.png", "main": true }],
-    "description": "Elevate your interior with this Natural Stone Console Table, showcasing a unique design with sculptural lines and refined marble texture. Perfect for entryways or as a chic addition to any living space, this table effortlessly complements both modern and classic decor. Its architectural form and natural stone finish create a stunning visual impact, while the durable construction ensures longevity. Make a bold statement with this artfully crafted console, ideal for those who appreciate sophisticated yet functional design in their home decor.",
-    "productCode": "FM-010",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Console Table",
+    "primaryCategory": [],
+    "_id": "67759c3e20614f48ba6dd53c",
+    "name": "Agra Red Sandstone Tiered Fountain",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMXBrUmIwkAIduLVQx5WpEYXhsbf2TR7gtJlGS",
+        "main": true,
+        "_id": "6779b6e72b201dc8a571e895"
+      }
+    ],
+    "description": "Bring elegance and tranquility to your outdoor space with this exquisite Agra Red Sandstone tiered fountain. Handcrafted with intricate detailing, the cascading water design adds a soothing ambiance to gardens, courtyards, or patios. Durable and timeless, this fountain is a perfect blend of artistry and functionality, making it a standout feature in any decor.",
+    "productCode": "AG011",
+    "stoneName": "Agra Red",
+    "secondaryCategory": ["Agra Red"],
+    "subCategory": "",
     "isFeatured": false,
+    "inStock": true,
     "tags": [
-      "furniture",
-      "marble",
-      "console table",
-      "natural stone",
-      "sculptural",
-      "elegant",
-      "modern decor",
-      "sophisticated"
-    ]
+      "Agra Red",
+      "sandstone fountain",
+      "tiered design",
+      "garden decor",
+      "handcrafted",
+      "traditional design",
+      "outdoor water feature"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-04T22:32:07.352Z",
+    "__v": 0
   },
   {
-    "name": "Gold Frame Marble Accent Table",
-    "images": [{ "image": "/path-to-image/image5.png", "main": true }],
-    "description": "This Gold Frame Marble Accent Table brings a touch of glamour to any space, featuring a luxurious marble top supported by a minimalist gold metal frame. Ideal for modern interiors, this accent table is perfect for displaying decor items, serving drinks, or simply as a stylish side table. The marble surface showcases natural veining patterns, adding a unique charm to each piece. Its compact size and elegant design make it versatile for use in living rooms, bedrooms, or office spaces, where it effortlessly enhances the ambiance.",
-    "productCode": "FM-011",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Side Table",
-    "isFeatured": true,
-    "tags": ["furniture", "marble", "accent table", "gold frame", "side table", "modern decor", "luxurious", "stylish"]
-  },
-  {
-    "name": "Three-Piece Natural Wood Marble Side Table Set",
-    "images": [{ "image": "/path-to-image/image6.png", "main": true }],
-    "description": "This three-piece side table set combines natural wood and marble to create a rustic yet modern aesthetic, perfect for any living space. Each table features a unique, irregularly shaped marble top that rests on sturdy wooden legs, making them versatile for use as side tables, plant stands, or decor accents. The varied heights add dimension to your decor, allowing for creative arrangement options. Ideal for those who appreciate nature-inspired elements in their home, this set brings a touch of organic beauty and elegance.",
-    "productCode": "FM-012",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Side Table Set",
+    "primaryCategory": [],
+    "_id": "67759c3e20614f48ba6dd53e",
+    "name": "Agra Red Sandstone Lamp Posts",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMPPlIAf21qAVMsc69BIRkwmuLOg80ZKW7QehC",
+        "main": true,
+        "_id": "6779b6fa2b201dc8a571e898"
+      }
+    ],
+    "description": "Illuminate your space with the timeless beauty of these Agra Red Sandstone lamp posts. Featuring intricate latticework and a classic design, these handcrafted lamp posts are perfect for enhancing gardens, pathways, or courtyards. Durable and elegant, they bring a blend of traditional craftsmanship and functional decor to any outdoor setting.",
+    "productCode": "AG012",
+    "stoneName": "Agra Red",
+    "secondaryCategory": ["Agra Red"],
+    "subCategory": "",
     "isFeatured": false,
+    "inStock": true,
     "tags": [
-      "furniture",
-      "marble",
-      "side table set",
-      "natural wood",
-      "modern rustic",
-      "plant stand",
-      "decor accent",
-      "organic beauty"
-    ]
+      "Agra Red",
+      "sandstone lamp posts",
+      "lattice design",
+      "garden decor",
+      "handcrafted",
+      "traditional art",
+      "outdoor lighting"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-04T22:32:26.896Z",
+    "__v": 0
   },
   {
-    "name": "Square Marble Top Accent Table",
-    "images": [{ "image": "/path-to-image/image7.png", "main": true }],
-    "description": "The Square Marble Top Accent Table brings a contemporary flair to any room with its clean lines and minimalist design. Featuring a sleek marble top with a square silhouette, this table sits on a stylish geometric base, making it ideal for modern interiors. Its compact form is perfect for small spaces, offering a chic solution for displaying decorative items or serving as a practical side table. With a blend of elegance and simplicity, this accent table enhances the decor of living rooms, bedrooms, or offices.",
-    "productCode": "FM-013",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Accent Table",
+    "primaryCategory": [],
+    "_id": "67759c3e20614f48ba6dd540",
+    "name": "Agra Red Sandstone Dome Pavilion",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMisBbhq3sWhNLtIdQ0BJKjr5YGoHZAuleFSDk",
+        "main": true,
+        "_id": "6779b70a2b201dc8a571e89b"
+      }
+    ],
+    "description": "Add a touch of grandeur to your outdoor space with this Agra Red Sandstone dome pavilion. Expertly handcrafted with intricate details, this pavilion showcases traditional Indian architectural elegance. Perfect for gardens, courtyards, or cultural installations, it blends timeless beauty with exceptional durability.",
+    "productCode": "AG013",
+    "stoneName": "Agra Red",
+    "secondaryCategory": ["Agra Red"],
+    "subCategory": "",
     "isFeatured": false,
-    "tags": ["furniture", "marble", "accent table", "square table", "modern decor", "compact", "minimalist", "chic"]
+    "inStock": true,
+    "tags": [
+      "Agra Red",
+      "sandstone dome",
+      "pavilion",
+      "architectural art",
+      "handcrafted",
+      "traditional design",
+      "garden decor",
+      "outdoor structure"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-04T22:32:42.452Z",
+    "__v": 0
   },
   {
+    "_id": "67759c3e20614f48ba6dd542",
     "name": "Modern Marble Coffee Table Set",
     "images": [
-      { "image": "/path-to-image/image1.png", "main": true },
-      { "image": "/path-to-image/image2.png", "main": false }
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMv8VgzwftHgcSjRiehJ09BpdXx7uAQnC6IPYZ",
+        "main": true,
+        "_id": "677c261ef873f5997fd6a44f"
+      }
     ],
-    "description": "Elevate your living space with this elegant marble coffee table set. This set features a blend of contemporary design and luxurious materials, making it a stunning focal point in any modern interior. The marble tops boast intricate natural veining, complemented by sleek metallic legs for a sophisticated look. Perfect for both casual and formal spaces, these tables offer ample surface area to hold decor, books, or refreshments. Their versatile design allows them to be used together or separately to suit your layout, making them an excellent choice for dynamic and stylish living room arrangements.",
-    "productCode": "FM-001",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Coffee Table",
-    "isFeatured": true,
-    "tags": ["furniture", "marble", "coffee table", "modern", "luxury", "metal legs", "living room", "contemporary"]
+    "description": "Elevate your living space with this elegant marble coffee table set, featuring a sleek oval design paired with a round side table. The tables combine luxurious marble tops with sturdy gold-finished frames, providing both functionality and contemporary style. Perfect for modern interiors, this set is ideal for creating a sophisticated and inviting atmosphere in your living room.",
+    "productCode": "TB001",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture", "White Marble"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "marble coffee table",
+      "modern furniture",
+      "gold frame",
+      "luxury design",
+      "living room decor",
+      "contemporary style"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:51:10.804Z",
+    "__v": 0
   },
   {
+    "_id": "67759c3e20614f48ba6dd544",
     "name": "Minimalist Round Marble Side Table",
-    "images": [{ "image": "/path-to-image/image3.png", "main": true }],
-    "description": "A chic and minimalist addition to any room, this round marble side table combines simplicity with elegance. The tabletop is crafted from premium marble, showcasing unique veining that adds a touch of natural beauty. Its slim, powder-coated metal legs offer a stable base without overpowering the design, making it an ideal fit for modern and contemporary interiors. Whether used as a bedside table or an accent table beside your sofa, this piece enhances the ambiance with its understated luxury and practical functionality. A perfect choice for those who appreciate refined aesthetics and versatile furniture.",
-    "productCode": "FM-002",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Side Table",
-    "isFeatured": false,
-    "tags": ["furniture", "marble", "side table", "minimalist", "modern", "bedside", "living room", "accent table"]
-  },
-  {
-    "name": "Elegant Rectangular Marble Console Table",
-    "images": [{ "image": "/path-to-image/image4.png", "main": true }],
-    "description": "Bring a touch of sophistication to your entryway or living room with this elegant rectangular marble console table. The smooth marble surface, with its natural veining, provides a striking contrast to the slim, angular metal frame, creating a balanced look that suits contemporary and transitional decor. Ideal for displaying decorative items, plants, or keeping essentials handy near your doorway, this console table combines practicality with visual appeal. Its clean lines and luxurious materials make it a versatile piece that complements both bold and neutral color schemes, elevating the style of any room it graces.",
-    "productCode": "FM-003",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Console Table",
-    "isFeatured": true,
-    "tags": ["furniture", "marble", "console table", "modern", "elegant", "entryway", "living room", "decor"]
-  },
-  {
-    "name": "Artistic Marble Pedestal Table",
-    "images": [{ "image": "/path-to-image/image5.png", "main": true }],
-    "description": "This artistic pedestal table is a true statement piece, perfect for those who want to add an element of sculptural beauty to their home decor. The marble top features stunning natural veining, which enhances its visual appeal, while the sturdy pedestal base provides stability and a sense of grandeur. Ideal for use in entryways, hallways, or as an accent piece in living rooms, this table adds a touch of sophistication to any setting. Its unique design combines functionality with artistic flair, making it not only a table but also a focal point in any space.",
-    "productCode": "FM-004",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Pedestal Table",
-    "isFeatured": false,
-    "tags": [
-      "furniture",
-      "marble",
-      "pedestal table",
-      "accent table",
-      "artistic",
-      "statement piece",
-      "luxury",
-      "home decor"
-    ]
-  },
-  {
-    "name": "Sleek Square Marble Coffee Table",
-    "images": [{ "image": "/path-to-image/image6.png", "main": true }],
-    "description": "The sleek design of this square marble coffee table brings a touch of modern elegance to any living room. Featuring a spacious marble top with natural veining patterns, this table is both functional and beautiful. The sturdy metal base provides durability and complements the marble top's luxurious look, creating a balanced aesthetic that suits various interior styles. Whether used to hold drinks, decor, or magazines, this coffee table serves as a versatile centerpiece for your space, enhancing its ambiance with its clean lines and sophisticated materials.",
-    "productCode": "FM-005",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Coffee Table",
-    "isFeatured": true,
-    "tags": ["furniture", "marble", "coffee table", "square table", "modern", "living room", "contemporary", "elegant"]
-  },
-  {
-    "name": "Marble Nesting Table Set",
     "images": [
-      { "image": "/path-to-image/image1.png", "main": true },
-      { "image": "/path-to-image/image2.png", "main": false },
-      { "image": "/path-to-image/image3.png", "main": false }
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMK503m9r75JcvyZQi0u69LTfPzChGBjUXmSwq",
+        "main": true,
+        "_id": "677c22ecf873f5997fd6a41c"
+      }
     ],
-    "description": "Elevate your living room decor with this luxurious marble nesting table set. Featuring a beautiful marble surface on a sleek metal frame, this set is both functional and stylish, adding a touch of elegance to any modern interior. Perfect for small spaces, these tables can be arranged together or separately, allowing for versatile placement and creating a cohesive look in your home. The sturdy metal frame ensures stability, while the smooth marble top provides a sophisticated surface ideal for displaying decor items, serving guests, or simply enjoying a cup of coffee. A timeless addition to any space, these tables blend seamlessly with contemporary and classic styles alike.",
-    "productCode": "FM-007",
-    "stoneName": "Marble",
-    "category": "Furniture",
-    "subCategory": "Nesting Table",
+    "description": "Add a touch of elegance to your space with this minimalist round marble side table. Featuring a smooth marble top with natural veining and a sleek black metal frame, this table is perfect for modern and contemporary interiors. Compact and versatile, it works beautifully as a bedside table, an accent piece, or a functional addition to your living room.",
+    "productCode": "TB002",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture", "White Marble"],
+    "subCategory": "Table",
     "isFeatured": false,
-    "tags": ["furniture", "marble", "nesting table", "modern", "elegant", "versatile", "compact", "home decor"]
-  },
-  {
-    "name": "Ornate Marble Temple",
-    "images": [{ "image": "/path-to-image/image1.png", "main": true }],
-    "description": "This beautifully crafted marble temple exemplifies traditional Indian craftsmanship with its intricate carvings and graceful design. Perfect for creating a spiritual corner in your home, this temple is crafted from high-quality marble, providing durability and elegance. The detailed carvings reflect traditional artistry, making it an exquisite choice for devotion spaces. Whether you’re placing it in your living area or a dedicated prayer room, this marble temple serves as a peaceful retreat for prayer and meditation. Its sturdy structure and timeless design make it a worthy addition to any home seeking an aura of serenity.",
-    "productCode": "MT-001",
-    "stoneName": "Marble",
-    "category": "Home Decor",
-    "subCategory": "Temple",
-    "isFeatured": true,
+    "inStock": true,
     "tags": [
-      "temple",
-      "home decor",
-      "marble temple",
-      "traditional design",
-      "handcrafted",
-      "spiritual",
-      "devotion space"
-    ]
+      "marble side table",
+      "minimalist furniture",
+      "modern design",
+      "compact decor",
+      "black metal frame",
+      "elegant accent"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:37:32.804Z",
+    "__v": 0
   },
   {
-    "name": "Classic White Marble Temple",
-    "images": [{ "image": "/path-to-image/image2.png", "main": true }],
-    "description": "This white marble temple captures the essence of spiritual sanctity with its pristine finish and elegantly carved details. The classic design includes intricate motifs that add an air of sophistication to any space. Ideal for devout spaces in homes, this marble temple is designed to accommodate your deities while enhancing the overall aesthetic of your home. Its white marble construction not only ensures longevity but also adds a touch of purity and peace. Perfect for daily rituals, this temple is both a decorative and devotional masterpiece, embodying tranquility and devotion.",
-    "productCode": "MT-002",
-    "stoneName": "White Marble",
-    "category": "Home Decor",
-    "subCategory": "Temple",
+    "_id": "67759c3e20614f48ba6dd546",
+    "name": "Contemporary Marble Pedestal Tables",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMNwE45SKzeHKBX1QuRbt8Iag9rV6YAZDTwEfO",
+        "main": true,
+        "_id": "677c2302f873f5997fd6a41f"
+      }
+    ],
+    "description": "Showcase your decor with this pair of contemporary marble pedestal tables. Featuring sleek black frames and contrasting marble tops, these tables bring a modern yet minimalist aesthetic to any space. Ideal for displaying plants, vases, or decorative items, they are perfect for living rooms, hallways, or office interiors.",
+    "productCode": "TB003",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture"],
+    "subCategory": "Table",
     "isFeatured": false,
-    "tags": ["temple", "marble", "home decor", "white marble temple", "spiritual decor", "handcrafted", "elegant"]
-  },
-  {
-    "name": "Ornamental Marble Mandir",
-    "images": [{ "image": "/path-to-image/image3.png", "main": true }],
-    "description": "The Ornamental Marble Mandir is a luxurious choice for those seeking an elaborate and artistic piece for their home. Designed with painstaking attention to detail, this mandir is adorned with decorative elements that enhance its spiritual ambiance. Made from premium marble, this piece showcases a blend of traditional craftsmanship and modern durability, making it a significant addition to your devotional space. Whether as a focal point in your living room or a special place in a prayer room, this mandir resonates with a sense of devotion and beauty that is sure to inspire.",
-    "productCode": "MT-003",
-    "stoneName": "Marble",
-    "category": "Home Decor",
-    "subCategory": "Mandir",
-    "isFeatured": true,
+    "inStock": true,
     "tags": [
-      "mandir",
-      "marble",
-      "ornate decor",
-      "devotional piece",
-      "spiritual",
-      "traditional craftsmanship",
-      "luxurious"
-    ]
+      "marble tables",
+      "pedestal design",
+      "modern furniture",
+      "decor display",
+      "black metal frame",
+      "minimalist style"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:37:54.887Z",
+    "__v": 0
   },
   {
-    "name": "Elegant Marble Pooja Stand",
-    "images": [{ "image": "/path-to-image/image4.png", "main": true }],
-    "description": "This Elegant Marble Pooja Stand brings simplicity and grace to your devotional setup. Featuring a minimalistic design with delicate carvings, this piece is perfect for homes that value both style and spirituality. Constructed from high-quality marble, the pooja stand ensures durability and timeless appeal. Its design is ideal for daily rituals, providing a dedicated space for your spiritual practices while adding a refined touch to your home decor. This stand is perfect for those who seek a simple yet elegant addition to their worship space.",
-    "productCode": "MT-004",
-    "stoneName": "Marble",
-    "category": "Home Decor",
-    "subCategory": "Pooja Stand",
+    "_id": "67759c3e20614f48ba6dd548",
+    "name": "Luxury Marble Table Set with Gold Frames",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMO3LwCqMuQclMgy3L1dnRxfjqBh9au6TkGDYV",
+        "main": true,
+        "_id": "677c2633f873f5997fd6a452"
+      }
+    ],
+    "description": "Transform your living space with this luxurious marble table set featuring elegant gold-finished frames. The set includes a variety of table designs, each with a sleek marble top, perfect for adding sophistication to any room. Whether used as coffee tables, side tables, or console tables, these pieces combine modern aesthetics with functionality, making them ideal for stylish interiors.",
+    "productCode": "TB004",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture", "White Marble"],
+    "subCategory": "Table",
     "isFeatured": false,
+    "inStock": true,
     "tags": [
-      "pooja stand",
-      "elegant",
-      "marble decor",
-      "spiritual setup",
-      "home decor",
+      "marble tables",
+      "gold frame",
+      "luxury furniture",
+      "modern design",
+      "living room decor",
+      "elegant table set"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:51:31.627Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd54a",
+    "name": "Modern Sculptural Marble Table",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMRFy6vICK7ITBzxZAy0YQNkU9neCMos6wfW4c",
+        "main": true,
+        "_id": "677c2646f873f5997fd6a455"
+      }
+    ],
+    "description": "Elevate your interior with this modern sculptural marble table, featuring a unique base design that blends artistic elegance with functionality. The finely polished marble top adds a sophisticated touch, making it an ideal centerpiece for contemporary dining rooms or offices. Crafted with precision, this table embodies luxury and timeless design.",
+    "productCode": "TB005",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture", "White Marble"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "marble table",
+      "sculptural design",
+      "modern furniture",
+      "luxury decor",
+      "contemporary style",
+      "centerpiece"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:51:50.824Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd54e",
+    "name": "Sculptural Black Marble Console Table",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMRdkki2CK7ITBzxZAy0YQNkU9neCMos6wfW4c",
+        "main": true,
+        "_id": "677c265cf873f5997fd6a458"
+      }
+    ],
+    "description": "Make a bold statement with this sculptural black marble console table. Featuring a sleek, polished surface and a dramatic curved base design, this table embodies modern elegance and luxury. Ideal for entryways, living rooms, or offices, it seamlessly combines functionality with artistic sophistication, making it a centerpiece for contemporary interiors.",
+    "productCode": "TB007",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "black marble",
+      "console table",
+      "modern furniture",
+      "luxury design",
+      "sculptural base",
+      "elegant interiors"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:52:12.926Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd54c",
+    "name": "Oval Marble Dining Table with Fluted Base",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMTcDRXcS1mpq4igOxY2rCfdDk8LJuBVhoe5Zj",
+        "main": true,
+        "_id": "677c266ef873f5997fd6a45b"
+      }
+    ],
+    "description": "Enhance your dining experience with this exquisite oval marble dining table, featuring a sleek, polished top and a sculptural fluted base. The luxurious marble design showcases natural veining, while the sturdy base provides both elegance and stability. Perfect for modern dining rooms, this table seamlessly combines functionality with timeless sophistication.",
+    "productCode": "TB006",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture", "White Marble"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": ["marble dining table", "oval design", "luxury furniture", "modern style", "fluted base", "elegant dining"],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:52:30.285Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd550",
+    "name": "Round Marble Side Table with Gold Frame",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVM0c9sBn0xvzZJIDoG7X2B8cEtFsfLhyiYRNuC",
+        "main": true,
+        "_id": "677c267ff873f5997fd6a45e"
+      }
+    ],
+    "description": "Add a touch of luxury to your space with this round marble side table. Featuring a smooth marble top with natural veining and a gold-finished metal frame, this table is a perfect blend of elegance and functionality. Ideal for use in living rooms, bedrooms, or offices, it serves as a sophisticated accent piece for modern interiors.",
+    "productCode": "TB008",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": ["marble side table", "gold frame", "luxury furniture", "modern design", "accent piece", "elegant decor"],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:52:47.722Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd552",
+    "name": "Modern Marble Square Dining Table",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMiunA5H3sWhNLtIdQ0BJKjr5YGoHZAuleFSDk",
+        "main": true,
+        "_id": "677c2690f873f5997fd6a461"
+      }
+    ],
+    "description": "Upgrade your dining experience with this modern marble square dining table. Featuring a polished marble top and a striking geometric black metal base, this table seamlessly blends elegance and contemporary design. Ideal for compact dining spaces or as a statement piece in your home, it provides durability and timeless sophistication.",
+    "productCode": "TB010",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "marble dining table",
+      "square table",
+      "modern design",
+      "geometric base",
+      "black metal frame",
+      "elegant furniture"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:53:04.237Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd554",
+    "name": "Contemporary Marble Square Table",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMKKtVse75JcvyZQi0u69LTfPzChGBjUXmSwq4",
+        "main": true,
+        "_id": "677c269ff873f5997fd6a464"
+      }
+    ],
+    "description": "Add a touch of sophistication to your home with this contemporary marble square table. Featuring a polished marble top and a bold geometric black metal base, this table is perfect for dining areas, workspaces, or as a stylish centerpiece. Durable and elegant, it seamlessly combines modern design with functionality.",
+    "productCode": "TB011",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture", "White Marble"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "marble table",
+      "square table",
+      "modern design",
+      "geometric base",
+      "black metal frame",
+      "elegant furniture"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:53:19.369Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd55c",
+    "name": "Set of Nesting Marble Tables",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMpIp3yfLhDatTWUu6GZFJwscr8d4PO0K5XxHp",
+        "main": true,
+        "_id": "677c26b5f873f5997fd6a467"
+      },
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVM1zsIc8VBxAWLdmhVRcQ0C9XiJGfUEPtIyvTu",
+        "main": true,
+        "_id": "677c26b5f873f5997fd6a468"
+      },
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMa7qpMbs8Vfdygzw3MU2YXKep5B1NAhiQxq7O",
+        "main": true,
+        "_id": "677c26b5f873f5997fd6a469"
+      }
+    ],
+    "description": "Upgrade your living space with this versatile set of nesting marble tables. Featuring polished white marble tops with natural veining and sturdy metal frames, these tables are perfect for modern interiors. Their nesting design allows for flexible arrangements, making them both functional and stylish for living rooms or lounges.",
+    "productCode": "TB015",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture", "White Marble"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "marble tables",
+      "nesting design",
+      "modern furniture",
+      "living room decor",
+      "space-saving",
+      "elegant style"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:53:41.803Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd556",
+    "name": "Modern Marble Coffee Table with Layered Base",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMcciyQ3RY8nwbVphzUKXo431GfSWsAaQ0JdLc",
+        "main": true,
+        "_id": "677c26cbf873f5997fd6a46e"
+      }
+    ],
+    "description": "Enhance your living space with this modern marble coffee table featuring a sleek white marble top and a striking layered black metal base. Designed for contemporary interiors, this table offers both elegance and functionality, making it a perfect centerpiece for living rooms or lounges.",
+    "productCode": "TB012",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture", "White Marble"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "marble coffee table",
+      "modern design",
+      "layered base",
+      "black metal frame",
+      "contemporary furniture",
+      "living room decor"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:54:03.774Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd558",
+    "name": "Elegant Marble Coffee Table with Gold Geometric Base",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMNBlDyBRKzeHKBX1QuRbt8Iag9rV6YAZDTwEf",
+        "main": true,
+        "_id": "677c26def873f5997fd6a471"
+      }
+    ],
+    "description": "Bring sophistication to your living space with this elegant marble coffee table. Featuring a polished white marble top and a striking gold geometric metal base, this table is perfect for adding a touch of luxury to modern interiors. Ideal for living rooms or lounges, it seamlessly blends style and functionality.",
+    "productCode": "TB013",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture", "White Marble"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "marble coffee table",
+      "gold geometric base",
+      "luxury furniture",
+      "modern design",
+      "elegant decor",
+      "living room centerpiece"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:54:22.754Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd55a",
+    "name": "Elegant Furniture Piece",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMUVOBdXw6LbmcjpiHE94Ofy3vFDGZAtWsNdle",
+        "main": true,
+        "_id": "677c26f3f873f5997fd6a474"
+      }
+    ],
+    "description": "Enhance your space with this stylish and functional furniture piece. Perfectly crafted with a blend of modern design and durable materials, this piece adds both elegance and practicality to any room. Ideal for contemporary interiors, it serves as a versatile accent to your living or workspace.",
+    "productCode": "TB014",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture", "White Marble"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": ["furniture", "modern design", "elegant decor", "marble table", "durable", "versatile"],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:54:43.798Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd562",
+    "name": "Rectangular Marble Coffee Table with Modern Base",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMzt4PNyxGXbL8eJEABFZaig9Ycxl3dGzwNj5V",
+        "main": true,
+        "_id": "677c270ef873f5997fd6a47b"
+      }
+    ],
+    "description": "Add a touch of sophistication to your living room with this rectangular marble coffee table. Featuring a polished white marble top with natural veining and a sleek black metal base, this table combines elegance with durability. Perfect for modern interiors, it serves as a functional and stylish centerpiece.",
+    "productCode": "TB016",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture", "White Marble"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "marble coffee table",
+      "rectangular table",
+      "modern design",
+      "black metal base",
+      "elegant decor",
+      "living room centerpiece"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:55:10.534Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd564",
+    "name": "Oval Marble Coffee Table with Gold Frame",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMIqbt1nULw1UQR0WumrajGntH5o2xgkvKzqXs",
+        "main": true,
+        "_id": "677c271ef873f5997fd6a47e"
+      }
+    ],
+    "description": "Enhance your living space with this elegant oval marble coffee table. Featuring a polished marble top and a matching lower shelf, supported by a luxurious gold metal frame, this table combines beauty and functionality. Perfect for modern interiors, it serves as a stunning centerpiece for your living room or lounge.",
+    "productCode": "TB017",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture", "White Marble"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "marble coffee table",
+      "oval table",
+      "gold frame",
+      "modern design",
+      "living room decor",
+      "luxury furniture"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:55:26.944Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd566",
+    "name": "Round Marble Coffee Table with Geometric Gold Base",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMZXRq7IzknfYOr7HzL9Vy4MRQDNtuawIEgciJ",
+        "main": true,
+        "_id": "677c272ef873f5997fd6a481"
+      }
+    ],
+    "description": "Elevate your living space with this round marble coffee table featuring a luxurious white marble top and a unique geometric gold metal base. Designed to complement modern interiors, this table combines elegance and functionality, making it an ideal centerpiece for living rooms or lounges.",
+    "productCode": "TB018",
+    "stoneName": "Mixed",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Furniture", "White Marble"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "marble coffee table",
+      "round table",
+      "gold base",
+      "modern design",
+      "luxury furniture",
+      "living room centerpiece"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:55:42.456Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd56a",
+    "name": "Minimalist Rectangular Marble Coffee Table",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVM5SemQtlUPSpuLRqQWMXdBCa48v2GjE1IKH7J",
+        "main": true,
+        "_id": "677c273df873f5997fd6a484"
+      }
+    ],
+    "description": "Add a touch of simplicity and elegance to your space with this minimalist rectangular marble coffee table. Featuring a polished white marble top and a sleek black metal frame, this table is perfect for modern and contemporary interiors. Its clean lines and versatile design make it a stylish centerpiece for living rooms or offices.",
+    "productCode": "TB020",
+    "stoneName": "Mixed",
+    "primaryCategory": [],
+    "secondaryCategory": ["Furniture"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "marble coffee table",
+      "rectangular design",
+      "minimalist furniture",
+      "black frame",
+      "modern decor",
+      "living room centerpiece"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:55:57.353Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd56c",
+    "name": "Set of Oval Marble Coffee and Side Tables",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMb6iGx1aZsxTfgwnpD2OAVhdIkiuNSJvKayG9",
+        "main": true,
+        "_id": "677c274cf873f5997fd6a487"
+      }
+    ],
+    "description": "Elevate your interior decor with this elegant set of oval marble coffee and side tables. Featuring polished white marble tops with natural veining and sleek gold-finished metal frames, these tables exude modern sophistication. Perfect for contemporary living spaces, lounges, or offices, they combine functionality with timeless style.",
+    "productCode": "TB021",
+    "stoneName": "Mixed",
+    "primaryCategory": [],
+    "secondaryCategory": ["Furniture"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": ["marble tables", "oval design", "gold frame", "modern decor", "luxury furniture", "living room set"],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:56:12.228Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd568",
+    "name": "Minimalist Round Marble Side Table",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMS3FyxA7FfjAhYVqlKNbZuC6r5d3OHR81ULTp",
+        "main": true,
+        "_id": "677c275ef873f5997fd6a48a"
+      }
+    ],
+    "description": "Elevate your decor with this minimalist round marble side table. Featuring a sleek white marble top and a black metal frame, this table exudes modern elegance. Perfect for living rooms, bedrooms, or offices, it serves as a versatile and stylish accent piece.",
+    "productCode": "TB019",
+    "stoneName": "Mixed",
+    "primaryCategory": [],
+    "secondaryCategory": ["Furniture"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "marble side table",
       "minimalist design",
-      "handcrafted"
-    ]
+      "modern furniture",
+      "black frame",
+      "elegant decor",
+      "versatile table"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:56:30.135Z",
+    "__v": 0
   },
   {
-    "name": "Carved Marble Prayer Niche",
-    "images": [{ "image": "/path-to-image/image5.png", "main": true }],
-    "description": "The Carved Marble Prayer Niche is a beautiful combination of functionality and artistic expression. Ideal for personal prayer spaces, this niche features intricately carved patterns that reflect the beauty of traditional art. Crafted from premium marble, it offers both durability and elegance, serving as an inspiring place for meditation and daily prayers. The thoughtfully designed niche allows you to create a peaceful sanctuary within your home, bringing a sense of calm and spirituality to your surroundings. Perfect for devotees seeking a unique and meaningful decor piece for their home.",
-    "productCode": "MT-005",
-    "stoneName": "Marble",
-    "category": "Home Decor",
-    "subCategory": "Prayer Niche",
-    "isFeatured": true,
+    "_id": "67759c3e20614f48ba6dd570",
+    "name": "Round Marble Dining Table with Fluted Base",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVM1yrIXDVBxAWLdmhVRcQ0C9XiJGfUEPtIyvTu",
+        "main": true,
+        "_id": "677c276ff873f5997fd6a48d"
+      }
+    ],
+    "description": "Enhance your dining space with this elegant round marble dining table, featuring a stunning white marble top with natural veining. The fluted conical base adds a modern yet timeless touch, making it a perfect centerpiece for contemporary dining rooms or luxurious interiors.",
+    "productCode": "TB023",
+    "stoneName": "Mixed",
+    "primaryCategory": [],
+    "secondaryCategory": ["Furniture"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
     "tags": [
-      "prayer niche",
-      "marble decor",
-      "carved art",
-      "devotion space",
-      "spiritual decor",
+      "marble dining table",
+      "round table",
+      "fluted base",
+      "modern design",
+      "luxury furniture",
+      "elegant dining"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:56:47.027Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd56e",
+    "name": "Sculptural Marble Dining Table",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVM7dKyN3BNOm2R3rqQyGPSJ5EFfCMHn46IotjL",
+        "main": true,
+        "_id": "676666e5a6a73a2eae4bd992"
+      }
+    ],
+    "description": "Transform your dining space with this sculptural marble dining table, featuring a seamless rectangular top with intricate natural veining. The bold, artistic base adds a modern yet timeless elegance, making this table a true centerpiece for luxurious interiors. Perfect for contemporary dining rooms or conference spaces.",
+    "productCode": "TB022",
+    "stoneName": "Mixed",
+    "primaryCategory": [],
+    "secondaryCategory": ["Furniture"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "marble dining table",
+      "sculptural design",
+      "rectangular table",
+      "luxury furniture",
+      "modern decor",
+      "centerpiece"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-01T19:49:18.081Z",
+    "__v": 0
+  },
+  {
+    "_id": "67759c3e20614f48ba6dd572",
+    "name": "Sculptural Marble Console Table",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVM2xoaW8eYToXPBUwDxnetWu9i6OHbk8ECVYZd",
+        "main": true,
+        "_id": "677c2784f873f5997fd6a490"
+      }
+    ],
+    "description": "Add a striking focal point to your interior with this sculptural marble console table. Featuring a seamless curved design and intricate natural veining, this table blends artistry with functionality. Perfect for entryways, living rooms, or offices, it exudes luxury and modern sophistication.",
+    "productCode": "TB024",
+    "stoneName": "Mixed",
+    "primaryCategory": [],
+    "secondaryCategory": ["Furniture"],
+    "subCategory": "Table",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "marble console table",
+      "sculptural design",
+      "luxury furniture",
+      "modern decor",
+      "artistic centerpiece",
+      "entryway furniture"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-06T18:57:08.069Z",
+    "__v": 0
+  },
+  {
+    "primaryCategory": [],
+    "_id": "67759c3e20614f48ba6dd532",
+    "name": "Agra Red Sandstone Elephant Sculpture",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMKJTwCo75JcvyZQi0u69LTfPzChGBjUXmSwq4",
+        "main": true,
+        "_id": "6779b71c2b201dc8a571e89e"
+      }
+    ],
+    "description": "Adorn your garden or living space with this finely crafted Agra Red Sandstone elephant sculpture. Showcasing exquisite detailing and traditional artistry, this piece captures the majesty of the elephant while reflecting the timeless elegance of Agra Red Sandstone. Perfect for enhancing your decor with a touch of heritage and charm.",
+    "productCode": "AG005",
+    "stoneName": "Agra Red",
+    "secondaryCategory": ["Agra Red"],
+    "subCategory": "",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "Agra Red",
+      "sandstone art",
+      "elephant sculpture",
+      "decorative",
+      "handcrafted",
+      "traditional design",
+      "garden decor"
+    ],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-04T22:33:00.391Z",
+    "__v": 0
+  },
+  {
+    "primaryCategory": [],
+    "_id": "67759c3e20614f48ba6dd530",
+    "name": "Agra Red Sandstone Fountain",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMBqVwrK5EkZLSxfVolbs0HtJ7CNPUwmyujeg2",
+        "main": true,
+        "_id": "6779b72d2b201dc8a571e8a1"
+      }
+    ],
+    "description": "Add a serene touch to your garden or patio with this elegant Agra Red Sandstone fountain. Featuring a modern layered design, this fountain creates a calming ambiance with the gentle flow of water. Handcrafted from premium Agra Red Sandstone, it combines durability with timeless beauty, making it a perfect centerpiece for outdoor decor.",
+    "productCode": "AG004",
+    "stoneName": "Agra Red",
+    "secondaryCategory": ["Agra Red"],
+    "subCategory": "",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": ["Agra Red", "sandstone art", "fountain", "garden decor", "handcrafted", "water feature", "outdoor decor"],
+    "createdAt": "2025-01-01T19:49:18.081Z",
+    "updatedAt": "2025-01-04T22:33:17.818Z",
+    "__v": 0
+  },
+  {
+    "_id": "677c2a02f873f5997fd6a558",
+    "name": "Bali Marble Birdbath with Leaf Carvings",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMfrxHt2O6tN9QMYmUzW18InrO2ZGdbeKvu0Es",
+        "main": true,
+        "_id": "677c2ba2f873f5997fd6a86b"
+      }
+    ],
+    "description": "Enhance your garden's charm with this Bali marble birdbath featuring intricate leaf carvings and adorable bird accents. Handcrafted from natural stone, this birdbath is both a functional and decorative piece, providing a serene oasis for birds while adding elegance to your outdoor space. Its durable design ensures lasting beauty in any weather.",
+    "productCode": "BB015",
+    "stoneName": "Bali Marble",
+    "primaryCategory": ["Garden & Landscape"],
+    "secondaryCategory": ["Bali Marble"],
+    "subCategory": "Bird Baths",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": ["Bali marble", "birdbath", "leaf carvings", "natural stone", "garden decor", "luxury outdoor decor"],
+    "createdAt": "2025-01-06T19:07:46.314Z",
+    "updatedAt": "2025-01-06T19:14:42.123Z",
+    "__v": 0
+  },
+  {
+    "_id": "677c2a22f873f5997fd6a560",
+    "name": "Bali Marble Tortoise Sculpture",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMgGXaqqBZEAZilbfd1Q7Xa6TF4x5yMwvWDUcn",
+        "main": true,
+        "_id": "677c2bbff873f5997fd6a873"
+      }
+    ],
+    "description": "Add a touch of tranquility to your space with this intricately carved Bali marble tortoise sculpture. Handcrafted with attention to detail, this piece symbolizes longevity and stability, making it a perfect addition to home decor, offices, or garden spaces. Its natural stone finish complements modern and rustic interiors alike.",
+    "productCode": "AF016",
+    "stoneName": "Bali Marble",
+    "primaryCategory": ["Garden & Landscape", "Outdoor"],
+    "secondaryCategory": ["Bali Marble"],
+    "subCategory": "Artifacts",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "Bali marble",
+      "tortoise sculpture",
+      "handcrafted art",
+      "natural stone",
       "home decor",
-      "traditional craftsmanship"
-    ]
+      "garden decor",
+      "symbol of longevity"
+    ],
+    "createdAt": "2025-01-06T19:08:18.192Z",
+    "updatedAt": "2025-01-06T19:15:11.660Z",
+    "__v": 0
   },
   {
-    "name": "Sunburst Mosaic Design",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Brighten up your space with this captivating Sunburst Mosaic Design, featuring a dynamic arrangement of vibrant colors in a starburst pattern. This mosaic piece showcases deep blue, red, and yellow tiles intricately arranged to form a radiant circular design, perfect for both indoor and outdoor settings. Its vibrant pattern makes it an ideal focal point, adding a touch of artistic flair to patios, walkways, or walls. Each tile is carefully placed to create a harmonious yet eye-catching aesthetic that exudes warmth and positivity.",
-    "productCode": "MD-001",
-    "material": "Ceramic Tiles",
-    "category": "Mosaic Art",
-    "subCategory": "Outdoor Decor",
+    "_id": "677c29ddf873f5997fd6a54c",
+    "name": "Bali Marble Bathroom Set",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMgGUgfulZEAZilbfd1Q7Xa6TF4x5yMwvWDUcn",
+        "main": true,
+        "_id": "677c2b78f873f5997fd6a862"
+      }
+    ],
+    "description": "Bring a touch of natural elegance to your bathroom with this Bali marble bathroom set. The set includes a soap dispenser, tumbler, and soap dish, all crafted from natural stone for a minimalist and sophisticated design. Perfect for enhancing modern or rustic interiors, this set combines functionality with timeless beauty.",
+    "productCode": "BW009",
+    "stoneName": "Bali Marble",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Bali Marble"],
+    "subCategory": "Bathware",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "Bali marble",
+      "bathroom set",
+      "soap dispenser",
+      "natural stone",
+      "modern design",
+      "luxury bathroom decor"
+    ],
+    "createdAt": "2025-01-06T19:07:09.804Z",
+    "updatedAt": "2025-01-06T19:14:00.005Z",
+    "__v": 0
+  },
+  {
+    "_id": "677c29eaf873f5997fd6a550",
+    "name": "Bali Marble Soap Dispenser with Copper Finish",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVM6d7aDg18MqRN4wkoe9AhOV7jZSGrz025m1lY",
+        "main": true,
+        "_id": "677c2b85f873f5997fd6a865"
+      }
+    ],
+    "description": "Add a touch of elegance to your bathroom with this Bali marble soap dispenser. Crafted from natural stone with a sleek rounded design, it features a copper-finished pump for a sophisticated look. Perfect for modern or rustic interiors, this dispenser blends functionality with timeless beauty.",
+    "productCode": "BW011",
+    "stoneName": "Bali Marble",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Bali Marble"],
+    "subCategory": "Bathware",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "Bali marble",
+      "soap dispenser",
+      "natural stone",
+      "copper finish",
+      "modern design",
+      "luxury bathroom decor"
+    ],
+    "createdAt": "2025-01-06T19:07:22.764Z",
+    "updatedAt": "2025-01-06T19:14:13.893Z",
+    "__v": 0
+  },
+  {
+    "_id": "677c29f6f873f5997fd6a554",
+    "name": "Bali Marble Ornamental Garden Planter",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMFUZA8JtEsH9RL20mrNZwxWcfD8qXIYThAKGi",
+        "main": true,
+        "_id": "677c2b93f873f5997fd6a868"
+      }
+    ],
+    "description": "Transform your garden with this intricately designed Bali marble ornamental planter. Featuring detailed carvings and a natural stone finish, this planter is perfect for adding a touch of elegance to outdoor spaces. Its durable construction ensures it withstands the elements, making it ideal for enhancing your garden or patio decor.",
+    "productCode": "BB014",
+    "stoneName": "Bali Marble",
+    "primaryCategory": ["Garden & Landscape"],
+    "secondaryCategory": ["Bali Marble"],
+    "subCategory": "Bird Baths",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "Bali marble",
+      "garden planter",
+      "ornamental decor",
+      "natural stone",
+      "outdoor decor",
+      "luxury garden design"
+    ],
+    "createdAt": "2025-01-06T19:07:34.034Z",
+    "updatedAt": "2025-01-06T19:14:27.117Z",
+    "__v": 0
+  },
+  {
+    "_id": "677c2a11f873f5997fd6a55c",
+    "name": "Bali Marble Dragon Sculpture Set",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMKqQhMQ75JcvyZQi0u69LTfPzChGBjUXmSwq4",
+        "main": true,
+        "_id": "677c2bb1f873f5997fd6a86e"
+      },
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMCsEyzzo2ZQ6SAjyXBz9n8GLiD43owlHs1uON",
+        "main": true,
+        "_id": "677c2bb1f873f5997fd6a86f"
+      }
+    ],
+    "description": "Bring mythical beauty to your decor with this Bali marble dragon sculpture set. Featuring intricate detailing and a three-piece design, this handcrafted masterpiece showcases the elegance and power of a dragon in natural stone. Perfect for homes, offices, or garden settings, it adds a unique and artistic touch to any space.",
+    "productCode": "AF015",
+    "stoneName": "Bali Marble",
+    "primaryCategory": ["Garden & Landscape", "Outdoor"],
+    "secondaryCategory": ["Bali Marble"],
+    "subCategory": "Artifacts",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": ["Bali marble", "dragon sculpture", "mythical decor", "handcrafted art", "natural stone", "luxury decor"],
+    "createdAt": "2025-01-06T19:08:01.493Z",
+    "updatedAt": "2025-01-06T19:14:57.791Z",
+    "__v": 0
+  },
+  {
+    "_id": "677c29c8f873f5997fd6a548",
+    "name": "Bali Marble Bathroom Accessories Set",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVM23TRkDYToXPBUwDxnetWu9i6OHbk8ECVYZdK",
+        "main": true,
+        "_id": "677c2b68f873f5997fd6a85f"
+      }
+    ],
+    "description": "Elevate your bathroom decor with this elegant Bali marble accessories set. Featuring a soap dispenser, tumbler, storage jar, and toilet brush holder, each piece showcases a natural stone finish complemented by wooden accents for a minimalist and luxurious look. Perfect for modern bathrooms, this set combines functionality with timeless style.",
+    "productCode": "BW003",
+    "stoneName": "Bali Marble",
+    "primaryCategory": ["Home"],
+    "secondaryCategory": ["Bali Marble"],
+    "subCategory": "Bathware",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": ["Bali marble", "bathroom accessories", "modern design", "natural stone", "wooden accents", "luxury decor"],
+    "createdAt": "2025-01-06T19:06:48.854Z",
+    "updatedAt": "2025-01-06T19:13:44.099Z",
+    "__v": 0
+  },
+  {
+    "_id": "677c2a39f873f5997fd6a564",
+    "name": "Bali Marble Stacked Tortoise Sculpture",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMQ7xezrjyPWqVo7bRt8dpsn5SFcMkODzZYhaK",
+        "main": true,
+        "_id": "677c2bccf873f5997fd6a876"
+      }
+    ],
+    "description": "Bring symbolism and charm to your decor with this Bali marble stacked tortoise sculpture. Handcrafted with intricate details, this sculpture represents longevity, harmony, and family unity. Perfect for home, office, or garden decor, this unique piece adds an artistic and meaningful touch to any space.",
+    "productCode": "AF017",
+    "stoneName": "Bali Marble",
+    "primaryCategory": ["Garden & Landscape", "Outdoor"],
+    "secondaryCategory": ["Bali Marble"],
+    "subCategory": "Artifacts",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "Bali marble",
+      "stacked tortoise",
+      "handcrafted sculpture",
+      "natural stone",
+      "home decor",
+      "symbol of unity",
+      "artistic design"
+    ],
+    "createdAt": "2025-01-06T19:08:41.602Z",
+    "updatedAt": "2025-01-06T19:15:24.522Z",
+    "__v": 0
+  },
+  {
+    "_id": "677c2a44f873f5997fd6a568",
+    "name": "Bali Marble Dragon Tortoise Sculpture",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMR8hSWYCK7ITBzxZAy0YQNkU9neCMos6wfW4c",
+        "main": true,
+        "_id": "677c2bdcf873f5997fd6a879"
+      }
+    ],
+    "description": "Add a blend of mythology and symbolism to your decor with this Bali marble dragon tortoise sculpture. Representing protection, wealth, and longevity, this intricately carved piece features a dragon-headed tortoise standing atop coins and ingots, with a smaller tortoise on its back. Perfect for homes, offices, or gardens, this sculpture is both a decorative and meaningful addition to any space.",
+    "productCode": "AF018",
+    "stoneName": "Bali Marble",
+    "primaryCategory": ["Garden & Landscape", "Outdoor"],
+    "secondaryCategory": ["Bali Marble"],
+    "subCategory": "Artifacts",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "Bali marble",
+      "dragon tortoise",
+      "symbol of wealth",
+      "handcrafted art",
+      "natural stone",
+      "home decor",
+      "mythical sculpture"
+    ],
+    "createdAt": "2025-01-06T19:08:52.714Z",
+    "updatedAt": "2025-01-06T19:15:40.292Z",
+    "__v": 0
+  },
+  {
+    "_id": "677c2cf8f873f5997fd6a9c7",
+    "name": "Bali Marble Elephant Sculptures",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMlr2VUTPmbTwQXCaxq8uKPWeUftE3FHD7r6iS",
+        "main": true,
+        "_id": "677c2faaf873f5997fd6ad04"
+      }
+    ],
+    "description": "These Bali marble elephant sculptures symbolize wisdom, strength, and good fortune. Handcrafted with intricate details, each elephant stands on a beautifully designed pedestal. Perfect as a decorative piece for your home, office, or garden, these sculptures blend tradition and elegance.",
+    "productCode": "AF019",
+    "stoneName": "Bali Marble",
+    "primaryCategory": ["Garden & Landscape", "Outdoor"],
+    "secondaryCategory": ["Bali Marble"],
+    "subCategory": "Artifacts",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "Bali marble",
+      "elephant sculptures",
+      "handcrafted",
+      "natural stone",
+      "home decor",
+      "symbol of strength",
+      "elegant art"
+    ],
+    "createdAt": "2025-01-06T19:20:24.314Z",
+    "updatedAt": "2025-01-06T19:31:54.423Z",
+    "__v": 0
+  },
+  {
+    "_id": "677c2d13f873f5997fd6aa03",
+    "name": "Bali Marble Monk Statues",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMYcR2sY0cjM7UnriH6SFwubhEqzGAdBsLo4Tv",
+        "main": true,
+        "_id": "677c2fbdf873f5997fd6ad07"
+      }
+    ],
+    "description": "These Bali marble monk statues showcase serene expressions and intricate detailing, making them a perfect representation of peace and spirituality. Crafted from natural Bali marble, they are ideal for adding a touch of tranquility to your home, office, or meditation space.",
+    "productCode": "AF020",
+    "stoneName": "Bali Marble",
+    "primaryCategory": ["Garden & Landscape", "Outdoor"],
+    "secondaryCategory": ["Bali Marble"],
+    "subCategory": "Artifacts",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "Bali marble",
+      "monk statues",
+      "spiritual decor",
+      "handcrafted",
+      "natural stone",
+      "meditation",
+      "peaceful art"
+    ],
+    "createdAt": "2025-01-06T19:20:51.527Z",
+    "updatedAt": "2025-01-06T19:32:13.300Z",
+    "__v": 0
+  },
+  {
+    "_id": "677c2e0ef873f5997fd6aa0b",
+    "name": "Bali Marble Monk Figurine",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVM6wSjvJ18MqRN4wkoe9AhOV7jZSGrz025m1lY",
+        "main": true,
+        "_id": "677c2fccf873f5997fd6ad0a"
+      }
+    ],
+    "description": "This elegant Bali marble monk figurine embodies grace and tranquility, crafted with precision to highlight flowing robes and serene expressions. A stunning piece to enhance spiritual or minimalist decor settings.",
+    "productCode": "AF021",
+    "stoneName": "Bali Marble",
+    "primaryCategory": ["Garden & Landscape", "Outdoor"],
+    "secondaryCategory": ["Bali Marble"],
+    "subCategory": "Artifacts",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "Bali marble",
+      "monk figurine",
+      "spiritual art",
+      "decorative sculpture",
+      "natural stone",
+      "minimalist decor",
+      "handcrafted"
+    ],
+    "createdAt": "2025-01-06T19:25:02.642Z",
+    "updatedAt": "2025-01-06T19:32:28.789Z",
+    "__v": 0
+  },
+  {
+    "_id": "677c2ea7f873f5997fd6aa4a",
+    "name": "Bali Marble Monk Figurine Set",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVM52x1a8VlUPSpuLRqQWMXdBCa48v2GjE1IKH7",
+        "main": true,
+        "_id": "677c2fecf873f5997fd6ad0d"
+      }
+    ],
+    "description": "This set of three Bali marble monk figurines captures the essence of tranquility and serenity. Each figurine depicts a monk in a different meditative pose, showcasing the beauty and grace of the human form.  The smooth, cool marble and meticulous detail make this a captivating addition to any space, inspiring contemplation and peace.",
+    "productCode": "AF023",
+    "stoneName": "Bali Marble",
+    "primaryCategory": ["Garden & Landscape", "Outdoor"],
+    "secondaryCategory": ["Bali Marble"],
+    "subCategory": "Artifacts",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "Bali marble",
+      "monk figurines",
+      "spiritual art",
+      "decorative sculpture",
+      "natural stone",
+      "minimalist decor",
+      "handcrafted",
+      "set"
+    ],
+    "createdAt": "2025-01-06T19:27:35.857Z",
+    "updatedAt": "2025-01-06T19:33:00.782Z",
+    "__v": 0
+  },
+  {
+    "_id": "677c2ef4f873f5997fd6aa4e",
+    "name": "Bali Marble Laughing Buddha Figurines",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMPUkb8T21qAVMsc69BIRkwmuLOg80ZKW7QehC",
+        "main": true,
+        "_id": "677c2ffcf873f5997fd6ad10"
+      }
+    ],
+    "description": "This charming pair of Bali marble Laughing Buddha figurines brings joy and good fortune to any space. The smaller Buddha playfully reaches out while the larger one welcomes with open arms, symbolizing abundance and happiness. The smooth, cool marble and intricate details make these a delightful addition to your home or office decor.",
+    "productCode": "AF024",
+    "stoneName": "Bali Marble",
+    "primaryCategory": ["Garden & Landscape", "Outdoor"],
+    "secondaryCategory": ["Bali Marble"],
+    "subCategory": "Artifacts",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "Bali marble",
+      "Laughing Buddha",
+      "figurines",
+      "good luck",
+      "happiness",
+      "abundance",
+      "decorative sculpture",
+      "natural stone",
+      "minimalist decor",
+      "handcrafted"
+    ],
+    "createdAt": "2025-01-06T19:28:52.926Z",
+    "updatedAt": "2025-01-06T19:33:16.228Z",
+    "__v": 0
+  },
+  {
+    "_id": "677c2f25f873f5997fd6aa52",
+    "name": "Bali Marble Baby Buddha Figurine Set",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMKy0uPp75JcvyZQi0u69LTfPzChGBjUXmSwq4",
+        "main": true,
+        "_id": "677c3009f873f5997fd6ad13"
+      }
+    ],
+    "description": "This adorable set of three Bali marble Baby Buddha figurines radiates pure joy and innocence. Each figurine depicts the young Buddha in a different meditative pose, capturing the essence of peace and enlightenment. The smooth, cool marble and intricate details make this a delightful addition to any space, bringing a sense of calm and happiness.",
+    "productCode": "AF025",
+    "stoneName": "Bali Marble",
+    "primaryCategory": ["Garden & Landscape", "Outdoor"],
+    "secondaryCategory": ["Bali Marble"],
+    "subCategory": "Artifacts",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "Bali marble",
+      "Baby Buddha",
+      "figurines",
+      "spiritual art",
+      "decorative sculpture",
+      "natural stone",
+      "minimalist decor",
+      "handcrafted",
+      "set"
+    ],
+    "createdAt": "2025-01-06T19:29:41.053Z",
+    "updatedAt": "2025-01-06T19:33:29.427Z",
+    "__v": 0
+  },
+  {
+    "_id": "677c2f8ff873f5997fd6acc3",
+    "name": "Bali Marble Monk Figurine",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMlYbCsnyPmbTwQXCaxq8uKPWeUftE3FHD7r6i",
+        "main": true,
+        "_id": "677c301ef873f5997fd6ad16"
+      }
+    ],
+    "description": "This exquisitely crafted Bali marble monk figurine captures the serenity and grace of Buddha in a peaceful reclining pose.  The smooth, cool marble and meticulous detail make this a beautiful addition to any space, inspiring contemplation and tranquility.",
+    "productCode": "AF022",
+    "stoneName": "Bali Marble",
+    "primaryCategory": ["Garden & Landscape", "Outdoor"],
+    "secondaryCategory": ["Bali Marble"],
+    "subCategory": "Artifacts",
+    "isFeatured": false,
+    "inStock": true,
+    "tags": [
+      "Bali marble",
+      "monk figurine",
+      "spiritual art",
+      "decorative sculpture",
+      "natural stone",
+      "minimalist decor",
+      "handcrafted"
+    ],
+    "createdAt": "2025-01-06T19:31:27.009Z",
+    "updatedAt": "2025-01-06T19:33:50.182Z",
+    "__v": 0
+  },
+  {
+    "primaryCategory": [],
+    "_id": "677c33dbf873f5997fd6b27f",
+    "name": "Agra Red Sandstone Cannon Sculpture",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVM6KsXOq18MqRN4wkoe9AhOV7jZSGrz025m1lY",
+        "main": true,
+        "_id": "677c3400f873f5997fd6b301"
+      }
+    ],
+    "description": "Showcase the grandeur of historical artistry with this handcrafted Agra Red Sandstone cannon sculpture. Perfect for adding a regal and unique touch to gardens, courtyards, or museum exhibits, this piece combines traditional craftsmanship with the durability of sandstone. Its intricate details and robust design make it a standout feature in any setting.",
+    "productCode": "AG007",
+    "stoneName": "Agra Red",
+    "secondaryCategory": ["Agra Red"],
+    "subCategory": "",
     "isFeatured": true,
-    "tags": ["mosaic", "sunburst", "ceramic tiles", "decor", "vibrant", "outdoor"]
+    "inStock": true,
+    "tags": [
+      "Agra Red",
+      "sandstone art",
+      "cannon sculpture",
+      "historical decor",
+      "handcrafted",
+      "traditional design",
+      "garden decor"
+    ],
+    "createdAt": "2025-01-06T19:49:47.765Z",
+    "updatedAt": "2025-01-06T19:57:19.004Z",
+    "__v": 0
   },
   {
-    "name": "Floral Mandala Mosaic",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Embrace the beauty of nature with this stunning Floral Mandala Mosaic. This intricate piece is crafted with warm hues of red, orange, and yellow, forming a mesmerizing floral pattern. Each tile is meticulously laid to create an impressive mandala design that evokes a sense of calm and serenity. Perfect for adding a decorative element to interiors, garden walls, or as a statement piece in a living space, this mosaic embodies the timeless appeal of mandalas and the organic beauty of floral motifs.",
-    "productCode": "MD-002",
-    "material": "Glass Tiles",
-    "category": "Mosaic Art",
-    "subCategory": "Indoor Decor",
-    "isFeatured": true,
-    "tags": ["mosaic", "mandala", "floral design", "glass tiles", "decor", "indoor"]
-  },
-  {
-    "name": "Eagle Head Mosaic",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "This Eagle Head Mosaic captures the strength and beauty of the eagle, symbolizing freedom and power. Made from natural stone pieces, this design is an earthy representation of the majestic bird, with various shades of brown, cream, and rust arranged to form the eagle’s proud profile. Ideal for rustic interiors, cabins, or as a unique wall accent, this piece brings a touch of nature and artistic craftsmanship into your space, perfect for wildlife enthusiasts and lovers of nature-inspired decor.",
-    "productCode": "MD-003",
-    "material": "Natural Stone",
-    "category": "Mosaic Art",
-    "subCategory": "Wall Art",
+    "_id": "677c349cf873f5997fd6b442",
+    "name": "Modern Pedestal Side Tables Set",
+    "images": [
+      {
+        "image": "https://utfs.io/f/PtdZWm21qAVMogRyeTnITUoOwcJsE0nZdByrv2gFNHYVzLaP",
+        "main": true,
+        "_id": "677c34b9f873f5997fd6b4c6"
+      }
+    ],
+    "description": "Upgrade your interior decor with this set of modern pedestal side tables. Featuring natural stone tops with unique textures and sturdy black bases, these tables bring a chic and minimalist aesthetic to any space. Perfect for living rooms, lounges, or office interiors, they combine functionality with stylish design.",
+    "productCode": "TB009",
+    "stoneName": "Mixed",
+    "primaryCategory": [],
+    "secondaryCategory": ["Furniture"],
+    "subCategory": "Table",
     "isFeatured": false,
-    "tags": ["mosaic", "eagle", "natural stone", "wildlife", "wall art", "rustic decor"]
-  },
-  {
-    "name": "Colorful Fish Mosaic",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Add a splash of color to your decor with this vibrant Colorful Fish Mosaic. Crafted with an array of brightly colored tiles, this design captures the playful essence of aquatic life. The mosaic features a tropical fish in vivid blues, greens, and oranges, creating a striking visual that is perfect for coastal homes, aquariums, or bathrooms. The intricate tile work brings out fine details of the fish's scales and fins, making this piece an exquisite example of mosaic art.",
-    "productCode": "MD-004",
-    "material": "Glass Tiles",
-    "category": "Mosaic Art",
-    "subCategory": "Aquatic Decor",
-    "isFeatured": true,
-    "tags": ["mosaic", "fish", "colorful", "glass tiles", "aquatic decor", "coastal"]
-  },
-  {
-    "name": "Octopus Mosaic Design",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "Dive into an underwater world with this captivating Octopus Mosaic Design. Using a variety of vibrant, ocean-inspired colors, this mosaic art piece brings the beauty and mystery of marine life to your decor. The octopus is intricately detailed with swirling tentacles and vibrant colors, creating a dynamic and eye-catching display. Ideal for bathrooms, pool areas, or as a wall feature in a coastal-themed room, this mosaic exudes the energy and elegance of the sea.",
-    "productCode": "MD-005",
-    "material": "Glass and Ceramic Tiles",
-    "category": "Mosaic Art",
-    "subCategory": "Marine Decor",
-    "isFeatured": true,
-    "tags": ["mosaic", "octopus", "marine", "decor", "glass tiles", "ocean theme"]
-  },
-  {
-    "name": "Blue Fish Mosaic",
-    "images": [{ "image": "/path-to-image/image.png", "main": true }],
-    "description": "This Blue Fish Mosaic brings the serene beauty of the ocean into your space with its calming shades of blue and accents of orange. Crafted with precision, the mosaic showcases a fish with intricate detailing, highlighting the scales, fins, and contours of the aquatic creature. Perfect for enhancing a coastal or marine-themed decor, this mosaic is suitable for bathroom walls, poolside installations, or any space that could benefit from a touch of oceanic elegance.",
-    "productCode": "MD-006",
-    "material": "Glass Tiles",
-    "category": "Mosaic Art",
-    "subCategory": "Aquatic Decor",
-    "isFeatured": false,
-    "tags": ["mosaic", "blue fish", "ocean theme", "decor", "glass tiles", "marine life"]
-  },
-  {
-    "name": "White Marble Tiger Sculpture",
-    "images": [{ "image": "/path-to-image/image1.png", "main": true }],
-    "description": "A majestic white marble tiger sculpture crafted with intricate details. This piece captures the strength and grace of the tiger, making it an elegant addition to any decor. The fine craftsmanship in marble offers a lifelike appearance, ideal for adding a touch of the wild in a sophisticated way.",
-    "productCode": "ART-001",
-    "stoneName": "White Marble",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "marble", "tiger", "artifacts", "decor", "elegant"]
-  },
-  {
-    "name": "Abstract Stone Face Sculpture",
-    "images": [{ "image": "/path-to-image/image2.png", "main": true }],
-    "description": "An abstract stone sculpture of a face, perfect for contemporary interiors. The unique design and rough texture add character and depth to any space. This artistic piece is a subtle yet impactful way to showcase personality in your decor.",
-    "productCode": "ART-002",
-    "stoneName": "Natural Stone",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "stone", "face", "abstract", "modern", "decor"]
-  },
-  {
-    "name": "Leaf-Shaped Stone Sculpture",
-    "images": [{ "image": "/path-to-image/image3.png", "main": true }],
-    "description": "Elegant leaf-shaped stone sculptures that bring a natural element to your decor. The delicate curves and cutouts make this piece a versatile accent for both indoor and outdoor settings, embodying the beauty of nature in art form.",
-    "productCode": "ART-003",
-    "stoneName": "Sandstone",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "leaf", "stone", "decor", "nature", "art"]
-  },
-  {
-    "name": "Miniature Marble Temple Ruin",
-    "images": [{ "image": "/path-to-image/image4.png", "main": true }],
-    "description": "A miniature marble structure replicating ancient temple ruins, adding historical and cultural depth to your decor. Its rugged design and polished marble finish evoke a sense of timeless artistry.",
-    "productCode": "ART-004",
-    "stoneName": "Marble",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "miniature", "marble", "temple", "artifacts", "historical"]
-  },
-  {
-    "name": "Red Sandstone Twin Lady Sculptures",
-    "images": [{ "image": "/path-to-image/image5.png", "main": true }],
-    "description": "Twin sculptures of ladies crafted from red sandstone. Their poised stance and traditional attire add a cultural touch, making them ideal for both indoor and outdoor settings, especially in themed or rustic spaces.",
-    "productCode": "ART-005",
-    "stoneName": "Red Sandstone",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "sandstone", "ladies", "traditional", "outdoor", "artifacts"]
-  },
-  {
-    "name": "Circular Marble Art Sculpture",
-    "images": [{ "image": "/path-to-image/image6.png", "main": true }],
-    "description": "A modern circular sculpture crafted from marble, featuring a unique open design. The clean, minimalist look adds a contemporary element to any decor, making it a perfect centerpiece for modern interiors.",
-    "productCode": "ART-006",
-    "stoneName": "Marble",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "marble", "circular", "modern", "artifacts", "decor"]
-  },
-  {
-    "name": "White Marble Tiger Sculpture",
-    "images": [{ "image": "/path-to-image/image1.png", "main": true }],
-    "description": "A majestic white marble tiger sculpture crafted with intricate details. This piece captures the strength and grace of the tiger, making it an elegant addition to any decor. The fine craftsmanship in marble offers a lifelike appearance, ideal for adding a touch of the wild in a sophisticated way.",
-    "productCode": "ART-001",
-    "stoneName": "White Marble",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "marble", "tiger", "artifacts", "decor", "elegant"]
-  },
-  {
-    "name": "Abstract Stone Face Sculpture",
-    "images": [{ "image": "/path-to-image/image2.png", "main": true }],
-    "description": "An abstract stone sculpture of a face, perfect for contemporary interiors. The unique design and rough texture add character and depth to any space. This artistic piece is a subtle yet impactful way to showcase personality in your decor.",
-    "productCode": "ART-002",
-    "stoneName": "Natural Stone",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "stone", "face", "abstract", "modern", "decor"]
-  },
-  {
-    "name": "Leaf-Shaped Stone Sculpture",
-    "images": [{ "image": "/path-to-image/image3.png", "main": true }],
-    "description": "Elegant leaf-shaped stone sculptures that bring a natural element to your decor. The delicate curves and cutouts make this piece a versatile accent for both indoor and outdoor settings, embodying the beauty of nature in art form.",
-    "productCode": "ART-003",
-    "stoneName": "Sandstone",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "leaf", "stone", "decor", "nature", "art"]
-  },
-  {
-    "name": "Miniature Marble Temple Ruin",
-    "images": [{ "image": "/path-to-image/image4.png", "main": true }],
-    "description": "A miniature marble structure replicating ancient temple ruins, adding historical and cultural depth to your decor. Its rugged design and polished marble finish evoke a sense of timeless artistry.",
-    "productCode": "ART-004",
-    "stoneName": "Marble",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "miniature", "marble", "temple", "artifacts", "historical"]
-  },
-  {
-    "name": "Red Sandstone Twin Lady Sculptures",
-    "images": [{ "image": "/path-to-image/image5.png", "main": true }],
-    "description": "Twin sculptures of ladies crafted from red sandstone. Their poised stance and traditional attire add a cultural touch, making them ideal for both indoor and outdoor settings, especially in themed or rustic spaces.",
-    "productCode": "ART-005",
-    "stoneName": "Red Sandstone",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "sandstone", "ladies", "traditional", "outdoor", "artifacts"]
-  },
-  {
-    "name": "Circular Marble Art Sculpture",
-    "images": [{ "image": "/path-to-image/image6.png", "main": true }],
-    "description": "A modern circular sculpture crafted from marble, featuring a unique open design. The clean, minimalist look adds a contemporary element to any decor, making it a perfect centerpiece for modern interiors.",
-    "productCode": "ART-006",
-    "stoneName": "Marble",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "marble", "circular", "modern", "artifacts", "decor"]
-  },
-  {
-    "name": "Twisted Marble Ring Sculpture",
-    "images": [{ "image": "/path-to-image/image7.png", "main": true }],
-    "description": "A striking twisted ring sculpture in marble, symbolizing infinity and unity. Its flowing shape and smooth finish make it an eye-catching decorative item, ideal for modern spaces.",
-    "productCode": "ART-007",
-    "stoneName": "Marble",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "marble", "ring", "modern", "decor", "art"]
-  },
-  {
-    "name": "Sandstone Elephant Sculpture",
-    "images": [{ "image": "/path-to-image/image8.png", "main": true }],
-    "description": "A charming sandstone sculpture of an elephant with intricate details, perfect for adding a traditional and cultural touch to your decor. Ideal for indoor and outdoor settings.",
-    "productCode": "ART-008",
-    "stoneName": "Sandstone",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "sandstone", "elephant", "traditional", "outdoor", "artifacts"]
-  },
-  {
-    "name": "Miniature Family Sculptures",
-    "images": [{ "image": "/path-to-image/image9.png", "main": true }],
-    "description": "Delicate miniature sculptures depicting family scenes, crafted in marble. These pieces celebrate family bonds and are perfect as subtle decor elements in any room.",
-    "productCode": "ART-009",
-    "stoneName": "White Marble",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "marble", "family", "miniature", "decor", "artifacts"]
-  },
-  {
-    "name": "Swan Shaped Marble Bowls",
-    "images": [{ "image": "/path-to-image/image10.png", "main": true }],
-    "description": "Elegant marble bowls shaped like swans, ideal as decorative accents. Perfect for holding small items or as standalone pieces to enhance the aesthetics of any space.",
-    "productCode": "ART-010",
-    "stoneName": "Marble",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "marble", "swan", "bowl", "decor", "artifacts"]
-  },
-  {
-    "name": "Sandstone Lion Head Sculpture",
-    "images": [{ "image": "/path-to-image/stonekingexports-20241021-0002.jpg", "main": true }],
-    "description": "A striking sandstone lion head sculpture that captures the fierce and majestic essence of the lion. This piece is carved in sandstone, providing a timeless, natural look suitable for both interior and exterior decor.",
-    "productCode": "ART-007",
-    "stoneName": "Sandstone",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "sandstone", "lion", "decor", "majestic", "artifacts"]
-  },
-  {
-    "name": "Limestone Lion Head Sculpture",
-    "images": [{ "image": "/path-to-image/stonekingexports-20241021-0003.jpg", "main": true }],
-    "description": "A beautifully detailed limestone lion head sculpture, perfect for adding a bold statement to any space. This sculpture embodies strength and power, ideal for wall-mounted displays in both classic and contemporary settings.",
-    "productCode": "ART-008",
-    "stoneName": "Limestone",
-    "category": "home",
-    "subCategory": "artifacts",
-    "isFeatured": false,
-    "tags": ["sculpture", "limestone", "lion", "bold", "decor", "artifacts"]
+    "inStock": true,
+    "tags": [
+      "stone side table",
+      "pedestal design",
+      "modern furniture",
+      "minimalist decor",
+      "black base",
+      "unique textures"
+    ],
+    "createdAt": "2025-01-06T19:53:00.704Z",
+    "updatedAt": "2025-01-06T19:53:29.821Z",
+    "__v": 0
   }
 ]

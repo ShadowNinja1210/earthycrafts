@@ -7,7 +7,7 @@ import TooltipContext from "../contexts/tooltip-context";
 import { Search } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchAllProducts } from "@/lib/api";
-import { IProduct } from "@/lib/schema";
+import { INewProduct } from "@/lib/schema";
 import _ from "lodash";
 import SearchCards from "./search-cards";
 
@@ -28,13 +28,13 @@ export default function SearchComponent() {
 
     console.log("Searching products for ", query);
 
-    const results = products.filter((product: IProduct) => {
+    const results = products.filter((product: INewProduct) => {
       return (
         _.lowerCase(_.camelCase(product.productCode)).includes(_.lowerCase(_.camelCase(query))) ||
         _.kebabCase(product.name).includes(_.kebabCase(query)) ||
         _.kebabCase(product.stoneName).includes(_.kebabCase(query)) ||
         _.kebabCase(product.subCategory).includes(_.kebabCase(query)) ||
-        _.kebabCase(product.category).includes(_.kebabCase(query)) ||
+        product.primaryCategory.map((item) => _.kebabCase(item).includes(_.kebabCase(query))) ||
         product.tags.some((tag) => _.kebabCase(tag).includes(_.kebabCase(query)))
       );
     });
@@ -63,7 +63,7 @@ export default function SearchComponent() {
           <DialogDescription>{`Searched results for ${query && query}`}</DialogDescription>
         </DialogHeader>
 
-        <div className="px-2 space-y-4">
+        <div className="px-2 space-y-4 overflow-y-scroll h-full">
           <div className="grid grid-cols-2 gap-4">
             {query.length > 2 ? (
               isLoading ? (
@@ -74,7 +74,7 @@ export default function SearchComponent() {
                 <p className="text-center col-span-2">No results found</p>
               ) : (
                 // Display search results
-                searchResults.map((product: IProduct) => <SearchCards key={product.productCode} product={product} />)
+                searchResults.map((product: INewProduct) => <SearchCards key={product.productCode} product={product} />)
               )
             ) : (
               // Search query is less than 3 characters

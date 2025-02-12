@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { IProduct } from "@/lib/schema";
+import { INewProduct } from "@/lib/schema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { imgPlaceholder } from "@/public/assets/some-data";
 import BreadcrumbsContext from "../breadcrumbs-context";
 
-export default function ProductDetails({ product }: { product: IProduct }) {
+export default function ProductDetails({ product }: { product: INewProduct }) {
   const [selectedImage, setSelectedImage] = useState(
     product.images.find((img) => img.main)?.image || product.images[0]?.image
   );

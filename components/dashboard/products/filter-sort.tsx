@@ -1,28 +1,28 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-import { IProduct } from "@/lib/schema";
+import { INewProduct } from "@/lib/schema";
 import { Filter } from "lucide-react";
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface FilterSortProps {
-  products: IProduct[];
-  onFilterSort: (filteredSortedProducts: IProduct[]) => void;
+  products: INewProduct[];
+  onFilterSort: (filteredSortedProducts: INewProduct[]) => void;
 }
 
 export default function FilterSort({ products, onFilterSort }: FilterSortProps) {
-  const [filters, setFilters] = useState<Partial<IProduct> & { categories: string[]; subCategories: string[] }>({
+  const [filters, setFilters] = useState<Partial<INewProduct> & { categories: string[]; subCategories: string[] }>({
     categories: [],
     subCategories: [],
     inStock: undefined,
   });
   const [sortOption, setSortOption] = useState<string>("");
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleFilterChange = (key: string, value: any) => {
     if (key === "categories" || key === "subCategories") {
       setFilters((prev) => ({
@@ -42,11 +42,13 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
     let result = [...products];
 
     if (filters.categories.length > 0) {
-      result = result.filter((product) => filters.categories.includes(product.category));
+      result = result.filter((product) =>
+        filters.categories.some((category) => product.primaryCategory.includes(category))
+      );
     }
 
     if (filters.subCategories.length > 0) {
-      result = result.filter((product) => filters.subCategories.includes(product.subCategory));
+      result = result.filter((product) => filters.subCategories.includes(product.subCategory as string));
     }
 
     if (filters.inStock !== undefined) {
@@ -56,8 +58,8 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
     if (sortOption) {
       const [key, order] = sortOption.split(":");
       result.sort((a, b) => {
-        if (a[key as keyof IProduct] < b[key as keyof IProduct]) return order === "asc" ? -1 : 1;
-        if (a[key as keyof IProduct] > b[key as keyof IProduct]) return order === "asc" ? 1 : -1;
+        if (a[key as keyof INewProduct] < b[key as keyof INewProduct]) return order === "asc" ? -1 : 1;
+        if (a[key as keyof INewProduct] > b[key as keyof INewProduct]) return order === "asc" ? 1 : -1;
         return 0;
       });
     }
@@ -65,8 +67,8 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
     onFilterSort(result);
   };
 
-  const categories = Array.from(new Set(products?.map((p) => p.category)));
-  const subCategories = Array.from(new Set(products?.map((p) => p.subCategory)));
+  const categories = Array.from(new Set(products?.flatMap((p) => p.primaryCategory)));
+  const subCategories = Array.from(new Set(products?.map((p) => p.subCategory).filter(Boolean)));
 
   return (
     <DropdownMenu>
@@ -80,6 +82,7 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
       <DropdownMenuContent className="w-64">
         <ScrollArea className="h-[80vh]">
           <div className="p-4 space-y-4">
+            {/* Categories */}
             <div className="space-y-2">
               <h3 className="text-sm font-medium">Categories</h3>
               <div className="space-y-1">
@@ -98,6 +101,7 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
               </div>
             </div>
 
+            {/* Subcategories */}
             <div className="space-y-2">
               <h3 className="text-sm font-medium">Sub-Categories</h3>
               <div className="space-y-1">
@@ -105,7 +109,7 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
                   <div key={subCategory} className="flex items-center">
                     <Checkbox
                       id={`subCategory-${subCategory}`}
-                      checked={filters.subCategories.includes(subCategory)}
+                      checked={filters.subCategories.includes(subCategory as string)}
                       onCheckedChange={() => handleFilterChange("subCategories", subCategory)}
                     />
                     <label htmlFor={`subCategory-${subCategory}`} className="ml-2 text-sm">
@@ -116,42 +120,40 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
               </div>
             </div>
 
+            {/* In-Stock */}
             <div className="space-y-2">
-              <h3 className="text-sm font-medium">In Stock</h3>
-              <Select
-                onValueChange={(value) =>
-                  handleFilterChange("inStock", value === "true" ? true : value === "false" ? false : undefined)
-                }
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder="Select" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All</SelectItem>
-                  <SelectItem value="true">Yes</SelectItem>
-                  <SelectItem value="false">No</SelectItem>
-                </SelectContent>
-              </Select>
+              <h3 className="text-sm font-medium">Availability</h3>
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="inStock"
+                  checked={filters.inStock === true}
+                  onCheckedChange={() => handleFilterChange("inStock", filters.inStock === true ? undefined : true)}
+                />
+                <label htmlFor="inStock" className="text-sm">
+                  In Stock Only
+                </label>
+              </div>
             </div>
 
+            {/* Sort Options */}
             <div className="space-y-2">
-              <h3 className="text-sm font-medium">Sort</h3>
-              <Select onValueChange={handleSortChange}>
+              <h3 className="text-sm font-medium">Sort By</h3>
+              <Select onValueChange={handleSortChange} value={sortOption}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select sorting" />
+                  <SelectValue placeholder="Select sorting option" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="default">Default</SelectItem>
                   <SelectItem value="name:asc">Name (A-Z)</SelectItem>
                   <SelectItem value="name:desc">Name (Z-A)</SelectItem>
-                  <SelectItem value="createdAt:asc">Date Created (Oldest First)</SelectItem>
-                  <SelectItem value="createdAt:desc">Date Created (Newest First)</SelectItem>
+                  <SelectItem value="createdAt:asc">Date Added (Oldest First)</SelectItem>
+                  <SelectItem value="createdAt:desc">Date Added (Newest First)</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
-            <Button className="w-full" onClick={applyFilterSort}>
-              Apply
+            {/* Apply Button */}
+            <Button className="w-full mt-4" onClick={applyFilterSort}>
+              Apply Filters & Sort
             </Button>
           </div>
         </ScrollArea>

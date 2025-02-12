@@ -35,7 +35,7 @@ export function FilesUpload({
 
   return (
     <>
-      {value.length > 0 && (
+      {value?.length > 0 && (
         <div className="flex flex-wrap gap-2">
           {value.map((image, index) => (
             <HoverCard key={index}>

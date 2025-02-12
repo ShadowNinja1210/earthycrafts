@@ -1,17 +1,19 @@
 "use client";
 
-import ProductCard from "@/components/products/product-card";
-import { IProduct } from "@/lib/schema";
+import { useRef, useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
-import { Button } from "../ui/button";
-import { useRef, useState } from "react";
+import { INewProduct } from "@/lib/schema";
+import ProductCard from "../products/product-card";
 
-export default function ProductSlide() {
+export default function ProductCarousel() {
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(true);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
-  const { data: products } = useQuery<IProduct[]>({
+  const { data: products } = useQuery<INewProduct[]>({
     queryKey: ["featured-products"],
     queryFn: async () => {
       const res = await fetch("/api/product/featured");
@@ -19,7 +21,6 @@ export default function ProductSlide() {
       return products.slice(0, 5);
     },
   });
-
   const checkScroll = () => {
     const carousel = carouselRef.current;
     if (carousel) {
@@ -29,51 +30,59 @@ export default function ProductSlide() {
     }
   };
 
-  const carouselRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    checkScroll();
+    window.addEventListener("resize", checkScroll);
+    return () => window.removeEventListener("resize", checkScroll);
+  }, [carouselRef]); // Added carouselRef to dependencies
 
-  const scrollLeft = () => {
+  const scroll = (direction: "left" | "right") => {
     const carousel = carouselRef.current;
     if (carousel) {
-      carousel.scrollBy({ left: -300, behavior: "smooth" });
-      setTimeout(checkScroll, 300); // Delay to ensure accurate scroll position
-    }
-  };
-
-  const scrollRight = () => {
-    const carousel = carouselRef.current;
-    if (carousel) {
-      carousel.scrollBy({ left: 300, behavior: "smooth" });
-      setTimeout(checkScroll, 300); // Delay to ensure accurate scroll position
+      const scrollAmount = direction === "left" ? -carousel.clientWidth : carousel.clientWidth;
+      carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      setTimeout(checkScroll, 300);
     }
   };
 
   return (
-    <div className="container relative">
-      <div ref={carouselRef} className="carousel w-full gap-8  ">
-        {products &&
-          products.map((product, index) => (
-            <div className={cn("carousel-item")} key={product._id.toString()}>
-              <ProductCard
-                className={cn(index === 0 ? "ml-16" : index === products.length - 1 ? "mr-16" : "")}
-                product={product}
-              />
-            </div>
+    <div className="w-full max-w-7xl mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold text-center mb-12">Which product is appealing your pallet?</h1>
+
+      <div className="relative">
+        <div
+          ref={carouselRef}
+          className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {products?.map((product) => (
+            <ProductCard key={product.productCode} product={product} />
           ))}
+        </div>
 
         {showLeft && (
           <Button
-            onClick={scrollLeft}
-            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/30 text-neutral-800 hover:bg-white/50 text-xl h-16 w-16 rounded-full backdrop-blur-sm border border-white/20 shadow-lg"
+            onClick={() => scroll("left")}
+            className={cn(
+              "absolute left-[-20px] top-1/2 -translate-y-1/2",
+              "h-12 w-12 rounded-full bg-white shadow-lg",
+              "flex items-center justify-center border border-gray-200"
+            )}
           >
-            &#60;
+            <ChevronLeft className="h-6 w-6 text-gray-600" />
           </Button>
         )}
+
         {showRight && (
           <Button
-            onClick={scrollRight}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/30 text-neutral-800 hover:bg-white/50 text-xl h-16 w-16 rounded-full backdrop-blur-md border border-white/20 shadow-lg"
+            onClick={() => scroll("right")}
+            className={cn(
+              "absolute right-[-20px] top-1/2 -translate-y-1/2",
+              "h-12 w-12 rounded-full bg-white shadow-lg",
+              "flex items-center justify-center border border-gray-200"
+            )}
           >
-            &#62;
+            <ChevronRight className="h-6 w-6 text-gray-600" />
           </Button>
         )}
       </div>

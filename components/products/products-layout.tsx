@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
-import { IProduct } from "@/lib/schema";
+import { INewProduct } from "@/lib/schema";
 import {
   Sidebar,
   SidebarContent,
@@ -28,7 +28,7 @@ export type ICategory = {
 
 interface ProductsLayoutProps {
   categories: ICategory[];
-  products: IProduct[];
+  products: INewProduct[];
 }
 
 export default function ProductsLayout({ categories, products }: ProductsLayoutProps) {
@@ -37,9 +37,12 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
 
   const filteredProducts = products.filter(
     (product) =>
-      (!selectedCategory || product.category === selectedCategory) &&
+      (!selectedCategory || product.primaryCategory.includes(selectedCategory)) &&
+      (!selectedCategory || product.secondaryCategory.includes(selectedCategory)) &&
       (!selectedSubCategory || product.subCategory === selectedSubCategory)
   );
+
+  useEffect(() => {}, [categories]);
 
   return (
     <main>
@@ -74,9 +77,13 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
                           setSelectedCategory(category.name);
                           setSelectedSubCategory("");
                         }}
-                        className={cn("p-4 justify-between", selectedCategory === category.name ? "bg-accent" : "")}
+                        className={cn(
+                          "p-4 justify-between capitalize",
+                          selectedCategory === category.name ? "bg-accent" : ""
+                        )}
                       >
-                        {category.name}{" "}
+                        {_.lowerCase(category.name)}
+                        {/* {category.name} */}
                         <ChevronRight className="transition-transform group-data-[state=open]/collapsible:rotate-90" />
                       </SidebarMenuButton>
                     </CollapsibleTrigger>
@@ -95,6 +102,7 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
                                 href={`/products?category=${_.kebabCase(category.name)}&subCategory=${_.kebabCase(
                                   subCategory
                                 )}`}
+                                className=" capitalize"
                               >
                                 {subCategory}
                               </Link>

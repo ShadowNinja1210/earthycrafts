@@ -19,7 +19,7 @@ export default function CustomizeSection() {
           <ArrowRight className=" w-0 inline-flex group-hover:w-5 transition-all duration-500" />
         </Link>
       </div>
-      <Image src="/images/customize-background.jpg" alt="Customize your space" objectFit="cover" fill />
+      <Image src="/images/customize-background.jpg" alt="Customize your space" className="object-cover" fill />
     </section>
   );
 }

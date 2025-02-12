@@ -74,3 +74,56 @@ export const updateStatus = async (status: string, id: string) => {
 
   return response.ok;
 };
+
+export const enquiryPost = async (data: { name: string; email: string; phone: string; message: string }) => {
+  const response = await fetch("/api/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to submit enquiry");
+  }
+
+  return response.json();
+};
+
+export const fetchEnquiries = async () => {
+  const res = await fetch("/api/contact");
+  if (!res.ok) {
+    if (res.status === 404) {
+      return [];
+    } else {
+      throw new Error("Failed to fetch enquiries");
+    }
+  }
+
+  const data = await res.json();
+
+  return data;
+};
+
+export const customizationPost = async (data: {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  url: string;
+}) => {
+  const response = await fetch("/api/customization", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to submit customization request");
+  }
+
+  return response.json();
+};

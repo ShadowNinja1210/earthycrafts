@@ -1,8 +1,12 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { imgPlaceholder } from "@/public/assets/some-data";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 export type GridLayoutProps = {
   id: number;
@@ -11,6 +15,7 @@ export type GridLayoutProps = {
   videoUrl: string;
   link: string;
 };
+
 export default function GridLayout({
   categories,
   className,
@@ -20,12 +25,36 @@ export default function GridLayout({
   className?: string;
   right?: boolean;
 }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <div className={cn("grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-[1200px] mx-auto ", className)}>
-      {/* Design Your Home - Spans full width on mobile, left side on desktop */}
+    <motion.div
+      ref={ref}
+      className={cn("grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-[1200px] mx-auto ", className)}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
       {categories.map((category, index) => (
-        <div
+        <motion.div
           key={index}
+          variants={itemVariants}
           className={cn(
             "relative group overflow-hidden min-h-[340px] rounded-3xl",
             !right && index == 0 && categories.length !== 4
@@ -62,8 +91,8 @@ export default function GridLayout({
               </div>
             </div>
           </Link>
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 }

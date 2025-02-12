@@ -1,4 +1,4 @@
-import { Product } from "@/lib/schema";
+import { NewProduct } from "@/lib/schema";
 import { NextResponse, NextRequest } from "next/server";
 import { Types } from "mongoose";
 import { connectDB } from "@/lib/db";
@@ -13,7 +13,7 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
 
     const { id } = params; // Get the product ID
 
-    const product = await Product.findOne({ productCode: _.camelCase(id).toUpperCase() }); // Query the product
+    const product = await NewProduct.findOne({ productCode: _.camelCase(id).toUpperCase() }); // Query the product
 
     console.log(_.camelCase(id).toUpperCase());
 
@@ -49,7 +49,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
     const body = await req.json(); // Get the request body
 
     // Update the product
-    const updatedProduct = await Product.findByIdAndUpdate(id, body, {
+    const updatedProduct = await NewProduct.findByIdAndUpdate(id, body, {
       new: true, // Return the updated product
       runValidators: true, // Ensure Mongoose validators run
     });
@@ -97,8 +97,8 @@ export async function DELETE(req: NextRequest, { params }: { params: { id: strin
       );
     }
 
-    const deletedProduct = await Product.findByIdAndDelete(id);
-    // const deletedProduct = await Product.findById(id); // Query the product (for logging & testing)
+    const deletedProduct = await NewProduct.findByIdAndDelete(id);
+    // const deletedProduct = await NewProduct.findById(id); // Query the product (for logging & testing)
 
     if (!deletedProduct) {
       return NextResponse.json(

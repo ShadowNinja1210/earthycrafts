@@ -1,4 +1,4 @@
-import { Product } from "@/lib/schema";
+import { NewProduct } from "@/lib/schema";
 import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
 
@@ -9,7 +9,7 @@ export async function GET() {
   try {
     await connectDB(); // Connect to the database
 
-    const products = await Product.find({ isFeatured: true }); // Query for featured products
+    const products = await NewProduct.find({ isFeatured: true }); // Query for featured products
 
     // Return an error if the products is not found (ERROR: 404)
     if (!products || products.length === 0) {

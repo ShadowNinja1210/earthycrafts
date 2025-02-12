@@ -4,10 +4,10 @@ import React, { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ProductCard from "@/components/products/product-card";
-import { IProduct } from "@/lib/schema";
+import { INewProduct } from "@/lib/schema";
 
 interface ResponsiveCardCarouselProps {
-  cards: IProduct[];
+  cards: INewProduct[];
 }
 
 export default function ResponsiveCardCarousel({ cards }: ResponsiveCardCarouselProps) {

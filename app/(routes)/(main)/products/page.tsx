@@ -1,71 +1,52 @@
 import ProductsLayout from "@/components/products/products-layout";
-import { IProduct } from "@/lib/schema";
+import { INewProduct } from "@/lib/schema";
+import _ from "lodash";
 
 export default async function AllProductsPage() {
-  let products: IProduct[] = [];
+  let products: INewProduct[] = [];
 
   try {
-    const response = await fetch("http://localhost:3000/api/product");
+    const response = await fetch("http://localhost:3000/api/product", {
+      cache: "no-store", // Ensures fresh data on each request
+    });
     products = await response.json();
   } catch (error) {
-    console.error(error);
+    console.error("Error fetching products:", error);
   }
 
-  const categoryMap = new Map();
+  // Create category mapping
+  const categoryMap = new Map<string, Set<string>>();
 
   products.forEach((product) => {
-    const { category, subCategory } = product;
+    const { primaryCategory, subCategory, secondaryCategory } = product;
 
-    if (!categoryMap.has(category)) {
-      categoryMap.set(category, new Set());
-    }
+    // Handle primary categories
+    primaryCategory?.forEach((category) => {
+      category = _.lowerCase(category.trim());
 
-    categoryMap.get(category).add(subCategory);
+      if (!categoryMap.has(category)) {
+        categoryMap.set(category, new Set());
+      }
+      if (subCategory) {
+        categoryMap.get(category)?.add(subCategory);
+      }
+    });
+
+    // Handle secondary categories
+    secondaryCategory?.forEach((category) => {
+      category = _.lowerCase(category.trim());
+
+      if (!categoryMap.has(category)) {
+        categoryMap.set(category, new Set());
+      }
+    });
   });
 
+  // Convert Map to Array
   const categories = Array.from(categoryMap, ([name, subCategoriesSet]) => ({
     name,
-    subCategories: Array.from(subCategoriesSet) as string[],
+    subCategories: Array.from(subCategoriesSet),
   }));
-
-  // const categories = [
-  //   {
-  //     name: "Marble",
-  //     subCategories: ["White Marble", "Black Marble", "Grey Marble", "Beige Marble"],
-  //   },
-  //   {
-  //     name: "Granite",
-  //     subCategories: ["Black Granite", "Grey Granite", "Red Granite"],
-  //   },
-  //   {
-  //     name: "Quartz Stone",
-  //     subCategories: ["Engineered Quartz", "Natural Quartz"],
-  //   },
-  //   {
-  //     name: "Artificial Marble",
-  //     subCategories: ["Engineered Marble", "Composite Marble"],
-  //   },
-  //   {
-  //     name: "Nano Crystal Glass",
-  //     subCategories: ["Crystallized Glass", "Nano Stone"],
-  //   },
-  //   {
-  //     name: "Sintered Stone",
-  //     subCategories: ["Large Format", "Countertops"],
-  //   },
-  //   {
-  //     name: "Travertine",
-  //     subCategories: ["Filled", "Unfilled"],
-  //   },
-  //   {
-  //     name: "Sandstone",
-  //     subCategories: ["Beige Sandstone", "Red Sandstone"],
-  //   },
-  //   {
-  //     name: "Pebble Stone",
-  //     subCategories: ["River Pebbles", "Beach Pebbles"],
-  //   },
-  // ];
 
   return <ProductsLayout categories={categories} products={products} />;
 }

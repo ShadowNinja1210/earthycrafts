@@ -1,4 +1,4 @@
-import { IProduct } from "@/lib/schema";
+import { INewProduct } from "@/lib/schema";
 import { kebabCase, capitalize, truncate, upperCase } from "lodash";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,8 +6,8 @@ import Link from "next/link";
 import { imgPlaceholder } from "@/public/assets/some-data";
 import TooltipContext from "../contexts/tooltip-context";
 
-export default function SearchCards({ product }: { product: IProduct }) {
-  const imageUrl = product.images?.filter((image) => image.main)[0]?.image;
+export default function SearchCards({ product }: { product: INewProduct }) {
+  const imageUrl = product.images?.find((image) => image.main)?.image;
 
   return (
     <TooltipContext context={product.name}>
@@ -29,7 +29,6 @@ export default function SearchCards({ product }: { product: IProduct }) {
             length: 32,
             separator: " ",
           })} (${upperCase(product.productCode)})`}</p>
-          <p className="text-sm text-muted-foreground">{capitalize(product.subCategory)}</p>
         </div>
       </Link>
     </TooltipContext>

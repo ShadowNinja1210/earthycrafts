@@ -3,15 +3,16 @@ import mongoose, { Schema, Document, Model, Types } from "mongoose";
 // --------------------------------
 // Product Schema
 // --------------------------------
-export interface IProduct extends Document {
+export interface INewProduct extends Document {
   _id: Types.ObjectId;
   name: string;
   images: { image: string; main: boolean }[];
   description: string;
   productCode: string;
+  primaryCategory: string[];
+  secondaryCategory: string[];
+  subCategory?: string;
   stoneName: string;
-  category: string;
-  subCategory: string;
   isFeatured: boolean;
   inStock: boolean;
   tags: string[];
@@ -19,7 +20,7 @@ export interface IProduct extends Document {
   updatedAt?: Date;
 }
 
-const ProductSchema: Schema = new Schema(
+const NewProductSchema = new Schema(
   {
     name: {
       type: String,
@@ -45,15 +46,18 @@ const ProductSchema: Schema = new Schema(
       type: String,
       required: true,
     },
-    stoneName: {
-      type: String,
+    primaryCategory: {
+      type: [String],
       required: true,
     },
-    category: {
-      type: String,
+    secondaryCategory: {
+      type: [String],
       required: true,
     },
     subCategory: {
+      type: String,
+    },
+    stoneName: {
       type: String,
       required: true,
     },
@@ -64,7 +68,6 @@ const ProductSchema: Schema = new Schema(
     inStock: {
       type: Boolean,
       required: true,
-      default: true,
     },
     tags: {
       type: [String],
@@ -76,11 +79,11 @@ const ProductSchema: Schema = new Schema(
   }
 );
 
-let Product: Model<IProduct>;
+let NewProduct: Model<INewProduct>;
 if (mongoose.models.Product) {
-  Product = mongoose.models.Product;
+  NewProduct = mongoose.models.Product;
 } else {
-  Product = mongoose.model<IProduct>("Product", ProductSchema);
+  NewProduct = mongoose.model<INewProduct>("Product", NewProductSchema);
 }
 
 // --------------------------------
@@ -286,4 +289,4 @@ if (mongoose.models.Customization) {
   Customization = mongoose.model<ICustomization>("Customization", CustomizationSchema);
 }
 
-export { Gallery, Product, Blog, User, Enquiry, Customization };
+export { Gallery, NewProduct, Blog, User, Enquiry, Customization };

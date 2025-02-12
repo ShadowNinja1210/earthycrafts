@@ -7,18 +7,14 @@ import { Button } from "@/components/ui/button";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Badge } from "@/components/ui/badge";
-
-interface Item {
-  value: string;
-  label: string;
-}
+import _ from "lodash";
 
 interface SearchableMultiDropdownProps {
-  items: Item[];
-  onSelect: (selectedItems: Item[]) => void;
+  items: string[];
+  onSelect: (selectedItems: string[]) => void;
   onAdd: (newItem: string) => void;
   placeholder?: string;
-  selectedItems: Item[];
+  selectedItems: string[];
 }
 
 export function SearchableMultiDropdown({
@@ -38,24 +34,24 @@ export function SearchableMultiDropdown({
     }
   }, [open]);
 
-  const filteredItems = (items || []).filter((item) => item.label.toLowerCase().includes(search.toLowerCase()));
+  const filteredItems = (items || []).filter((item) => item.toLowerCase().includes(search.toLowerCase()));
 
-  const handleSelect = (item: Item) => {
-    const newSelectedItems = selectedItems.some((i) => i.value === item.value)
-      ? selectedItems.filter((i) => i.value !== item.value)
+  const handleSelect = (item: string) => {
+    const newSelectedItems = selectedItems.some((i) => _.kebabCase(i) === _.kebabCase(item))
+      ? selectedItems.filter((i) => _.kebabCase(i) !== _.kebabCase(item))
       : [...selectedItems, item];
     onSelect(newSelectedItems);
   };
 
   const handleAdd = () => {
-    if (search && !items.some((item) => item.label.toLowerCase() === search.toLowerCase())) {
+    if (search && !items.some((item) => _.kebabCase(item.toLowerCase()) === _.kebabCase(search.toLowerCase()))) {
       onAdd(search);
       setSearch("");
     }
   };
 
-  const removeItem = (item: Item) => {
-    onSelect(selectedItems?.filter((i) => i.value !== item.value));
+  const removeItem = (item: string) => {
+    onSelect(selectedItems?.filter((i) => i !== item));
   };
 
   return (
@@ -88,14 +84,11 @@ export function SearchableMultiDropdown({
           </CommandEmpty>
           <CommandGroup>
             {filteredItems?.map((item) => (
-              <CommandItem key={item.value} onSelect={() => handleSelect(item)}>
+              <CommandItem key={item} onSelect={() => handleSelect(item)}>
                 <Check
-                  className={cn(
-                    "mr-2 h-4 w-4",
-                    selectedItems?.some((i) => i.value === item.value) ? "opacity-100" : "opacity-0"
-                  )}
+                  className={cn("mr-2 h-4 w-4", selectedItems?.some((i) => i === item) ? "opacity-100" : "opacity-0")}
                 />
-                {item.label}
+                {item}
               </CommandItem>
             ))}
           </CommandGroup>
@@ -104,8 +97,8 @@ export function SearchableMultiDropdown({
       <div className="flex flex-wrap gap-2 mt-2">
         {selectedItems &&
           selectedItems?.map((item) => (
-            <Badge key={item.value} variant="secondary">
-              {item.label}
+            <Badge key={item} variant="secondary">
+              {item}
               <Button variant="ghost" size="sm" className="ml-2 h-4 w-4 p-0" onClick={() => removeItem(item)}>
                 <X className="h-3 w-3" />
               </Button>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { format } from "date-fns";
+import { format, formatDate } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { DateRange } from "react-day-picker";
 
@@ -10,15 +10,22 @@ import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
+import { fetchEnquiries } from "@/lib/api";
+import { useQuery } from "@tanstack/react-query";
 import { IEnquiry } from "@/lib/schema";
 
-export default function EnquiriesPage({ enquiries }: { enquiries: IEnquiry[] }) {
+export default function EnquiriesPage() {
+  const { data: enquiries, isLoading } = useQuery({
+    queryKey: ["enquiries"],
+    queryFn: fetchEnquiries,
+  });
+
   const [searchTerm, setSearchTerm] = useState("");
   const [dateRange, setDateRange] = useState<DateRange | undefined>();
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
 
   const filteredEnquiries = enquiries
-    ?.filter((enquiry) => {
+    ?.filter((enquiry: IEnquiry) => {
       const searchLower = searchTerm.toLowerCase();
       return (
         enquiry.name.toLowerCase().includes(searchLower) ||
@@ -26,12 +33,12 @@ export default function EnquiriesPage({ enquiries }: { enquiries: IEnquiry[] }) 
         enquiry.phone.includes(searchTerm)
       );
     })
-    ?.filter((enquiry) => {
+    ?.filter((enquiry: IEnquiry) => {
       if (!dateRange?.from || !dateRange?.to) return true;
       const enquiryDate = enquiry.createdAt;
       return enquiryDate && enquiryDate >= dateRange.from && enquiryDate <= dateRange.to;
     })
-    ?.sort((a, b) => {
+    ?.sort((a: IEnquiry, b: IEnquiry) => {
       if (!a.createdAt || !b.createdAt) return 0;
       return sortOrder === "asc"
         ? a.createdAt.getTime() - b.createdAt.getTime()
@@ -92,16 +99,23 @@ export default function EnquiriesPage({ enquiries }: { enquiries: IEnquiry[] }) 
             <TableHead>Date</TableHead>
           </TableRow>
         </TableHeader>
+
         <TableBody>
-          {filteredEnquiries?.map((enquiry) => (
-            <TableRow key={enquiry._id.toString()}>
-              <TableCell>{enquiry.name}</TableCell>
-              <TableCell>{enquiry.email}</TableCell>
-              <TableCell>{enquiry.phone}</TableCell>
-              <TableCell>{enquiry.message}</TableCell>
-              <TableCell>{enquiry.createdAt?.toLocaleDateString()}</TableCell>
-            </TableRow>
-          ))}
+          {isLoading ? (
+            <p className="text-center">Loading...</p>
+          ) : filteredEnquiries.length === 0 ? (
+            <p className="text-center">No result</p>
+          ) : (
+            filteredEnquiries?.map((enquiry: IEnquiry) => (
+              <TableRow key={enquiry._id.toString()}>
+                <TableCell>{enquiry.name}</TableCell>
+                <TableCell>{enquiry.email}</TableCell>
+                <TableCell>{enquiry.phone}</TableCell>
+                <TableCell>{enquiry.message}</TableCell>
+                <TableCell>{formatDate(enquiry?.createdAt as Date, "PP")}</TableCell>
+              </TableRow>
+            ))
+          )}
         </TableBody>
       </Table>
     </div>

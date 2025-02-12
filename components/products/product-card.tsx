@@ -1,4 +1,4 @@
-import { IProduct } from "@/lib/schema";
+import { INewProduct } from "@/lib/schema";
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { imgPlaceholder } from "@/public/assets/some-data";
@@ -12,7 +12,7 @@ export default function ProductCard({
   className,
   style,
 }: {
-  product: IProduct;
+  product: INewProduct;
   className?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   style?: any;

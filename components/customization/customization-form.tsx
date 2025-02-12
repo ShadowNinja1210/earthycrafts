@@ -11,17 +11,40 @@ import { FileUpload } from "../file-upload";
 import { Button } from "../ui/button";
 import { AtSign, FileImage, MessageSquare, PhoneCall, SendHorizonal, User } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { customizationPost } from "@/lib/api";
+
+export type CustomizationFormValues = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  url: string;
+};
 
 const customFormSchema = z.object({
   name: z.string().min(3),
   email: z.string().email(),
-  phone: z.number().min(10),
+  phone: z.string().min(8),
   message: z.string().min(10),
   url: z.string().url(),
 });
 
 export default function CustomizationForm() {
   const [hasMounted, setHasMounted] = useState(false);
+
+  const customizationMutate = useMutation({
+    mutationKey: ["customization"],
+    mutationFn: async (formData: CustomizationFormValues) => customizationPost(formData),
+    onSuccess: () => {
+      console.log("Customization request added successfully!");
+      form.reset();
+      // You can refetch queries or update UI here
+    },
+    onError: (error) => {
+      console.error("Error adding customization request:", error);
+    },
+  });
 
   const form = useForm<z.infer<typeof customFormSchema>>({
     resolver: zodResolver(customFormSchema),
@@ -39,6 +62,8 @@ export default function CustomizationForm() {
   }, []);
 
   const onSubmit = (values: z.infer<typeof customFormSchema>) => {
+    customizationMutate.mutate(values);
+
     console.log(values);
   };
 
@@ -96,7 +121,7 @@ export default function CustomizationForm() {
                     Contact Number
                   </FormLabel>
                   <FormControl>
-                    <Input type="number" placeholder="Enter your contact number" {...field} />
+                    <Input type="text" placeholder="Enter your contact number" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

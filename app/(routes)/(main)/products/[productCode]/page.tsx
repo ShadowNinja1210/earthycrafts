@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import ProductDetails from "@/components/products/product-page";
-import { IProduct } from "@/lib/schema";
+import { INewProduct } from "@/lib/schema";
 
-async function getProduct(id: string): Promise<IProduct | null> {
+async function getProduct(id: string): Promise<INewProduct | null> {
   const response = await fetch(`http://localhost:3000/api/product/${id}`);
 
   if (!response.ok) {
