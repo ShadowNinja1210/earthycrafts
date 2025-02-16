@@ -46,6 +46,7 @@ export default function GalleryDialog({ edit }: { edit?: IGallery }) {
           "Content-Type": "application/json",
         },
       });
+      console.log(response.status);
       return response.json();
     },
   });

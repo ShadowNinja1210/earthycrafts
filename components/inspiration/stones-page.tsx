@@ -4,38 +4,45 @@ import { imgPlaceholder } from "@/public/assets/some-data";
 
 const stones = [
   {
-    name: "Stone 1",
-    image: "",
-    url: "/stone/1",
+    name: "Agra Red",
+    image: "/images/stones/agra-red-stone.webp",
+    url: "/stones/agra-red",
   },
   {
-    name: "Stone 1",
-    image: "",
-    url: "/stone/1",
+    name: "Bali Marble",
+    image: "/images/stones/bali-marble-stone.webp",
+    url: "/stones/bali-marble",
   },
   {
-    name: "Stone 1",
-    image: "",
-    url: "/stone/1",
+    name: "Beslana",
+    image: "/images/stones/beslana.jpeg",
+    url: "/stones/beslana",
   },
   {
-    name: "Stone 1",
-    image: "",
-    url: "/stone/1",
+    name: "Blue Pottery",
+    image: "/images/stones/blue-pottery.webp",
+    url: "/stones/blue-pottery",
   },
   {
-    name: "Stone 1",
-    image: "",
-    url: "/stone/1",
+    name: "White Marble",
+    image: "/images/stones/white-marble.jpeg",
+    url: "/stones/white-marble",
+  },
+  {
+    name: "Tukdi Art",
+    image: "/images/stones/tukdi-art.jpg",
+    url: "/stones/tukdi-art",
   },
 ];
 
 export default function StonesPage() {
   return (
-    <div className="container mx-auto p-4 min-h-screen">
-      <h1 className="text-2xl font-bold mb-6 flex justify-between items-center">Know about our Stones</h1>
+    <div className="container mx-auto p-4 min-h-screen lg:px-12 md:px-8 sm:px-6">
+      <h1 className="text-2xl font-bold mb-6 flex sm:justify-between justify-center items-center">
+        Know about our Stones
+      </h1>
 
-      <div className="flex gap-4 flex-wrap justify-between mx-auto">
+      <div className="grid justify-items-center grid-flow-row-dense auto-rows-max grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-4">
         {stones.map((stone, index) => (
           <Link href={stone.url} key={index} className="group flex flex-col gap-2">
             <div className="rounded-md h-80 w-80 overflow-hidden object-center hover:shadow-md transition-all duration-300">

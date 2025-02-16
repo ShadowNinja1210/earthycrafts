@@ -78,8 +78,24 @@ export default function ProductDetails({ product }: { product: INewProduct }) {
                 <p>{product.stoneName}</p>
               </div>
               <div>
-                <h2 className="font-semibold">Category</h2>
-                <p>{product.category}</p>
+                <h2 className="font-semibold">Primary Category</h2>
+                <p>
+                  {product.primaryCategory.map((category, index) => (
+                    <span key={category}>
+                      {category} {index < product.primaryCategory.length - 1 && ", "}
+                    </span>
+                  ))}
+                </p>
+              </div>
+              <div>
+                <h2 className="font-semibold">Secondary Category</h2>
+                <p>
+                  {product.secondaryCategory.map((category, index) => (
+                    <span key={category}>
+                      {category} {index < product.secondaryCategory.length - 1 && ", "}
+                    </span>
+                  ))}
+                </p>
               </div>
               <div>
                 <h2 className="font-semibold">Subcategory</h2>

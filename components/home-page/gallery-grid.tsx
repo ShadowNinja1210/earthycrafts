@@ -33,7 +33,7 @@ export default function GalleryGrid() {
             href={image.productLink}
             key={image.id}
             className={`relative overflow-hidden group rounded-2xl ${
-              image.aspect === "portrait" ? "row-span-2" : "row-span-1"
+              image.aspect === "landscape" ? "row-span-2" : "row-span-1"
             }`}
           >
             <Image

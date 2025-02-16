@@ -58,7 +58,7 @@ export default function GalleryPage() {
                 key={image.id}
                 variants={itemVariants}
                 className={`relative overflow-hidden group rounded-2xl ${
-                  image.aspect === "portrait" ? "row-span-2" : "row-span-1"
+                  image.aspect === "landscape" ? "row-span-2" : "row-span-1"
                 }`}
               >
                 <Link href={image.productLink} className="block w-full h-full">

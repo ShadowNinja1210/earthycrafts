@@ -87,7 +87,7 @@ export default function ContactPage() {
               </p>
               <p className="mb-4">
                 <Link
-                  className="hover:text-neutral-700 flex items-center whitespace-pre-wrap"
+                  className="hover:text-neutral-700 w-fit flex items-center whitespace-pre-wrap"
                   href={`https://wa.me/918949181484`}
                   target="_blank"
                 >

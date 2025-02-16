@@ -12,8 +12,6 @@ export default function DashboardGallery() {
     queryKey: ["gallery-images"],
     queryFn: async () => {
       const response = await fetch("/api/gallery");
-      if (response.status === 404) return [];
-      console.log(response.json());
       return response.json();
     },
   });
@@ -38,7 +36,7 @@ export default function DashboardGallery() {
               href={image.productLink}
               key={image.id}
               className={`relative overflow-hidden group rounded-2xl ${
-                image.aspect === "portrait" ? "row-span-2" : "row-span-1"
+                image.aspect === "landscape" ? "row-span-2" : "row-span-1"
               }`}
             >
               <Image

@@ -119,9 +119,11 @@ export default function NavbarSheet() {
             </div>
           </ScrollArea>
           <div className="border-t sm:p-6 p-4">
-            <Button className="w-full text-base" size="lg" onClick={() => setOpen(false)}>
-              Customer Service
-            </Button>
+            <Link href="/contact" onClick={() => setOpen(false)}>
+              <Button className="w-full text-base" size="lg" onClick={() => setOpen(false)}>
+                Customer Service
+              </Button>
+            </Link>
           </div>
         </div>
       </SheetContent>

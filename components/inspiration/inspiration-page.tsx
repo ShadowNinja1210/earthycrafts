@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 
 const stones = [
@@ -42,11 +42,33 @@ export default function InspirationPage() {
     queryKey: ["gallery-images"],
     queryFn: async () => {
       const response = await fetch("/api/gallery");
-      if (response.status === 404) return [];
-      console.log(response.json());
       return response.json();
     },
   });
+  const [visibleItems, setVisibleItems] = useState(5);
+
+  const width = window.innerWidth;
+
+  useEffect(() => {
+    const updateItemsPerRow = () => {
+      if (width >= 1024) {
+        setVisibleItems(5);
+      } else if (width >= 768) {
+        console.log(width);
+        setVisibleItems(4);
+      } else if (width >= 1280) {
+        setVisibleItems(3);
+      } else if (width >= 480) {
+        setVisibleItems(4);
+      } else {
+        setVisibleItems(4);
+      }
+    };
+
+    updateItemsPerRow();
+    window.addEventListener("resize", updateItemsPerRow);
+    return () => window.removeEventListener("resize", updateItemsPerRow);
+  }, [width]);
 
   const containerRef = useRef(null);
 
@@ -75,7 +97,7 @@ export default function InspirationPage() {
       </h1>
 
       <div className="flex gap-4 flex-wrap justify-between mx-auto">
-        {stones.map(
+        {stones.slice(0, visibleItems).map(
           (stone, index) =>
             index < 5 && (
               <Link href={stone.url} key={index} className="group flex flex-col gap-2">
@@ -120,7 +142,7 @@ export default function InspirationPage() {
                 key={image.id}
                 variants={itemVariants}
                 className={`relative overflow-hidden group rounded-2xl ${
-                  image.aspect === "portrait" ? "row-span-2" : "row-span-1"
+                  image.aspect === "landscape" ? "row-span-2" : "row-span-1"
                 }`}
               >
                 <Link href={image.productLink} className="block w-full h-full">
