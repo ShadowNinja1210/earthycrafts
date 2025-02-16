@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 
 const stones = [
@@ -38,37 +38,38 @@ const stones = [
 ];
 
 export default function InspirationPage() {
+  const [visibleItems, setVisibleItems] = useState(5);
   const { data: images = [], isLoading } = useQuery<IGallery[]>({
     queryKey: ["gallery-images"],
     queryFn: async () => {
       const response = await fetch("/api/gallery");
+      setVisibleItems(5);
       return response.json();
     },
   });
-  const [visibleItems, setVisibleItems] = useState(5);
 
-  const width = window.innerWidth;
+  // const width = window.innerWidth;
 
-  useEffect(() => {
-    const updateItemsPerRow = () => {
-      if (width >= 1024) {
-        setVisibleItems(5);
-      } else if (width >= 768) {
-        console.log(width);
-        setVisibleItems(4);
-      } else if (width >= 1280) {
-        setVisibleItems(3);
-      } else if (width >= 480) {
-        setVisibleItems(4);
-      } else {
-        setVisibleItems(4);
-      }
-    };
+  // useEffect(() => {
+  //   const updateItemsPerRow = () => {
+  //     if (width >= 1024) {
+  //       setVisibleItems(5);
+  //     } else if (width >= 768) {
+  //       console.log(width);
+  //       setVisibleItems(4);
+  //     } else if (width >= 1280) {
+  //       setVisibleItems(3);
+  //     } else if (width >= 480) {
+  //       setVisibleItems(4);
+  //     } else {
+  //       setVisibleItems(4);
+  //     }
+  //   };
 
-    updateItemsPerRow();
-    window.addEventListener("resize", updateItemsPerRow);
-    return () => window.removeEventListener("resize", updateItemsPerRow);
-  }, [width]);
+  //   updateItemsPerRow();
+  //   window.addEventListener("resize", updateItemsPerRow);
+  //   return () => window.removeEventListener("resize", updateItemsPerRow);
+  // }, [width]);
 
   const containerRef = useRef(null);
 

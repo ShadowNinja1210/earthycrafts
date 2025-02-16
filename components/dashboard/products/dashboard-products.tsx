@@ -52,7 +52,7 @@ export default function DashboardProducts() {
   const [filteredSortedProducts, setFilteredSortedProducts] = useState<INewProduct[]>(products || []); // Filtered and Sorted Products
 
   // Getting the primaryCategories, subcategories, and stone names from the fetched products
-  const { primaryCategories, secondaryCategories, subCategories, stoneNames } = useProductData(products);
+  const { primaryCategories, subCategories, stoneNames } = useProductData(products);
 
   // Setting the filteredSortedProducts when products are fetched
   useEffect(() => {
@@ -223,7 +223,8 @@ export default function DashboardProducts() {
 
                     {/* Category / Subcategory */}
                     <p>
-                      <strong>Category / Subcategory:</strong> {product.category} / {product.subCategory}
+                      <strong>Category / Subcategory:</strong> {product.primaryCategory.join(", ")} /{" "}
+                      {product.subCategory}
                     </p>
 
                     {/* Last Updated Date */}

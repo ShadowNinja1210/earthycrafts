@@ -12,7 +12,7 @@ import { addProduct, editProduct } from "@/lib/api";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Form, FormLabel, FormControl, FormDescription, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import { Form, FormLabel, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 
 // ----UI Components---- //
 // import { Label } from "@/components/ui/Label";
@@ -57,6 +57,8 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
   const [productCodeError, setProductCodeError] = useState<string | null>(null);
   const [imageUrls, setImageUrls] = useState<string[]>([]);
   const [mainImg, setMainImg] = useState<string | null>(null);
+  console.log(categories);
+  console.log(subCategories);
 
   // Query Mutations for adding and editing products
   const addSubmission = useMutation({
@@ -233,7 +235,7 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
                     const newValue = value.trim();
                     const selectedItems = field.value;
                     if (newValue) {
-                      field.onChange([...selectedItems, newValue]);
+                      field.onChange([...(Array.isArray(selectedItems) ? selectedItems : []), newValue]);
                     }
                   }}
                 />
@@ -270,7 +272,7 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
           )}
         />
 
-        <FormField
+        {/* <FormField
           control={form.control}
           name="secondaryCategory"
           render={({ field }) => (
@@ -286,11 +288,11 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
               <FormMessage />
             </FormItem>
           )}
-        />
+        /> */}
 
         {/* Select */}
         {/* Subcategories */}
-        <FormField
+        {/* <FormField
           control={form.control}
           name="subCategory"
           render={({ field }) => (
@@ -306,7 +308,7 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
               <FormMessage />
             </FormItem>
           )}
-        />
+        /> */}
 
         {/* Images */}
         <FormItem>
@@ -334,7 +336,7 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
         />
 
         {/* Tags */}
-        <FormField
+        {/* <FormField
           control={form.control}
           name="tags"
           render={({ field }) => (
@@ -350,7 +352,7 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
               <FormMessage />
             </FormItem>
           )}
-        />
+        /> */}
 
         {/* Submit Button */}
         <Button type="submit" className="w-full">
