@@ -86,7 +86,7 @@ const previewItems: PreviewItem[] = [
     description: "Efficient laundry space with modern appliances",
     image: "/images/sub-categories/tukdi.jpg",
     type: "Secondary Category",
-    link: "/products?category=tukdi",
+    link: "/products?category=tukdi-art",
   },
   {
     id: 13,
@@ -125,18 +125,12 @@ const previewItems: PreviewItem[] = [
 export default function Explore() {
   const [primaryCategoryItems, setPrimaryCategoryItems] = useState<PreviewItem[]>([]);
   const [secondaryCategoryItems, setSecondaryCategoryItems] = useState<PreviewItem[]>([]);
-  // const [navbarHeight, setNavbarHeight] = useState(0);
 
   useEffect(() => {
     const primaryCategories = previewItems.filter((item) => item.type === "Primary Category");
     setPrimaryCategoryItems(primaryCategories);
     const secondaryCategories = previewItems.filter((item) => item.type === "Secondary Category");
     setSecondaryCategoryItems(secondaryCategories);
-
-    // const navbar = document.querySelector("nav");
-    // if (navbar) {
-    //   setNavbarHeight(navbar.offsetHeight + 2);
-    // }
   }, []);
 
   return (

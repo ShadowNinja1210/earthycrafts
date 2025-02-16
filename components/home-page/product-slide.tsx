@@ -21,6 +21,7 @@ export default function ProductCarousel() {
       return products.slice(0, 5);
     },
   });
+
   const checkScroll = () => {
     const carousel = carouselRef.current;
     if (carousel) {

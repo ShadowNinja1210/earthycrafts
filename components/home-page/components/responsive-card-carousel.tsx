@@ -49,12 +49,7 @@ export default function ResponsiveCardCarousel({ cards }: ResponsiveCardCarousel
       <div className="overflow-hidden">
         <div ref={carouselRef} className="flex transition-transform duration-300 ease-out" style={{ gap: "1rem" }}>
           {cards.map((card, index) => (
-            <ProductCard
-              key={card.id + index}
-              product={card}
-              className="flex-shrink-0"
-              style={{ width: isMobile ? "100%" : `calc((100% - 3rem) / ${cardsToShow + 0.2})` }}
-            />
+            <ProductCard key={card.id + index} product={card} className="flex-shrink-0" />
           ))}
         </div>
       </div>

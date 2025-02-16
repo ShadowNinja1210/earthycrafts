@@ -10,19 +10,17 @@ import { cn } from "@/lib/utils";
 export default function ProductCard({
   product,
   className,
-  style,
 }: {
   product: INewProduct;
   className?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  style?: any;
 }) {
   const mainImage = product?.images?.find((img) => img.main);
 
   return (
-    <Link href={`/products/${kebabCase(product.productCode)}`}>
-      <Card className={cn(className)} style={style}>
-        <CardContent className="p-0 w-80 overflow-hidden h-[480px]">
+    <Card className={cn(className, "w-80 overflow-hidden")}>
+      <CardContent className="p-0 w-80 overflow-hidden h-[480px] ">
+        <Link href={`/products/${kebabCase(product.productCode)}`}>
           <Image
             src={mainImage?.image || imgPlaceholder}
             alt={product.name}
@@ -34,8 +32,8 @@ export default function ProductCard({
             <CardTitle>{product.name}</CardTitle>
             <CardDescription>{product.stoneName}</CardDescription>
           </div>
-        </CardContent>
-      </Card>
-    </Link>
+        </Link>
+      </CardContent>
+    </Card>
   );
 }

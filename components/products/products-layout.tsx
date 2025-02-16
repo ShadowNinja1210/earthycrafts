@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronRight, Home } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { INewProduct } from "@/lib/schema";
 import {
   Sidebar,
@@ -13,6 +13,7 @@ import {
   SidebarMenuItem,
   SidebarMenuSub,
   SidebarProvider,
+  SidebarTrigger,
 } from "@/components/ui/sidebar";
 import ProductCard from "./product-card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible";
@@ -20,6 +21,7 @@ import { cn } from "@/lib/utils";
 import _ from "lodash";
 import { Separator } from "../ui/separator";
 import { Button } from "../ui/button";
+import { useSearchParams } from "next/navigation";
 
 export type ICategory = {
   name: string;
@@ -31,23 +33,56 @@ interface ProductsLayoutProps {
   products: INewProduct[];
 }
 
+// Separate component to handle search params
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function FilterParams({ setSelectedCategory, setSelectedSubCategory }: any) {
+  const searchParams = useSearchParams();
+  const urlCategory = searchParams.get("category");
+  const urlSubCategory = searchParams.get("subCategory");
+
+  useEffect(() => {
+    if (urlCategory) setSelectedCategory(urlCategory);
+    if (urlSubCategory) setSelectedSubCategory(urlSubCategory);
+  }, [urlCategory, urlSubCategory, setSelectedCategory, setSelectedSubCategory]);
+
+  return null;
+}
+
 export default function ProductsLayout({ categories, products }: ProductsLayoutProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedSubCategory, setSelectedSubCategory] = useState<string>("");
 
-  const filteredProducts = products.filter(
-    (product) =>
-      (!selectedCategory || product.primaryCategory.includes(selectedCategory)) &&
-      (!selectedCategory || product.secondaryCategory.includes(selectedCategory)) &&
-      (!selectedSubCategory || product.subCategory === selectedSubCategory)
-  );
+  // const searchParams = useSearchParams();
+  // const urlCategory = searchParams.get("category");
+  // const urlSubCategory = searchParams.get("subCategory");
 
-  useEffect(() => {}, [categories]);
+  // useEffect(() => {
+  //   if (urlCategory) {
+  //     setSelectedCategory(urlCategory);
+  //   }
+  //   if (urlSubCategory) {
+  //     setSelectedSubCategory(urlSubCategory);
+  //   }
+  // }, [urlCategory, urlSubCategory]);
+
+  const filteredProducts = products.filter((product) => {
+    const normalizedCategory = _.kebabCase(selectedCategory || "");
+
+    return (
+      !selectedCategory ||
+      product.primaryCategory.some((cat) => _.kebabCase(cat) === normalizedCategory) ||
+      product.secondaryCategory.some((cat) => _.kebabCase(cat) === normalizedCategory) ||
+      _.kebabCase(product.subCategory || "") === normalizedCategory
+    );
+  });
 
   return (
     <main>
+      <Suspense fallback={<div>Loading filters...</div>}>
+        <FilterParams setSelectedCategory={setSelectedCategory} setSelectedSubCategory={setSelectedSubCategory} />
+      </Suspense>
       <SidebarProvider className=" bg-sidebar-primary-foreground">
-        <Sidebar className=" inset-y-[71px]   -z-0">
+        <Sidebar className=" inset-y-[71px]   z-10">
           <SidebarHeader>
             <Button
               variant="ghost"
@@ -63,65 +98,83 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
           </SidebarHeader>
           <SidebarContent className="">
             <SidebarMenu className=" ">
-              {categories.map((category) => (
-                <Collapsible
-                  className="group/collapsible"
-                  defaultOpen={false}
-                  key={category.name}
-                  title={category.name}
-                >
-                  <SidebarMenuItem>
-                    <CollapsibleTrigger asChild>
+              {categories.map(
+                (category) =>
+                  category.subCategories.length !== 0 && (
+                    <Collapsible
+                      className="group/collapsible"
+                      defaultOpen={false}
+                      key={category.name}
+                      title={category.name}
+                    >
+                      <SidebarMenuItem>
+                        <CollapsibleTrigger asChild>
+                          <SidebarMenuButton
+                            onClick={() => {
+                              setSelectedCategory(category.name);
+                              setSelectedSubCategory("");
+                            }}
+                            className={cn(
+                              "p-4 justify-between capitalize",
+                              selectedCategory === category.name ? "bg-accent" : ""
+                            )}
+                          >
+                            {_.lowerCase(category.name)}
+                            {/* {category.name} */}
+                            <ChevronRight className="transition-transform group-data-[state=open]/collapsible:rotate-90" />
+                          </SidebarMenuButton>
+                        </CollapsibleTrigger>
+                        <CollapsibleContent>
+                          <SidebarMenuSub className="space-y-1">
+                            {category.subCategories.map((subCategory: string) => (
+                              <SidebarMenuItem key={subCategory}>
+                                <SidebarMenuButton
+                                  className={cn("", selectedSubCategory === subCategory ? "bg-accent" : "")}
+                                  onClick={() => {
+                                    setSelectedSubCategory(subCategory);
+                                  }}
+                                >
+                                  <Link
+                                    href={`/products?subCategory=${_.kebabCase(subCategory)}`}
+                                    className=" capitalize"
+                                  >
+                                    {_.lowerCase(subCategory)}
+                                  </Link>
+                                </SidebarMenuButton>
+                              </SidebarMenuItem>
+                            ))}
+                          </SidebarMenuSub>
+                        </CollapsibleContent>
+                      </SidebarMenuItem>
+                    </Collapsible>
+                  )
+              )}
+              {categories.map(
+                (category) =>
+                  category.subCategories.length === 0 && (
+                    <SidebarMenuItem key={category.name}>
                       <SidebarMenuButton
+                        className={cn("p-4", selectedCategory === category.name ? "bg-accent" : "")}
                         onClick={() => {
                           setSelectedCategory(category.name);
                           setSelectedSubCategory("");
                         }}
-                        className={cn(
-                          "p-4 justify-between capitalize",
-                          selectedCategory === category.name ? "bg-accent" : ""
-                        )}
                       >
-                        {_.lowerCase(category.name)}
-                        {/* {category.name} */}
-                        <ChevronRight className="transition-transform group-data-[state=open]/collapsible:rotate-90" />
+                        <Link href={`/products?category=${_.kebabCase(category.name)}`} className=" capitalize">
+                          {_.lowerCase(category.name)}
+                        </Link>
                       </SidebarMenuButton>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent>
-                      <SidebarMenuSub className="space-y-1">
-                        {category.subCategories.map((subCategory: string) => (
-                          <SidebarMenuItem key={subCategory}>
-                            <SidebarMenuButton
-                              className={cn("", selectedSubCategory === subCategory ? "bg-accent" : "")}
-                              onClick={() => {
-                                setSelectedCategory(category.name);
-                                setSelectedSubCategory(subCategory);
-                              }}
-                            >
-                              <Link
-                                href={`/products?category=${_.kebabCase(category.name)}&subCategory=${_.kebabCase(
-                                  subCategory
-                                )}`}
-                                className=" capitalize"
-                              >
-                                {subCategory}
-                              </Link>
-                            </SidebarMenuButton>
-                          </SidebarMenuItem>
-                        ))}
-                      </SidebarMenuSub>
-                    </CollapsibleContent>
-                  </SidebarMenuItem>
-                </Collapsible>
-              ))}
+                    </SidebarMenuItem>
+                  )
+              )}
             </SidebarMenu>
           </SidebarContent>
         </Sidebar>
 
         <div className="flex-1 p-6">
           <div className="mb-6 flex items-center gap-2 text-sm text-muted-foreground">
+            <SidebarTrigger />
             <Link href="/" className="flex items-center gap-1 hover:text-foreground">
-              <Home className="h-4 w-4" />
               Home
             </Link>
             <ChevronRight className="h-4 w-4" />
@@ -129,21 +182,23 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
             {selectedCategory && (
               <>
                 <ChevronRight className="h-4 w-4" />
-                <span className="text-foreground">{selectedCategory}</span>
+                <span className="text-foreground capitalize">{_.lowerCase(selectedCategory)}</span>
               </>
             )}
             {selectedSubCategory && (
               <>
                 <ChevronRight className="h-4 w-4" />
-                <span className="text-foreground">{selectedSubCategory}</span>
+                <span className="text-foreground capitalize">{_.lowerCase(selectedSubCategory)}</span>
               </>
             )}
           </div>
 
-          <div className="grid justify-items-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+          <div className="grid justify-items-center gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
+            <Suspense fallback={<div>Loading...</div>}>
+              {filteredProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </Suspense>
           </div>
         </div>
       </SidebarProvider>

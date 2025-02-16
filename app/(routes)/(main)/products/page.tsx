@@ -6,9 +6,7 @@ export default async function AllProductsPage() {
   let products: INewProduct[] = [];
 
   try {
-    const response = await fetch("http://localhost:3000/api/product", {
-      cache: "no-store", // Ensures fresh data on each request
-    });
+    const response = await fetch("http://localhost:3000/api/product");
     products = await response.json();
   } catch (error) {
     console.error("Error fetching products:", error);
