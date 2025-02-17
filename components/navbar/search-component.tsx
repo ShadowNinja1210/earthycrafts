@@ -29,13 +29,16 @@ export default function SearchComponent() {
     console.log("Searching products for ", query);
 
     const results = products.filter((product: INewProduct) => {
+      const normalizedQuery = _.kebabCase(query);
+
       return (
-        _.lowerCase(_.camelCase(product.productCode)).includes(_.lowerCase(_.camelCase(query))) ||
-        _.kebabCase(product.name).includes(_.kebabCase(query)) ||
-        _.kebabCase(product.stoneName).includes(_.kebabCase(query)) ||
-        _.kebabCase(product.subCategory).includes(_.kebabCase(query)) ||
-        product.primaryCategory.map((item) => _.kebabCase(item).includes(_.kebabCase(query))) ||
-        product.tags.some((tag) => _.kebabCase(tag).includes(_.kebabCase(query)))
+        _.kebabCase(product.productCode).includes(normalizedQuery) ||
+        _.kebabCase(product.name).includes(normalizedQuery) ||
+        _.kebabCase(product.stoneName).includes(normalizedQuery) ||
+        _.kebabCase(product.subCategory || "").includes(normalizedQuery) ||
+        product.primaryCategory.some((item) => _.kebabCase(item).includes(normalizedQuery)) ||
+        product.secondaryCategory.some((item) => _.kebabCase(item).includes(normalizedQuery)) ||
+        product.tags.some((tag) => _.kebabCase(tag).includes(normalizedQuery))
       );
     });
 
