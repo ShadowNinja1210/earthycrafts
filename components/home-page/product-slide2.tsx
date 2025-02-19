@@ -20,12 +20,11 @@ export default function ProductCarousel2() {
 
   const settings = {
     dots: true,
-    infinite: true,
     autoplay: false,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 2,
-    initialSlide: 0,
+    initialSlide: 1,
     responsive: [
       {
         breakpoint: 1800,
@@ -43,6 +42,20 @@ export default function ProductCarousel2() {
         breakpoint: 1100,
         settings: {
           slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1.2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
     ],

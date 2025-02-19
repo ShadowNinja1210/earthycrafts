@@ -3,7 +3,7 @@ import ProductDetails from "@/components/products/product-page";
 import { INewProduct } from "@/lib/schema";
 
 async function getProduct(id: string): Promise<INewProduct | null> {
-  const response = await fetch(`http://localhost:3000/api/product/${id}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/product/${id}`);
 
   if (!response.ok) {
     return null;
