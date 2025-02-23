@@ -40,7 +40,7 @@ export default function Loader({ onLoadingComplete, videoSrc }: LoaderProps) {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black"
+          className="fixed inset-0 z-50 flex items-center justify-center"
         >
           <div className="relative w-full max-w-md px-4">
             <motion.div
@@ -61,10 +61,10 @@ export default function Loader({ onLoadingComplete, videoSrc }: LoaderProps) {
                 initial={{ width: "0%" }}
                 animate={{ width: videoLoaded ? "100%" : "90%" }}
                 transition={{ duration: 2, ease: "easeInOut" }}
-                className="absolute -bottom-8 left-0 h-0.5 bg-white/30"
+                className="absolute -bottom-8 left-0 h-0.5 bg-black/30"
               >
                 <motion.div
-                  className="absolute top-0 left-0 h-full w-full bg-white"
+                  className="absolute top-0 left-0 h-full w-full bg-black"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: videoLoaded ? 1 : 0 }}
                   transition={{ duration: 1.5, ease: "easeInOut" }}

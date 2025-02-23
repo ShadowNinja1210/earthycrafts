@@ -1,7 +1,7 @@
 "use client";
 
 import Loader from "@/components/loaders/loader";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function IntroLoader() {
   const videoSrc = "/videos/intro-landscape.MP4"; // Replace with your video path
