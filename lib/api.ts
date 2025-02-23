@@ -1,6 +1,6 @@
 import { stones } from "@/public/assets/some-data";
 import { INewProduct } from "./schema";
-import _ from "lodash";
+import { lowerCase } from "lodash";
 
 // Fetch all products from the API
 export const fetchAllProducts = async () => {
@@ -141,7 +141,7 @@ export const getStoneInfo = async (stoneName: string) => {
   // const data = await res.json();
   console.log(stoneName);
 
-  const data = stones.find((stone) => _.lowerCase(stone.name) === _.lowerCase(stoneName));
+  const data = stones.find((stone) => lowerCase(stone.name) === lowerCase(stoneName));
 
   return data;
 };
@@ -149,7 +149,7 @@ export const getStoneInfo = async (stoneName: string) => {
 export const getStonesProduct = async (stoneName: string) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/product`);
   const data = await res.json();
-  const stone = stones.find((stone) => _.lowerCase(stone.name) === _.lowerCase(stoneName));
+  const stone = stones.find((stone) => lowerCase(stone.name) === lowerCase(stoneName));
 
   if (!res.ok || !stone) {
     return [];

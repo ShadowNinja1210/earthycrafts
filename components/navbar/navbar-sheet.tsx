@@ -9,29 +9,11 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import _ from "lodash";
-
-const primaryCategories = [
-  { name: "Design your home", href: "/products?primary=home" },
-  { name: "Outdoor Spaces", href: "/products?primary=outdoor" },
-  { name: "Landscape & Garden", href: "/products?primary=landscape" },
-];
-
-const secondaryCategories = [
-  "Agra Red",
-  "Bali",
-  "Beslana",
-  "Blue Pottery",
-  "Furniture",
-  "Handicraft",
-  "Sandstone",
-  "Temple",
-  "Tukdi Art",
-  "White Marble",
-];
+import useCategoriesLinks from "@/hooks/navbar-links";
 
 export default function NavbarSheet() {
   const [open, setOpen] = useState(false);
+  const { primaryCategories, secondaryCategories } = useCategoriesLinks();
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -66,13 +48,13 @@ export default function NavbarSheet() {
                     <AccordionContent>
                       <ul className="space-y-2">
                         {primaryCategories.map((category) => (
-                          <li key={category.name}>
+                          <li key={category.title}>
                             <Link
-                              href={category.href}
+                              href={category.link}
                               className="block py-2 px-4 text-base font-semibold hover:bg-accent rounded-md"
                               onClick={() => setOpen(false)}
                             >
-                              {category.name}
+                              {category.title}
                             </Link>
                           </li>
                         ))}
@@ -85,13 +67,13 @@ export default function NavbarSheet() {
                     <AccordionContent>
                       <ul className="space-y-2">
                         {secondaryCategories.map((category) => (
-                          <li key={category}>
+                          <li key={category.title}>
                             <Link
-                              href={`/products?secondary=${_.kebabCase(category)}`}
-                              className="block py-2 px-4 text-base font-semibold hover:bg-accent rounded-md"
+                              href={category.link}
+                              className="block py-2 px-4 text-base font-semibold hover:bg-accent rounded-md capitalize"
                               onClick={() => setOpen(false)}
                             >
-                              {category}
+                              {category.title}
                             </Link>
                           </li>
                         ))}

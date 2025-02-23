@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Badge } from "@/components/ui/badge";
-import _ from "lodash";
+import { kebabCase } from "lodash";
 
 interface SearchableMultiDropdownProps {
   items: string[];
@@ -37,14 +37,14 @@ export function SearchableMultiDropdown({
   const filteredItems = (items || []).filter((item) => item.toLowerCase().includes(search.toLowerCase()));
 
   const handleSelect = (item: string) => {
-    const newSelectedItems = selectedItems.some((i) => _.kebabCase(i) === _.kebabCase(item))
-      ? selectedItems.filter((i) => _.kebabCase(i) !== _.kebabCase(item))
+    const newSelectedItems = selectedItems.some((i) => kebabCase(i) === kebabCase(item))
+      ? selectedItems.filter((i) => kebabCase(i) !== kebabCase(item))
       : [...selectedItems, item];
     onSelect(newSelectedItems);
   };
 
   const handleAdd = () => {
-    if (search && !items.some((item) => _.kebabCase(item.toLowerCase()) === _.kebabCase(search.toLowerCase()))) {
+    if (search && !items.some((item) => kebabCase(item.toLowerCase()) === kebabCase(search.toLowerCase()))) {
       onAdd(search);
       setSearch("");
     }

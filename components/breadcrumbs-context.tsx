@@ -7,7 +7,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { cn } from "@/lib/utils";
-import _ from "lodash";
+import { kebabCase } from "lodash";
 
 export default function BreadcrumbsContext({ items, className }: { items: string[]; className?: string }) {
   return (
@@ -21,7 +21,7 @@ export default function BreadcrumbsContext({ items, className }: { items: string
           ) : (
             <>
               <BreadcrumbItem key={index}>
-                <BreadcrumbLink href={`/${_.kebabCase(item)}`}>{item}</BreadcrumbLink>
+                <BreadcrumbLink href={`/${kebabCase(item)}`}>{item}</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator key={index} />
             </>

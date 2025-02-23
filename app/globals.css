@@ -91,3 +91,17 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* NProgress Styles */
+#nprogress .bar {
+  background: #0083cf; /* Change color */
+  height: 4px;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #0083cf, 0 0 5px #0083cf;
+}
+
+#nprogress .spinner {
+  display: none; /* Hide spinner if not needed */
+}

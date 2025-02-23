@@ -8,7 +8,7 @@ import { Search } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchAllProducts } from "@/lib/api";
 import { INewProduct } from "@/lib/schema";
-import _ from "lodash";
+import { kebabCase } from "lodash";
 import SearchCards from "./search-cards";
 
 export default function SearchComponent() {
@@ -29,16 +29,16 @@ export default function SearchComponent() {
     console.log("Searching products for ", query);
 
     const results = products.filter((product: INewProduct) => {
-      const normalizedQuery = _.kebabCase(query);
+      const normalizedQuery = kebabCase(query);
 
       return (
-        _.kebabCase(product.productCode).includes(normalizedQuery) ||
-        _.kebabCase(product.name).includes(normalizedQuery) ||
-        _.kebabCase(product.stoneName).includes(normalizedQuery) ||
-        _.kebabCase(product.subCategory || "").includes(normalizedQuery) ||
-        product.primaryCategory.some((item) => _.kebabCase(item).includes(normalizedQuery)) ||
-        product.secondaryCategory.some((item) => _.kebabCase(item).includes(normalizedQuery)) ||
-        product.tags.some((tag) => _.kebabCase(tag).includes(normalizedQuery))
+        kebabCase(product.productCode).includes(normalizedQuery) ||
+        kebabCase(product.name).includes(normalizedQuery) ||
+        kebabCase(product.stoneName).includes(normalizedQuery) ||
+        kebabCase(product.subCategory || "").includes(normalizedQuery) ||
+        product.primaryCategory.some((item) => kebabCase(item).includes(normalizedQuery)) ||
+        product.secondaryCategory.some((item) => kebabCase(item).includes(normalizedQuery)) ||
+        product.tags.some((tag) => kebabCase(tag).includes(normalizedQuery))
       );
     });
 
@@ -66,7 +66,7 @@ export default function SearchComponent() {
           <DialogDescription>{`Searched results for ${query && query}`}</DialogDescription>
         </DialogHeader>
 
-        <div className="px-2 space-y-4 overflow-y-scroll h-full">
+        <div className="px-2 space-y-4 overflow-y-scroll h-full scrollbar-hide">
           <div className="grid grid-cols-2 gap-4">
             {query.length > 2 ? (
               isLoading ? (

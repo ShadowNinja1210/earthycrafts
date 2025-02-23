@@ -2,7 +2,7 @@ import { NewProduct } from "@/lib/schema";
 import { NextResponse, NextRequest } from "next/server";
 import { Types } from "mongoose";
 import { connectDB } from "@/lib/db";
-import _ from "lodash";
+import { camelCase } from "lodash";
 
 // -------------------------------------
 // GET: Retrieve a product by ID
@@ -13,9 +13,9 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
 
     const { id } = params; // Get the product ID
 
-    const product = await NewProduct.findOne({ productCode: _.camelCase(id).toUpperCase() }); // Query the product
+    const product = await NewProduct.findOne({ productCode: camelCase(id).toUpperCase() }); // Query the product
 
-    console.log(_.camelCase(id).toUpperCase());
+    console.log(camelCase(id).toUpperCase());
 
     if (!product) {
       return NextResponse.json(

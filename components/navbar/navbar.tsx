@@ -24,7 +24,7 @@ export default function Navbar({ className }: { className?: string }) {
           <NavbarSheet />
 
           {/* Centered Logo */}
-          <Link href="/home" className="font-extrabold text-3xl">
+          <Link href="/" className="font-extrabold text-3xl">
             <Image src="/images/logo.svg" width={150} height={70} alt="Logo" />
           </Link>
 
@@ -58,7 +58,7 @@ export default function Navbar({ className }: { className?: string }) {
           </NavigationMenu>
 
           {/* Centered Logo */}
-          <Link href="/home" className="font-extrabold text-3xl">
+          <Link href="/" className="font-extrabold text-3xl">
             <Image src="/images/logo.svg" width={150} height={70} alt="Logo" />
           </Link>
 

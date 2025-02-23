@@ -1,6 +1,6 @@
 import { connectDB } from "@/lib/db";
 import { Gallery } from "@/lib/schema";
-import _ from "lodash";
+import { kebabCase } from "lodash";
 import { NextResponse } from "next/server";
 
 // -------------------------------------
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
     }
 
     // Create a new gallery post
-    const gallery = await Gallery.create({ productLink: `/products/${_.kebabCase(productCode)}`, image });
+    const gallery = await Gallery.create({ productLink: `/products/${kebabCase(productCode)}`, image });
 
     return NextResponse.json(gallery);
   } catch (error) {

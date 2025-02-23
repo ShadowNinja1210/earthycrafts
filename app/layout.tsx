@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import TopLoader from "@/components/loaders/top-loader";
+import { Suspense } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,7 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="light">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        <Suspense fallback={<div>Loading...</div>}>
+          <TopLoader />
+        </Suspense>
+        {children}
+      </body>
     </html>
   );
 }

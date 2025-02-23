@@ -1,6 +1,6 @@
 import ProductsLayout from "@/components/products/products-layout";
 import { INewProduct } from "@/lib/schema";
-import _ from "lodash";
+import { lowerCase } from "lodash";
 
 export default async function AllProductsPage() {
   let products: INewProduct[] = [];
@@ -20,7 +20,7 @@ export default async function AllProductsPage() {
 
     // Handle primary categories
     primaryCategory?.forEach((category) => {
-      category = _.lowerCase(category.trim());
+      category = lowerCase(category.trim());
 
       if (!categoryMap.has(category)) {
         categoryMap.set(category, new Set());
@@ -32,7 +32,7 @@ export default async function AllProductsPage() {
 
     // Handle secondary categories
     secondaryCategory?.forEach((category) => {
-      category = _.lowerCase(category.trim());
+      category = lowerCase(category.trim());
 
       if (!categoryMap.has(category)) {
         categoryMap.set(category, new Set());

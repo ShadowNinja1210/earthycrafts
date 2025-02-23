@@ -2,11 +2,11 @@ import { getStoneInfo, getStonesProduct } from "@/lib/api";
 import ProductCard from "@/components/products/product-card";
 import type { INewProduct } from "@/lib/schema";
 import StoneImageCarousel from "@/components/inspiration/components/stone-image-card";
-import _ from "lodash";
+import { lowerCase } from "lodash";
 import { notFound } from "next/navigation";
 
 export default async function StonePage({ params }: { params: { stone: string } }) {
-  const stoneName = _.lowerCase(params.stone);
+  const stoneName = lowerCase(params.stone);
   const stoneInfo = await getStoneInfo(stoneName);
   const products = await getStonesProduct(stoneName);
 

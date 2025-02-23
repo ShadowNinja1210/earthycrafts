@@ -18,7 +18,7 @@ import {
 import ProductCard from "./product-card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible";
 import { cn } from "@/lib/utils";
-import _ from "lodash";
+import { kebabCase, lowerCase } from "lodash";
 import { Separator } from "../ui/separator";
 import { Button } from "../ui/button";
 import { useSearchParams } from "next/navigation";
@@ -52,27 +52,14 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedSubCategory, setSelectedSubCategory] = useState<string>("");
 
-  // const searchParams = useSearchParams();
-  // const urlCategory = searchParams.get("category");
-  // const urlSubCategory = searchParams.get("subCategory");
-
-  // useEffect(() => {
-  //   if (urlCategory) {
-  //     setSelectedCategory(urlCategory);
-  //   }
-  //   if (urlSubCategory) {
-  //     setSelectedSubCategory(urlSubCategory);
-  //   }
-  // }, [urlCategory, urlSubCategory]);
-
   const filteredProducts = products.filter((product) => {
-    const normalizedCategory = _.kebabCase(selectedCategory || "");
+    const normalizedCategory = kebabCase(selectedCategory || "");
 
     return (
       !selectedCategory ||
-      product.primaryCategory.some((cat) => _.kebabCase(cat) === normalizedCategory) ||
-      product.secondaryCategory.some((cat) => _.kebabCase(cat) === normalizedCategory) ||
-      _.kebabCase(product.subCategory || "") === normalizedCategory
+      product.primaryCategory.some((cat) => kebabCase(cat) === normalizedCategory) ||
+      product.secondaryCategory.some((cat) => kebabCase(cat) === normalizedCategory) ||
+      kebabCase(product.subCategory || "") === normalizedCategory
     );
   });
 
@@ -119,7 +106,7 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
                               selectedCategory === category.name ? "bg-accent" : ""
                             )}
                           >
-                            {_.lowerCase(category.name)}
+                            {lowerCase(category.name)}
                             {/* {category.name} */}
                             <ChevronRight className="transition-transform group-data-[state=open]/collapsible:rotate-90" />
                           </SidebarMenuButton>
@@ -135,10 +122,10 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
                                   }}
                                 >
                                   <Link
-                                    href={`/products?subCategory=${_.kebabCase(subCategory)}`}
+                                    href={`/products?subCategory=${kebabCase(subCategory)}`}
                                     className=" capitalize"
                                   >
-                                    {_.lowerCase(subCategory)}
+                                    {lowerCase(subCategory)}
                                   </Link>
                                 </SidebarMenuButton>
                               </SidebarMenuItem>
@@ -160,8 +147,8 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
                           setSelectedSubCategory("");
                         }}
                       >
-                        <Link href={`/products?category=${_.kebabCase(category.name)}`} className=" capitalize">
-                          {_.lowerCase(category.name)}
+                        <Link href={`/products?category=${kebabCase(category.name)}`} className=" capitalize">
+                          {lowerCase(category.name)}
                         </Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
@@ -182,13 +169,13 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
             {selectedCategory && (
               <>
                 <ChevronRight className="h-4 w-4" />
-                <span className="text-foreground capitalize">{_.lowerCase(selectedCategory)}</span>
+                <span className="text-foreground capitalize">{lowerCase(selectedCategory)}</span>
               </>
             )}
             {selectedSubCategory && (
               <>
                 <ChevronRight className="h-4 w-4" />
-                <span className="text-foreground capitalize">{_.lowerCase(selectedSubCategory)}</span>
+                <span className="text-foreground capitalize">{lowerCase(selectedSubCategory)}</span>
               </>
             )}
           </div>
