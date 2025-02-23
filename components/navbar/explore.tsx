@@ -24,7 +24,15 @@ export default function Explore() {
                 href={category.link}
               >
                 <div className="flex aspect-square w-32 items-center justify-center rounded-md border bg-muted">
-                  <video className="aspect-square rounded-md object-cover" height={120} width={120} autoPlay loop muted>
+                  <video
+                    className="aspect-square rounded-md object-cover"
+                    height={120}
+                    width={120}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  >
                     <source src={category.image} type="video/mp4" />
                   </video>
                 </div>
@@ -53,7 +61,15 @@ export default function Explore() {
               >
                 <div className="flex aspect-square w-16 items-center justify-center rounded-md border bg-muted">
                   {category.image.includes(".mp4") ? (
-                    <video className="aspect-square rounded-md object-cover" height={80} width={80} autoPlay loop muted>
+                    <video
+                      className="aspect-square rounded-md object-cover"
+                      height={80}
+                      width={80}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    >
                       <source src={category.image} type="video/mp4" />
                     </video>
                   ) : (

@@ -67,7 +67,7 @@ export default function GridLayout({
           <Link href={category.link}>
             <div className="relative w-full h-full group">
               {category.videoUrl.includes(".mp4") ? (
-                <video autoPlay muted loop>
+                <video autoPlay muted loop playsInline>
                   <source src={category.videoUrl} type="video/mp4" />
                 </video>
               ) : (
