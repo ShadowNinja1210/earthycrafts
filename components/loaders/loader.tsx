@@ -50,7 +50,7 @@ export default function Loader({ onLoadingComplete, videoSrc }: LoaderProps) {
               className="relative"
             >
               <Image
-                src="/images/logo.svgs"
+                src="/images/logo.svg"
                 alt="Earthycrafts Logo"
                 width={500}
                 height={120}
