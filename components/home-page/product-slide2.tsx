@@ -62,7 +62,9 @@ export default function ProductCarousel2() {
   };
 
   return (
-    <div className="slider-container py-8 xl:px-16 lg:px-12 md:px-8 sm:px-6 px-4">
+    <div className="slider-container py-8 xl:px-16 lg:px-12 md:px-8 sm:px-6 px-4 overflow-hidden">
+      <h1 className="md:text-4xl text-3xl font-bold text-center mb-12">Which product is appealing your pallet?</h1>
+
       <Slider {...settings}>
         {products?.map((product, index) => (
           <ProductCard key={index} product={product} />

@@ -7,7 +7,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function HeroSection() {
-  const text = "More than just an acoustic panel, a symphony of natural stone and design.";
+  const text = "More than just an handicrafts, a symphony of natural stone and design.";
   const exploreText = "Explore";
 
   const letterVariants = {
@@ -39,7 +39,7 @@ export default function HeroSection() {
           alt="Earthycrafts logo"
         />
         {/* Tag line */}
-        <motion.p className=" text-lg sm:text-3xl md:text-4xl font-bold max-w-[700px] " aria-label={text}>
+        <motion.p className=" px-1 text-lg sm:text-3xl md:text-4xl font-semibold max-w-[700px] " aria-label={text}>
           {text.split("").map((char, index) => (
             <motion.span
               key={`${char}-${index}`}

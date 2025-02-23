@@ -43,14 +43,14 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="font-semibold mb-4">Contact Us</h3>
-            <p className="text-sm mb-2">
+            <p className="text-sm mb-2 whitespace-nowrap">
               <Phone className="inline-flex w-4 mr-1 mb-0.5" />
               Phone:{" "}
               <Link href="tel:+918949181484" className=" hover:underline">
                 +91 89491 81484
               </Link>
             </p>
-            <p className="text-sm mb-2">
+            <p className="text-sm mb-2 whitespace-nowrap">
               <AtSign className="inline-flex w-4 mr-1 mb-0.5" />
               Email:{" "}
               <Link href="mailto:admin@earthycrafts.com" className=" hover:underline">

@@ -45,7 +45,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen overflow-hidden">
       <main className="flex-grow">
         <div className="container mx-auto px-4 py-12">
           <motion.h1
