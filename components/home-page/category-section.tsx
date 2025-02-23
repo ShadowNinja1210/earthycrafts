@@ -6,21 +6,21 @@ const categories = [
     title: "Design your home",
     description: "Handmade with love, each piece is as unique as its origin.",
     videoUrl: "/videos/categories/home.mp4",
-    link: "/products/home",
+    link: "/products?category=home",
   },
   {
     id: 2,
     title: "Outdoor Spaces",
     description: "Handmade with love, each piece is uniquely imagined.",
     videoUrl: "/videos/categories/outdoor.mp4",
-    link: "/products/outdoor",
+    link: "/products?category=outdoor",
   },
   {
     id: 3,
     title: "Garden & Landscaping",
     description: "Handmade with love, each piece is as earthy and alive as your beautiful garden",
     videoUrl: "/videos/categories/garden-landscape.mp4",
-    link: "/products/garden",
+    link: "/products?category=garden-landscape",
   },
 ];
 
