@@ -15,7 +15,7 @@ export default function ProductCard({
   className?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }) {
-  const mainImage = product?.images?.find((img) => img.main);
+  const mainImage = product.images.length === 1 ? product.images[0] : product?.images?.find((img) => img.main);
 
   return (
     <Card className={cn(className, "w-80 overflow-hidden")}>
