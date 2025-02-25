@@ -40,8 +40,8 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-transparent overflow-hidden">
       <div className="relative">
-        <BackgroundVideo src="/videos/intro-landscape.MP4" className="md:block hidden  z-50" />
-        <BackgroundVideo src="/videos/intro-portrait.mp4" className="md:hidden z-50" />
+        <BackgroundVideo src="/videos/about-landscape.MP4" className="md:block hidden  z-50" />
+        <BackgroundVideo src="/videos/about-portrait.mp4" className="md:hidden z-50" />
       </div>
 
       {/* Content */}

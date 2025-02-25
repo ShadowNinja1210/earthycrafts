@@ -3,12 +3,12 @@ export const imgPlaceholder = "/images/placeholder.svg";
 export const stonesLink = [
   {
     name: "Agra Red",
-    image: "/images/stones/agra-red-stone.webp",
+    image: "/images/stones/agra-red.jpeg",
     url: "/stones/agra-red",
   },
   {
     name: "Bali Marble",
-    image: "/images/stones/bali-marble-stone.webp",
+    image: "/images/stones/bali-marble.jpeg",
     url: "/stones/bali-marble",
   },
   {
@@ -18,7 +18,7 @@ export const stonesLink = [
   },
   {
     name: "Blue Pottery",
-    image: "/images/stones/blue-pottery.webp",
+    image: "/images/stones/blue-pottery.jpeg",
     url: "/stones/blue-pottery",
   },
   {

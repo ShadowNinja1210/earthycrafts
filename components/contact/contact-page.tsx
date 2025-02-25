@@ -10,7 +10,6 @@ import { Mail, Phone } from "lucide-react";
 import { FaWhatsapp, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { useMutation } from "@tanstack/react-query";
 import { enquiryPost } from "@/lib/api";
-import { SocialFloater } from "./contacts-floater";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -48,7 +47,6 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       <main className="flex-grow">
-        <SocialFloater />
         <div className="container mx-auto px-4 py-12">
           <motion.h1
             className="text-4xl md:text-6xl font-bold text-center mb-4"

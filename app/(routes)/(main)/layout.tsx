@@ -5,6 +5,7 @@ import "../../globals.css";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer";
 import { usePathname } from "next/navigation";
+import { ContactFloater } from "@/components/contact/contacts-floater";
 
 export default function RootLayout({
   children,
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <Providers>
       <Navbar className={path === "/products" ? "sticky top-0" : ""} />
+      <ContactFloater />
       {children}
       {path !== "/products" && <Footer />}
     </Providers>
