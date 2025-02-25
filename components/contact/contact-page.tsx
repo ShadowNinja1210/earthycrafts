@@ -7,9 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { useMutation } from "@tanstack/react-query";
 import { enquiryPost } from "@/lib/api";
+import { SocialFloater } from "./contacts-floater";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -47,6 +48,7 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       <main className="flex-grow">
+        <SocialFloater />
         <div className="container mx-auto px-4 py-12">
           <motion.h1
             className="text-4xl md:text-6xl font-bold text-center mb-4"
@@ -71,31 +73,94 @@ export default function ContactPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
+              <h2 className="text-2xl font-semibold mb-2">Contact Information</h2>
+              {/* <div className="flex space-x-4 mb-4">
+                <Link
+                  href={process.env.NEXT_PUBLIC_FACEBOOK_URL || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <FaFacebook size={20} />
+                  <span className="sr-only">Facebook</span>
+                </Link>
+                <Link
+                  href={process.env.NEXT_PUBLIC_FACEBOOK_URL || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <FaInstagram size={20} />
+                  <span className="sr-only">Instagram</span>
+                </Link>
+                <Link
+                  href={process.env.NEXT_PUBLIC_FACEBOOK_URL || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <FaTwitter size={20} />
+                  <span className="sr-only">Twitter</span>
+                </Link>
+              </div> */}
 
               <p className="mb-2 flex items-center">
                 <Phone className="w-5 mr-2" />
-                <Link className="hover:text-neutral-700" href={`tel:+918949181484`}>
-                  +91 89491 81484
+                <Link className="hover:text-neutral-700" href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}>
+                  {process.env.NEXT_PUBLIC_PHONE}
                 </Link>
               </p>
               <p className="mb-2 flex items-center">
                 <Mail className="w-5 mr-2" />
-                <Link className="hover:text-neutral-700" href={`mailto:admin@earthycrafts.com`}>
-                  admin@earthycrafts.com
+                <Link className="hover:text-neutral-700" href={`mailto:${process.env.NEXT_PUBLIC_EMAIL?.trim()}`}>
+                  {process.env.NEXT_PUBLIC_EMAIL}
                 </Link>
               </p>
-              <p className="mb-4">
-                <Link
+              {/* <Link
                   className="hover:text-neutral-700 w-fit flex items-center whitespace-pre-wrap"
                   href={`https://wa.me/918949181484`}
                   target="_blank"
                 >
                   <FaWhatsapp className="w-5 h-5 mr-2 fill-green-600" />
                   <span className=" text-green-600 font-semibold">WhatsApp</span> - Chat with us
+                </Link> */}
+
+              <div className="flex space-x-4 my-4">
+                <Link className="group" href={process.env.NEXT_PUBLIC_WHATSAPP_URL || "#"} target="_blank">
+                  <FaWhatsapp size={28} className=" fill-green-600 group-hover:fill-green-800" />
+                  <span className=" sr-only">WhatsApp</span>
                 </Link>
-              </p>
+                <Link
+                  href={process.env.NEXT_PUBLIC_FB_URL || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <FaFacebook size={28} />
+                  <span className="sr-only">Facebook</span>
+                </Link>
+                <Link
+                  href={process.env.NEXT_PUBLIC_INSTAGRAM_URL || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative text-muted-foreground hover:text-foreground"
+                >
+                  <FaInstagram size={28} />
+                  <span className="sr-only">Instagram</span>
+                </Link>
+                <Link
+                  href={process.env.NEXT_PUBLIC_LINKEDIN_URL || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <FaLinkedin size={28} />
+                  <span className="sr-only">Twitter</span>
+                </Link>
+              </div>
+
               <div className="h-1 w-20 bg-primary mb-6"></div>
+
               <p className="text-muted-foreground">
                 We&apos;d love to hear from you! Whether you have a question about our products, need help with a custom
                 order, or just want to say hello, don&apos;t hesitate to reach out.

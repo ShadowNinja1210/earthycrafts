@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { BrickWall, Menu } from "lucide-react";
+import { FaWhatsapp, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -44,7 +45,7 @@ export default function NavbarSheet() {
 
                 <Accordion type="single" collapsible className="w-full">
                   <AccordionItem value="primary-categories">
-                    <AccordionTrigger className="text-lg pt-0 font-semibold">Primary Category</AccordionTrigger>
+                    <AccordionTrigger className="text-lg pt-0 font-semibold">Shop by Space</AccordionTrigger>
                     <AccordionContent>
                       <ul className="space-y-2">
                         {primaryCategories.map((category) => (
@@ -63,7 +64,7 @@ export default function NavbarSheet() {
                   </AccordionItem>
 
                   <AccordionItem value="secondary-categories">
-                    <AccordionTrigger className="text-lg font-semibold">Secondary Category</AccordionTrigger>
+                    <AccordionTrigger className="text-lg font-semibold">Shop by Collection</AccordionTrigger>
                     <AccordionContent>
                       <ul className="space-y-2">
                         {secondaryCategories.map((category) => (
@@ -100,8 +101,41 @@ export default function NavbarSheet() {
               </nav>
             </div>
           </ScrollArea>
-          <div className="border-t sm:p-6 p-4">
-            <Link href="/contact" onClick={() => setOpen(false)}>
+          <div className="border-t sm:p-6 p-4 flex flex-col gap-4 items-center">
+            <div className="flex space-x-4">
+              <Link className="group" href={process.env.NEXT_PUBLIC_WHATSAPP_URL || "#"} target="_blank">
+                <FaWhatsapp size={24} className=" fill-green-600 group-hover:fill-green-800" />
+                <span className=" sr-only">WhatsApp</span>
+              </Link>
+              <Link
+                href={process.env.NEXT_PUBLIC_FB_URL || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <FaFacebook size={24} />
+                <span className="sr-only">Facebook</span>
+              </Link>
+              <Link
+                href={process.env.NEXT_PUBLIC_INSTAGRAM_URL || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <FaInstagram size={24} />
+                <span className="sr-only">Instagram</span>
+              </Link>
+              <Link
+                href={process.env.NEXT_PUBLIC_LINKEDIN_URL || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <FaLinkedin size={24} />
+                <span className="sr-only">Twitter</span>
+              </Link>
+            </div>
+            <Link className="w-full" href="/contact" onClick={() => setOpen(false)}>
               <Button className="w-full text-base" size="lg" onClick={() => setOpen(false)}>
                 Customer Service
               </Button>

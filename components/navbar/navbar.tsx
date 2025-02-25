@@ -18,7 +18,7 @@ import {
 export default function Navbar({ className }: { className?: string }) {
   return (
     <>
-      <nav className={cn("md:hidden w-full ", className)}>
+      <nav className={cn("lg:hidden w-full ", className)}>
         <div className="flex bg-white justify-between py-2 px-3 z-10">
           {/* Navbar Sheet */}
           <NavbarSheet />
@@ -34,7 +34,7 @@ export default function Navbar({ className }: { className?: string }) {
 
       {/* Navbar for Large & Medium Devices */}
       <nav className={cn("w-full", className)}>
-        <div className="md:flex bg-white hidden justify-between py-4 px-10 z-50">
+        <div className="lg:flex bg-white hidden justify-between py-4 px-10 z-50">
           {/* Left-side links list for Large & Medium Devices */}
           <NavigationMenu>
             <NavigationMenuList className="flex gap-6 font-medium items-center">
@@ -58,7 +58,7 @@ export default function Navbar({ className }: { className?: string }) {
           </NavigationMenu>
 
           {/* Centered Logo */}
-          <Link href="/" className="font-extrabold text-3xl">
+          <Link href="/home" className="font-extrabold text-3xl">
             <Image src="/images/logo.svg" width={150} height={70} alt="Logo" />
           </Link>
 

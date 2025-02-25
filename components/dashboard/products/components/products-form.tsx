@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react";
 
 // ----React Query & Schema---- //
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { INewProduct } from "@/lib/schema";
 import { addProduct, editProduct } from "@/lib/api";
 
@@ -23,6 +23,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { FilesUpload } from "@/components/files-upload";
 import { SearchableMultiDropdown } from "@/components/searchable-multi-dropdown";
+import SelectField from "@/components/select-field";
 
 // Form Schema
 const productFormSchema = z.object({
@@ -45,7 +46,8 @@ const productFormSchema = z.object({
 
 // Product Form Props
 type ProductFormProps = {
-  categories: string[];
+  primaryCategories: string[];
+  secondaryCategories: string[];
   subCategories: string[];
   stoneNames: string[];
   setOpen: (params: { isOpen: boolean; productCode: string }) => void;
@@ -53,18 +55,32 @@ type ProductFormProps = {
 };
 
 // Product Form Component
-export default function ProductsForm({ categories, subCategories, stoneNames, edit, setOpen }: ProductFormProps) {
+export default function ProductsForm({
+  primaryCategories,
+  secondaryCategories,
+  subCategories,
+  stoneNames,
+  edit,
+  setOpen,
+}: ProductFormProps) {
   const [productCodeError, setProductCodeError] = useState<string | null>(null);
   const [imageUrls, setImageUrls] = useState<string[]>([]);
   const [mainImg, setMainImg] = useState<string | null>(null);
-  console.log(categories);
-  console.log(subCategories);
 
   // Query Mutations for adding and editing products
+  const queryClient = useQueryClient();
+
   const addSubmission = useMutation({
     mutationFn: (formData) => addProduct(formData),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["dashboardProducts"] }); // Refresh products list
+    },
   });
+
   const editSubmission = useMutation({
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["dashboardProducts"] }); // Refresh products list
+    },
     mutationFn: ({ formData, id }: { formData: z.infer<typeof productFormSchema>; id: string }) =>
       editProduct(formData, id),
   });
@@ -171,191 +187,201 @@ export default function ProductsForm({ categories, subCategories, stoneNames, ed
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        {/* Name */}
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Product Name</FormLabel>
-              <FormControl>
-                <Input placeholder="Product Name" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+      <form onSubmit={form.handleSubmit(onSubmit)} className="">
+        <div className="space-y-6 overflow-y-scroll max-h-[80vh] py-4">
+          {/* Name */}
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Product Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="Product Name" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        {/* Description */}
-        <FormField
-          control={form.control}
-          name="description"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Description</FormLabel>
-              <FormControl>
-                <Textarea placeholder="Description" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+          {/* Description */}
+          <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Description</FormLabel>
+                <FormControl>
+                  <Textarea placeholder="Description" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        {/* Product Code */}
-        <FormField
-          control={form.control}
-          name="productCode"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Product Code</FormLabel>
-              <FormControl>
-                <Input placeholder="Product Code" {...field} />
-              </FormControl>
-              {productCodeError && <p className="text-red-600 text-sm">{productCodeError}</p>}
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+          {/* Product Code */}
+          <FormField
+            control={form.control}
+            name="productCode"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Product Code</FormLabel>
+                <FormControl>
+                  <Input placeholder="Product Code" {...field} />
+                </FormControl>
+                {productCodeError && <p className="text-red-600 text-sm">{productCodeError}</p>}
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        {/* Select */}
-        {/* Stone Name */}
-        <FormField
-          control={form.control}
-          name="stoneName"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Stone Name</FormLabel>
-              <FormControl>
-                <SearchableMultiDropdown
-                  items={stoneNames}
-                  selectedItems={field.value ? field.value.split(", ") : []}
-                  onSelect={(values) => field.onChange(values)}
-                  onAdd={(value) => {
-                    const newValue = value.trim();
-                    const selectedItems = field.value;
-                    if (newValue) {
-                      field.onChange([...(Array.isArray(selectedItems) ? selectedItems : []), newValue]);
-                    }
-                  }}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+          {/* Select */}
+          {/* Stone Name */}
+          <FormField
+            control={form.control}
+            name="stoneName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Stone Name</FormLabel>
+                <FormControl>
+                  <SelectField items={stoneNames} placeholder="Select Stone Name" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        {/* Searchable */}
-        {/* Categories */}
-        <FormField
-          control={form.control}
-          name="primaryCategory"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Primary Categories</FormLabel>
-              <FormControl>
-                <SearchableMultiDropdown
-                  items={stoneNames}
-                  selectedItems={field.value ?? []}
-                  onSelect={(values) => field.onChange(values)}
-                  onAdd={(value) => {
-                    const newValue = value.trim();
-                    const selectedItems = field.value;
-                    if (newValue) {
-                      field.onChange([...selectedItems, newValue]);
-                    }
-                  }}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+          {/* Searchable */}
+          {/* Primary Categories */}
+          <FormField
+            control={form.control}
+            name="primaryCategory"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Primary Categories</FormLabel>
+                <FormControl>
+                  <SearchableMultiDropdown
+                    placeholder="Primary Categories"
+                    items={primaryCategories}
+                    selectedItems={field.value ?? []}
+                    onSelect={(values) => field.onChange(values)}
+                    onAdd={(value) => {
+                      const newValue = value.trim();
+                      const selectedItems = field.value;
+                      if (newValue) {
+                        field.onChange([...selectedItems, newValue]);
+                      }
+                    }}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        {/* <FormField
-          control={form.control}
-          name="secondaryCategory"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Secondary Categories</FormLabel>
-              <FormControl>
-                <SearchableMultiDropdown
-                  options={categories}
-                  selectedValues={field.value}
-                  onChange={(values) => field.onChange(values)}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        /> */}
+          {/* Searchable */}
+          {/* Secondary Categories */}
+          <FormField
+            control={form.control}
+            name="secondaryCategory"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Secondary Categories</FormLabel>
+                <FormControl>
+                  <SearchableMultiDropdown
+                    placeholder="Secondary Categories"
+                    items={secondaryCategories}
+                    selectedItems={field.value}
+                    onSelect={(values: string[]) => field.onChange(values)}
+                    onAdd={(value) => {
+                      const newValue = value.trim();
+                      const selectedItems = field.value;
+                      if (newValue) {
+                        field.onChange([...selectedItems, newValue]);
+                      }
+                    }}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        {/* Select */}
-        {/* Subcategories */}
-        {/* <FormField
-          control={form.control}
-          name="subCategory"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Subcategory</FormLabel>
-              <FormControl>
-                <SearchableMultiDropdown
-                  items={subCategories}
-                  selectedItems={field.value ? field.value : []}
-                  onChange={(values) => field.onChange(values[0] || "")}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        /> */}
+          {/* Select */}
+          {/* Subcategories */}
+          <FormField
+            control={form.control}
+            name="subCategory"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Subcategory</FormLabel>
+                <FormControl>
+                  <SelectField items={subCategories} placeholder="Select Subcategory" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        {/* Images */}
-        <FormItem>
-          <FormLabel>Product Images</FormLabel>
-          <FilesUpload onChange={handleImageUrls} value={imageUrls} main={mainImg} setMainImg={setMainImg} />
-        </FormItem>
+          {/* Searchable */}
+          {/* Tags */}
+          <FormField
+            control={form.control}
+            name="tags"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Tags</FormLabel>
+                <FormControl>
+                  <SearchableMultiDropdown
+                    items={[]}
+                    selectedItems={field.value}
+                    onSelect={(values: string[]) => field.onChange(values)}
+                    onAdd={(value) => {
+                      const newValue = value.trim();
+                      const selectedItems = field.value;
+                      if (newValue) {
+                        field.onChange([...selectedItems, newValue]);
+                      }
+                    }}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        {/* Featured Checkbox */}
-        <FormField
-          control={form.control}
-          name="isFeatured"
-          render={({ field }) => (
-            <FormItem>
-              <div className="flex items-center space-x-2">
-                <Checkbox
-                  id="isFeatured"
-                  checked={field.value}
-                  onCheckedChange={(checked) => field.onChange(checked)}
-                />
-                <FormLabel htmlFor="isFeatured">Featured Product</FormLabel>
-              </div>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+          {/* Featured Checkbox */}
+          <FormField
+            control={form.control}
+            name="isFeatured"
+            render={({ field }) => (
+              <FormItem className="">
+                <div className="flex items-center space-x-2 rounded-lg border">
+                  <Checkbox
+                    id="isFeatured"
+                    checked={field.value}
+                    onCheckedChange={(checked) => field.onChange(checked)}
+                    className="ml-4"
+                  />
+                  <FormLabel htmlFor="isFeatured" className="py-4 pr-4">
+                    Is this product featured?
+                  </FormLabel>
+                </div>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        {/* Tags */}
-        {/* <FormField
-          control={form.control}
-          name="tags"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Tags</FormLabel>
-              <FormControl>
-                <SearchableMultiDropdown
-                  options={[]}
-                  selectedValues={field.value}
-                  onChange={(values) => field.onChange(values)}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        /> */}
+          {/* Images */}
+          <FormItem>
+            <FormLabel>Product Images</FormLabel>
+            <FilesUpload onChange={handleImageUrls} value={imageUrls} main={mainImg} setMainImg={setMainImg} />
+          </FormItem>
 
+          {/* Tags */}
+        </div>
         {/* Submit Button */}
-        <Button type="submit" className="w-full">
+        <Button disabled={editSubmission.isPending} type="submit" className="w-full">
           {edit ? "Update Product" : "Add Product"}
         </Button>
       </form>

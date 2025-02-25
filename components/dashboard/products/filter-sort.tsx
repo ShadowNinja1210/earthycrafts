@@ -7,8 +7,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { INewProduct } from "@/lib/schema";
 import { Filter } from "lucide-react";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { staticPrimaryCategories, staticSecondaryCategories } from "@/public/assets/some-data";
+import useProductData from "@/hooks/use-products";
+import { lowerCase } from "lodash";
+import { Separator } from "@/components/ui/separator";
 
 interface FilterSortProps {
   products: INewProduct[];
@@ -16,15 +20,35 @@ interface FilterSortProps {
 }
 
 export default function FilterSort({ products, onFilterSort }: FilterSortProps) {
-  const [filters, setFilters] = useState<Partial<INewProduct> & { categories: string[]; subCategories: string[] }>({
-    categories: [],
+  const [filters, setFilters] = useState<
+    Partial<INewProduct> & {
+      primaryCategories: string[];
+      secondaryCategories: string[];
+      subCategories: string[];
+      inStock: boolean;
+    }
+  >({
+    primaryCategories: [],
+    secondaryCategories: [],
     subCategories: [],
-    inStock: undefined,
+    inStock: true,
   });
   const [sortOption, setSortOption] = useState<string>("");
+  const [mergedSecondaryCategories, setMergedSecondaryCategories] = useState<string[]>([]);
+
+  const { secondaryCategories, subCategories } = useProductData(products);
+
+  useEffect(() => {
+    applyFilterSort();
+  }, [products, filters, sortOption]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    const merged = [...new Set([...staticSecondaryCategories, ...secondaryCategories])];
+    setMergedSecondaryCategories(merged);
+  }, [secondaryCategories]);
 
   const handleFilterChange = (key: string, value: any) => {
-    if (key === "categories" || key === "subCategories") {
+    if (key === "primaryCategories" || key === "subCategories" || key === "secondaryCategories") {
       setFilters((prev) => ({
         ...prev,
         [key]: prev[key].includes(value) ? prev[key].filter((item) => item !== value) : [...prev[key], value],
@@ -38,12 +62,24 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
     setSortOption(option);
   };
 
-  const applyFilterSort = () => {
+  const applyFilterSort = useCallback(() => {
     let result = [...products];
 
-    if (filters.categories.length > 0) {
+    // Filter by primary category
+    if (filters.primaryCategories.length > 0) {
       result = result.filter((product) =>
-        filters.categories.some((category) => product.primaryCategory.includes(category))
+        filters.primaryCategories.some((category) =>
+          product.primaryCategory.some((cat) => lowerCase(cat) === lowerCase(category))
+        )
+      );
+    }
+
+    // Filter by secondary category
+    if (filters.secondaryCategories.length > 0) {
+      result = result.filter((product) =>
+        filters.secondaryCategories.some((category) =>
+          product.secondaryCategory.some((cat) => lowerCase(cat) === lowerCase(category))
+        )
       );
     }
 
@@ -65,10 +101,7 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
     }
 
     onFilterSort(result);
-  };
-
-  const categories = Array.from(new Set(products?.flatMap((p) => p.primaryCategory)));
-  const subCategories = Array.from(new Set(products?.map((p) => p.subCategory).filter(Boolean)));
+  }, [products, filters, sortOption, onFilterSort]);
 
   return (
     <DropdownMenu>
@@ -86,12 +119,27 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
             <div className="space-y-2">
               <h3 className="text-sm font-medium">Categories</h3>
               <div className="space-y-1">
-                {categories.map((category) => (
-                  <div key={category} className="flex items-center">
+                {staticPrimaryCategories.map((category) => (
+                  <div key={category} className="flex items-center capitalize">
                     <Checkbox
                       id={`category-${category}`}
-                      checked={filters.categories.includes(category)}
-                      onCheckedChange={() => handleFilterChange("categories", category)}
+                      checked={filters.primaryCategories.includes(category)}
+                      onCheckedChange={() => handleFilterChange("primaryCategories", category)}
+                    />
+                    <label htmlFor={`category-${category}`} className="ml-2 text-sm">
+                      {category}
+                    </label>
+                  </div>
+                ))}
+
+                <Separator className="my-4" />
+
+                {mergedSecondaryCategories.map((category) => (
+                  <div key={category} className="flex items-center capitalize">
+                    <Checkbox
+                      id={`category-${category}`}
+                      checked={filters.secondaryCategories.includes(category)}
+                      onCheckedChange={() => handleFilterChange("secondaryCategories", category)}
                     />
                     <label htmlFor={`category-${category}`} className="ml-2 text-sm">
                       {category}
@@ -106,7 +154,7 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
               <h3 className="text-sm font-medium">Sub-Categories</h3>
               <div className="space-y-1">
                 {subCategories.map((subCategory) => (
-                  <div key={subCategory} className="flex items-center">
+                  <div key={subCategory} className="flex items-center capitalize">
                     <Checkbox
                       id={`subCategory-${subCategory}`}
                       checked={filters.subCategories.includes(subCategory as string)}

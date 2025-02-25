@@ -33,8 +33,10 @@ import {
 import { toast } from "@/hooks/use-toast";
 import { useQuery } from "@tanstack/react-query";
 import { fetchAllProducts } from "@/lib/api";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import FilterSort from "./filter-sort";
+import { staticPrimaryCategories, staticSecondaryCategories } from "@/public/assets/some-data";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function DashboardProducts() {
   const {
@@ -42,7 +44,7 @@ export default function DashboardProducts() {
     error: productError,
     isLoading,
   } = useQuery({
-    queryKey: ["products"],
+    queryKey: ["dashboardProducts"],
     queryFn: fetchAllProducts,
   });
 
@@ -51,13 +53,11 @@ export default function DashboardProducts() {
   const [editOpen, setEditOpen] = useState<{ isOpen: boolean; productCode?: string }>({ isOpen: false }); // Edit Dialog for a specific product
   const [filteredSortedProducts, setFilteredSortedProducts] = useState<INewProduct[]>(products || []); // Filtered and Sorted Products
 
-  // Getting the primaryCategories, subcategories, and stone names from the fetched products
-  const { primaryCategories, subCategories, stoneNames } = useProductData(products);
+  // Getting the  subcategories, and stone names from the fetched products
+  const { secondaryCategories, subCategories, stoneNames } = useProductData(products);
 
-  // Setting the filteredSortedProducts when products are fetched
-  useEffect(() => {
-    setFilteredSortedProducts(products || []);
-  }, [products]);
+  // Merge the arrays
+  const mergedSecondaryCategories = [...new Set([...staticSecondaryCategories, ...secondaryCategories])];
 
   // Giving toast When there's an error while fetching the products
   if (productError) {
@@ -99,7 +99,12 @@ export default function DashboardProducts() {
         </h1>
 
         <div className="flex gap-2">
-          <FilterSort products={products} onFilterSort={setFilteredSortedProducts} />
+          {isLoading ? (
+            <Skeleton className="w-[146px] h-[36px]" />
+          ) : (
+            <FilterSort products={products} onFilterSort={setFilteredSortedProducts} />
+          )}
+
           <Dialog open={addOpen} onOpenChange={setAddOpen}>
             <DialogTrigger asChild>
               <Button>
@@ -113,7 +118,8 @@ export default function DashboardProducts() {
                 <DialogDescription>Fill in the details for adding a new product.</DialogDescription>
               </DialogHeader>
               <ProductsForm
-                categories={primaryCategories}
+                primaryCategories={staticPrimaryCategories}
+                secondaryCategories={mergedSecondaryCategories}
                 subCategories={subCategories}
                 stoneNames={stoneNames}
                 setOpen={() => setAddOpen(false)}
@@ -152,7 +158,8 @@ export default function DashboardProducts() {
                     </DialogHeader>
                     <ProductsForm
                       setOpen={() => setAddOpen(false)}
-                      categories={primaryCategories}
+                      primaryCategories={staticPrimaryCategories}
+                      secondaryCategories={mergedSecondaryCategories}
                       subCategories={subCategories}
                       stoneNames={stoneNames}
                     />
@@ -209,7 +216,7 @@ export default function DashboardProducts() {
                   {/* Description */}
                   <p>{product.description}</p>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-4 capitalize">
                     {/* Stone Name */}
                     <p>
                       <strong>Stone name:</strong> {product.stoneName}
@@ -221,10 +228,20 @@ export default function DashboardProducts() {
                       {product.createdAt ? format(new Date(product.createdAt), "PPp") : "N/A"}
                     </p>
 
-                    {/* Category / Subcategory */}
+                    {/* Primary Category */}
                     <p>
-                      <strong>Category / Subcategory:</strong> {product.primaryCategory.join(", ")} /{" "}
-                      {product.subCategory}
+                      <strong>Primary Categories:</strong>{" "}
+                      {product.primaryCategory.length === 0 ? "N/A" : product.primaryCategory.join(", ")}
+                    </p>
+
+                    {/* Secondary Category */}
+                    <p>
+                      <strong>Secondary Categories:</strong> {product.secondaryCategory.join(", ")}
+                    </p>
+
+                    {/* Sub Category */}
+                    <p>
+                      <strong>Subcategory:</strong> {product.subCategory || "N/A"}
                     </p>
 
                     {/* Last Updated Date */}
@@ -313,7 +330,8 @@ export default function DashboardProducts() {
             <DialogDescription>Edit the details for {`${product.name}`}</DialogDescription>
           </DialogHeader>
           <ProductsForm
-            categories={primaryCategories}
+            primaryCategories={staticPrimaryCategories}
+            secondaryCategories={mergedSecondaryCategories}
             edit={product}
             stoneNames={stoneNames}
             subCategories={subCategories}

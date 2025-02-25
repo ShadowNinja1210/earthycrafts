@@ -1,5 +1,54 @@
 export const imgPlaceholder = "/images/placeholder.svg";
 
+export const stonesLink = [
+  {
+    name: "Agra Red",
+    image: "/images/stones/agra-red-stone.webp",
+    url: "/stones/agra-red",
+  },
+  {
+    name: "Bali Marble",
+    image: "/images/stones/bali-marble-stone.webp",
+    url: "/stones/bali-marble",
+  },
+  {
+    name: "Beslana",
+    image: "/images/stones/beslana.jpeg",
+    url: "/stones/beslana",
+  },
+  {
+    name: "Blue Pottery",
+    image: "/images/stones/blue-pottery.webp",
+    url: "/stones/blue-pottery",
+  },
+  {
+    name: "White Marble",
+    image: "/images/stones/white-marble.jpeg",
+    url: "/stones/white-marble",
+  },
+  {
+    name: "Tukdi Art",
+    image: "/images/stones/tukdi-art.jpg",
+    url: "/stones/tukdi-art",
+  },
+];
+
+export const staticPrimaryCategories = ["home", "garden & landscape", "outdoor"];
+
+export const staticSecondaryCategories = [
+  "agra red",
+  "bali marble",
+  "beslana",
+  "blue pottery",
+  "furniture",
+  "green marble",
+  "handicrafts",
+  "sandstone",
+  "temple",
+  "tukdi art",
+  "white marble",
+];
+
 export const stones = [
   {
     name: "Agra Red",

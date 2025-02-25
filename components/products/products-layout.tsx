@@ -51,15 +51,25 @@ function FilterParams({ setSelectedCategory, setSelectedSubCategory }: any) {
 export default function ProductsLayout({ categories, products }: ProductsLayoutProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedSubCategory, setSelectedSubCategory] = useState<string>("");
+  const [open, setOpen] = useState(true);
 
   const filteredProducts = products.filter((product) => {
     const normalizedCategory = kebabCase(selectedCategory || "");
+    const normalizedSubCategory = kebabCase(selectedSubCategory || "");
 
+    if (normalizedSubCategory) {
+      // If subCategory is selected, filter by both subCategory and primaryCategory
+      return (
+        kebabCase(product.subCategory || "") === normalizedSubCategory &&
+        product.primaryCategory.some((cat) => kebabCase(cat) === normalizedCategory)
+      );
+    }
+
+    // If only primary category is selected, filter normally
     return (
       !selectedCategory ||
       product.primaryCategory.some((cat) => kebabCase(cat) === normalizedCategory) ||
-      product.secondaryCategory.some((cat) => kebabCase(cat) === normalizedCategory) ||
-      kebabCase(product.subCategory || "") === normalizedCategory
+      product.secondaryCategory.some((cat) => kebabCase(cat) === normalizedCategory)
     );
   });
 
@@ -68,7 +78,7 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
       <Suspense fallback={<div>Loading filters...</div>}>
         <FilterParams setSelectedCategory={setSelectedCategory} setSelectedSubCategory={setSelectedSubCategory} />
       </Suspense>
-      <SidebarProvider className=" bg-sidebar-primary-foreground">
+      <SidebarProvider open={open} onOpenChange={setOpen} className=" bg-sidebar-primary-foreground">
         <Sidebar className=" inset-y-[71px]   z-10">
           <SidebarHeader>
             <Button

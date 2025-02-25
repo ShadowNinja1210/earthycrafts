@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { Check, ChevronsUpDown, Plus, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Badge } from "@/components/ui/badge";
 import { kebabCase } from "lodash";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
 
 interface SearchableMultiDropdownProps {
   items: string[];
@@ -26,13 +26,6 @@ export function SearchableMultiDropdown({
 }: SearchableMultiDropdownProps) {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (open && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [open]);
 
   const filteredItems = (items || []).filter((item) => item.toLowerCase().includes(search.toLowerCase()));
 
@@ -55,49 +48,52 @@ export function SearchableMultiDropdown({
   };
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button variant="outline" role="combobox" aria-expanded={open} className="w-full justify-between">
-          {selectedItems && selectedItems.length > 0 ? `${selectedItems.length} selected` : placeholder}
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-[300px] p-0" onPointerDownOutside={(e) => e.preventDefault()}>
-        <Command>
-          <CommandInput
-            placeholder={placeholder}
-            value={search}
-            onValueChange={setSearch}
-            onKeyDown={(e) => {
-              if (e.key === "Escape") {
-                e.preventDefault();
-                setOpen(false);
-              }
-            }}
-          />
-          <CommandEmpty>
-            No item found.
-            <Button variant="outline" size="sm" className="mt-2 w-full" onClick={handleAdd}>
-              <Plus className="mr-2 h-4 w-4" />
-              Add &quot;{search}&quot;
-            </Button>
-          </CommandEmpty>
-          <CommandGroup>
-            {filteredItems?.map((item) => (
-              <CommandItem key={item} onSelect={() => handleSelect(item)}>
-                <Check
-                  className={cn("mr-2 h-4 w-4", selectedItems?.some((i) => i === item) ? "opacity-100" : "opacity-0")}
-                />
-                {item}
-              </CommandItem>
-            ))}
-          </CommandGroup>
-        </Command>
-      </PopoverContent>
+    <>
+      <Collapsible className="w-full">
+        <CollapsibleTrigger className=" capitalize" asChild>
+          <Button variant="outline" role="combobox" aria-expanded={open} className="w-full justify-between">
+            {selectedItems && selectedItems.length > 0 ? `${selectedItems.length} selected` : `Search ${placeholder}`}
+            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          </Button>
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <Command>
+            <CommandInput
+              placeholder={placeholder}
+              value={search}
+              onValueChange={setSearch}
+              onKeyDown={(e) => {
+                if (e.key === "Escape") {
+                  e.preventDefault();
+                  setOpen(false);
+                }
+              }}
+            />
+            <CommandEmpty>
+              No item found.
+              <Button variant="outline" size="sm" className="mt-2 w-full" onClick={handleAdd}>
+                <Plus className="mr-2 h-4 w-4" />
+                Add &quot;{search}&quot;
+              </Button>
+            </CommandEmpty>
+            <CommandGroup>
+              {filteredItems?.map((item) => (
+                <CommandItem className=" capitalize" key={item} onSelect={() => handleSelect(item)}>
+                  <Check
+                    className={cn("mr-2 h-4 w-4", selectedItems?.some((i) => i === item) ? "opacity-100" : "opacity-0")}
+                  />
+                  {item}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </Command>
+        </CollapsibleContent>
+      </Collapsible>
+
       <div className="flex flex-wrap gap-2 mt-2">
         {selectedItems &&
           selectedItems?.map((item) => (
-            <Badge key={item} variant="secondary">
+            <Badge className=" capitalize" key={item} variant="secondary">
               {item}
               <Button variant="ghost" size="sm" className="ml-2 h-4 w-4 p-0" onClick={() => removeItem(item)}>
                 <X className="h-3 w-3" />
@@ -105,6 +101,6 @@ export function SearchableMultiDropdown({
             </Badge>
           ))}
       </div>
-    </Popover>
+    </>
   );
 }

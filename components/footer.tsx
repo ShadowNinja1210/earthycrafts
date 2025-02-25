@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { AtSign, Facebook, Instagram, Phone, Twitter } from "lucide-react";
+import { AtSign, Phone } from "lucide-react";
+import { FaWhatsapp, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -46,43 +47,47 @@ export default function Footer() {
             <p className="text-sm mb-2 whitespace-nowrap">
               <Phone className="inline-flex w-4 mr-1 mb-0.5" />
               Phone:{" "}
-              <Link href="tel:+918949181484" className=" hover:underline">
-                +91 89491 81484
+              <Link href={`tel:${process.env.NEXT_PUBLIC_PHONE}`} className=" hover:underline">
+                {process.env.NEXT_PUBLIC_PHONE}
               </Link>
             </p>
             <p className="text-sm mb-2 whitespace-nowrap">
               <AtSign className="inline-flex w-4 mr-1 mb-0.5" />
               Email:{" "}
-              <Link href="mailto:admin@earthycrafts.com" className=" hover:underline">
-                admin@earthycrafts.com
+              <Link href={`mailto:${process.env.NEXT_PUBLIC_EMAIL?.trim()}`} className=" hover:underline">
+                {process.env.NEXT_PUBLIC_EMAIL}
               </Link>
             </p>
             <div className="flex space-x-4">
+              <Link className="group" href={process.env.NEXT_PUBLIC_WHATSAPP_URL || "#"} target="_blank">
+                <FaWhatsapp size={24} className=" fill-green-600 group-hover:fill-green-800" />
+                <span className=" sr-only">WhatsApp</span>
+              </Link>
               <Link
-                href="https://facebook.com"
+                href={process.env.NEXT_PUBLIC_FB_URL || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground"
               >
-                <Facebook size={20} />
+                <FaFacebook size={24} />
                 <span className="sr-only">Facebook</span>
               </Link>
               <Link
-                href="https://instagram.com"
+                href={process.env.NEXT_PUBLIC_INSTAGRAM_URL || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground"
               >
-                <Instagram size={20} />
+                <FaInstagram size={24} />
                 <span className="sr-only">Instagram</span>
               </Link>
               <Link
-                href="https://twitter.com"
+                href={process.env.NEXT_PUBLIC_LINKEDIN_URL || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground"
               >
-                <Twitter size={20} />
+                <FaLinkedin size={24} />
                 <span className="sr-only">Twitter</span>
               </Link>
             </div>

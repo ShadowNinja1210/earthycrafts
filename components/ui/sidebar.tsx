@@ -11,7 +11,7 @@ import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { ViewVerticalIcon } from "@radix-ui/react-icons";
+import { Menu } from "lucide-react";
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -50,7 +50,7 @@ const SidebarProvider = React.forwardRef<
   }
 >(({ defaultOpen = true, open: openProp, onOpenChange: setOpenProp, className, style, children, ...props }, ref) => {
   const isMobile = useIsMobile();
-  const [openMobile, setOpenMobile] = React.useState(false);
+  const [openMobile, setOpenMobile] = React.useState(true);
 
   // This is the internal state of the sidebar.
   // We use openProp and setOpenProp for control from outside the component.
@@ -225,7 +225,7 @@ const SidebarTrigger = React.forwardRef<React.ElementRef<typeof Button>, React.C
       <Button
         ref={ref}
         data-sidebar="trigger"
-        variant="ghost"
+        variant="outline"
         size="icon"
         className={cn("h-7 w-7", className)}
         onClick={(event) => {
@@ -234,7 +234,8 @@ const SidebarTrigger = React.forwardRef<React.ElementRef<typeof Button>, React.C
         }}
         {...props}
       >
-        <ViewVerticalIcon />
+        <Menu className="h-6 w-6" />
+        <span className="sr-only">Open menu</span>
         <span className="sr-only">Toggle Sidebar</span>
       </Button>
     );
