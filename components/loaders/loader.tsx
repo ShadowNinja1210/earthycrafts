@@ -24,6 +24,7 @@ export default function Loader({ onLoadingComplete, videoSrc }: LoaderProps) {
       // Add a small delay for the animation to complete
       setTimeout(() => {
         setShowLoader(false);
+        console.log("Video loaded!", videoSrc);
         onLoadingComplete();
       }, 2500);
     };

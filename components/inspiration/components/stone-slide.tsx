@@ -19,7 +19,6 @@ export default function StoneSlide() {
       const res = await fetch("/api/product/featured");
       const products = await res.json();
 
-      console.log("Products inside the fetch", products);
       return products.slice(0, 5);
     },
   });

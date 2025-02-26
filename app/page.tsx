@@ -1,20 +1,20 @@
 "use client";
 
 import IntroLoader from "@/components/loaders/intro-loader";
-import { redirect } from "next/navigation";
-import { useEffect } from "react";
 
 export default function Home() {
-  useEffect(() => {
-    // Redirect to home page after loading
-    const timeout = setTimeout(() => {
-      redirect("/home");
-    }, 2000);
+  // const router = useRouter();
+  // const [loading, setLoading] = useState(true);
 
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     setLoading(false);
+  //     console.log("Redirecting to /home...");
+  //     router.replace("/home"); // ✅ Use replace() instead of push()
+  //   }, 2000);
 
-  return <IntroLoader />;
+  //   return () => clearTimeout(timeout);
+  // }, [router]);
+
+  return <IntroLoader />; // Prevents rendering issues
 }
