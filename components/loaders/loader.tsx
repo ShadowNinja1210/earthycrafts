@@ -14,23 +14,34 @@ export default function Loader({ onLoadingComplete, videoSrc }: LoaderProps) {
   const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
-    // Preload the video
     const video = document.createElement("video");
     video.src = videoSrc;
     video.preload = "auto";
 
-    video.onloadeddata = () => {
+    video.oncanplaythrough = () => {
       setVideoLoaded(true);
-      // Add a small delay for the animation to complete
       setTimeout(() => {
         setShowLoader(false);
-        console.log("Video loaded!", videoSrc);
+        console.log("Video ready!", videoSrc);
         onLoadingComplete();
       }, 2500);
     };
 
+    video.onerror = () => {
+      console.error("Failed to load video:", video.src);
+    };
+
+    // Fetch the video to force it to load faster on Vercel
+    fetch(videoSrc, { cache: "reload" })
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to preload video");
+        console.log("Video preloaded:", videoSrc);
+      })
+      .catch(console.error);
+
     return () => {
-      video.onloadeddata = null;
+      video.oncanplaythrough = null;
+      video.onerror = null;
     };
   }, [videoSrc, onLoadingComplete]);
 
