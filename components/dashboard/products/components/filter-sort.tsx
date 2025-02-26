@@ -26,12 +26,14 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
       secondaryCategories: string[];
       subCategories: string[];
       inStock: boolean;
+      isFeatured: boolean;
     }
   >({
     primaryCategories: [],
     secondaryCategories: [],
     subCategories: [],
     inStock: true,
+    isFeatured: false,
   });
   const [sortOption, setSortOption] = useState<string>("");
   const [mergedSecondaryCategories, setMergedSecondaryCategories] = useState<string[]>([]);
@@ -89,6 +91,10 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
 
     if (filters.inStock !== undefined) {
       result = result.filter((product) => product.inStock === filters.inStock);
+    }
+
+    if (filters.isFeatured !== undefined) {
+      result = result.filter((product) => product.isFeatured === filters.isFeatured);
     }
 
     if (sortOption) {
@@ -179,6 +185,23 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
                 />
                 <label htmlFor="inStock" className="text-sm">
                   In Stock Only
+                </label>
+              </div>
+            </div>
+
+            {/* Featured Products */}
+            <div className="space-y-2">
+              <h3 className="text-sm font-medium">Featured</h3>
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="inStock"
+                  checked={filters.isFeatured === true}
+                  onCheckedChange={() =>
+                    handleFilterChange("isFeatured", filters.isFeatured === true ? undefined : true)
+                  }
+                />
+                <label htmlFor="inStock" className="text-sm">
+                  Featured Products Only
                 </label>
               </div>
             </div>
