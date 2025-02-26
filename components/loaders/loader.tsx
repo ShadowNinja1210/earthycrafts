@@ -31,6 +31,12 @@ export default function Loader({ onLoadingComplete, videoSrc }: LoaderProps) {
       console.error("Failed to load video:", video.src);
     };
 
+    const timeout = setTimeout(() => {
+      setShowLoader(false);
+      console.log("Video ready!", videoSrc);
+      onLoadingComplete();
+    }, 3000);
+
     // Fetch the video to force it to load faster on Vercel
     fetch(videoSrc, { cache: "reload" })
       .then((res) => {
@@ -42,13 +48,7 @@ export default function Loader({ onLoadingComplete, videoSrc }: LoaderProps) {
     return () => {
       video.oncanplaythrough = null;
       video.onerror = null;
-      clearTimeout(
-        setTimeout(() => {
-          setShowLoader(false);
-          console.log("Video ready!", videoSrc);
-          onLoadingComplete();
-        }, 2500)
-      );
+      clearTimeout(timeout);
     };
   }, [videoSrc, onLoadingComplete]);
 
