@@ -7,7 +7,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function HeroSection() {
-  const text = "More than just an handicrafts, a symphony of natural stone and design.";
+  const text = "More than just handicraft, a symphony of natural stone and design.";
   const exploreText = "Explore";
 
   const letterVariants = {

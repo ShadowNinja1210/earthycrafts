@@ -82,7 +82,13 @@ export default function Explore() {
                     />
                   )}
                 </div>
-                <span className="text-sm font-medium capitalize group-hover:underline">{category.title}</span>
+                <span className="text-sm font-medium capitalize group-hover:underline">
+                  {category.title === "Tukdi Art"
+                    ? "Artisan Stone Mosaic"
+                    : category.title === "Bali Marble" || category.title === "Bali Stone" || category.title === "Bali"
+                    ? "Bali Stone"
+                    : category.title}
+                </span>
               </Link>
             </NavigationMenuLink>
           ))}

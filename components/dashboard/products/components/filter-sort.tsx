@@ -153,7 +153,7 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
             <div className="space-y-2">
               <h3 className="text-sm font-medium">Sub-Categories</h3>
               <div className="space-y-1">
-                {subCategories.map((subCategory) => (
+                {subCategories.sort().map((subCategory) => (
                   <div key={subCategory} className="flex items-center capitalize">
                     <Checkbox
                       id={`subCategory-${subCategory}`}

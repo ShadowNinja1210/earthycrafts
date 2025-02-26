@@ -74,7 +74,13 @@ export default function NavbarSheet() {
                               className="block py-2 px-4 text-base font-semibold hover:bg-accent rounded-md capitalize"
                               onClick={() => setOpen(false)}
                             >
-                              {category.title}
+                              {category.title === "Tukdi Art"
+                                ? "Artisan Stone Mosaic"
+                                : category.title === "Bali Marble" ||
+                                  category.title === "Bali Stone" ||
+                                  category.title === "Bali"
+                                ? "Bali Stone"
+                                : category.title}
                             </Link>
                           </li>
                         ))}

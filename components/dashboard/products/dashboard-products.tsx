@@ -34,7 +34,7 @@ import { toast } from "@/hooks/use-toast";
 import { useQuery } from "@tanstack/react-query";
 import { fetchAllProducts } from "@/lib/api";
 import { useState } from "react";
-import FilterSort from "./filter-sort";
+import FilterSort from "./components/filter-sort";
 import { staticPrimaryCategories, staticSecondaryCategories } from "@/public/assets/some-data";
 import { Skeleton } from "@/components/ui/skeleton";
 

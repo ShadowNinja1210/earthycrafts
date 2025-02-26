@@ -105,3 +105,14 @@
 #nprogress .spinner {
   display: none; /* Hide spinner if not needed */
 }
+
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

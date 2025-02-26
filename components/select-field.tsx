@@ -18,7 +18,7 @@ export default function SelectField({
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
         <SelectContent>
-          {items.map((item) => (
+          {items.sort().map((item) => (
             <SelectItem key={item} value={item} className="capitalize hover:bg-neutral-100 cursor-pointer">
               {item}
             </SelectItem>

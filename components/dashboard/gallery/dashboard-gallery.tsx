@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
 import GalleryDialog from "./components/gallery-dialog";
+import { Button } from "@/components/ui/button";
 
 export default function DashboardGallery() {
   const { data: images = [], isLoading } = useQuery<IGallery[]>({
@@ -49,7 +50,14 @@ export default function DashboardGallery() {
                 sizes="(max-width: 768px) 50vw, 25vw"
               />
 
-              <div className="absolute inset-0 transition-all duration-300 group-hover:bg-black/30" />
+              <div className="absolute flex gap-4 items-center justify-center w-full h-full inset-0 transition-all duration-300 group-hover:bg-black/70">
+                <Button className="group-hover:flex hidden" variant="outline">
+                  Edit
+                </Button>
+                <Button className="group-hover:flex hidden" variant="destructive">
+                  Delete
+                </Button>
+              </div>
             </Link>
           ))
         )}

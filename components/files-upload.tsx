@@ -25,7 +25,6 @@ export function FilesUpload({
         method: "DELETE",
       });
       if (res.ok) {
-        console.log("File deleted successfully, changing state", value, url);
         onChange([], url);
       }
     } catch (error) {
@@ -77,11 +76,10 @@ export function FilesUpload({
         className="cursor-pointer"
         endpoint="imageUploader"
         onClientUploadComplete={(res) => {
-          res.map((r) => console.log(r.url));
           onChange(res.map((r) => r.url));
         }}
         onUploadError={(error: Error) => {
-          console.log(error);
+          console.error(error);
         }}
       />
     </>

@@ -111,8 +111,6 @@ export default function ProductsForm({
 
   // Form Submit Handler
   const onSubmit = (values: z.infer<typeof productFormSchema>) => {
-    console.log(values);
-
     if (edit) {
       editSubmission.mutate({ formData: values, id: edit._id.toString() });
     } else {
@@ -127,12 +125,8 @@ export default function ProductsForm({
   const handleImageUrls = (urls?: string[], removeUrl?: string) => {
     // Deleting an image from the list
     if (removeUrl) {
-      console.log("Remove URL:", removeUrl);
       // Handle deletion from the list
       const updatedImages = imageUrls.filter((url) => url !== removeUrl);
-
-      console.log("Current Images:", imageUrls);
-      console.log("Updated Images:", updatedImages);
 
       // Update the form and state
       setImageUrls(updatedImages);
