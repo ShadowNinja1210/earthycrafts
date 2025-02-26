@@ -42,6 +42,13 @@ export default function Loader({ onLoadingComplete, videoSrc }: LoaderProps) {
     return () => {
       video.oncanplaythrough = null;
       video.onerror = null;
+      clearTimeout(
+        setTimeout(() => {
+          setShowLoader(false);
+          console.log("Video ready!", videoSrc);
+          onLoadingComplete();
+        }, 2500)
+      );
     };
   }, [videoSrc, onLoadingComplete]);
 
