@@ -13,37 +13,42 @@ export default async function AllProductsPage() {
   }
 
   // Create category mapping
-  const categoryMap = new Map<string, Set<string>>();
-
+  const categoryMap = new Map<string, { subCategories: Set<string>; type: string }>();
   products.forEach((product) => {
     const { primaryCategory, subCategory, secondaryCategory } = product;
 
     // Handle primary categories
     primaryCategory?.forEach((category) => {
-      category = lowerCase(category.trim());
+      const normalizedCategory = lowerCase(category.trim());
 
-      if (!categoryMap.has(category)) {
-        categoryMap.set(category, new Set());
+      if (!categoryMap.has(normalizedCategory)) {
+        categoryMap.set(normalizedCategory, {
+          subCategories: new Set(),
+          type: secondaryCategory?.includes(category) ? "secondary" : "primary",
+        });
       }
+
+      // Add subCategory if it exists
       if (subCategory) {
-        categoryMap.get(category)?.add(subCategory);
+        categoryMap.get(normalizedCategory)?.subCategories.add(lowerCase(subCategory.trim()));
       }
     });
 
     // Handle secondary categories
     secondaryCategory?.forEach((category) => {
-      category = lowerCase(category.trim());
+      const normalizedCategory = lowerCase(category.trim());
 
-      if (!categoryMap.has(category)) {
-        categoryMap.set(category, new Set());
+      if (!categoryMap.has(normalizedCategory)) {
+        categoryMap.set(normalizedCategory, { subCategories: new Set(), type: "secondary" });
       }
     });
   });
 
   // Convert Map to Array
-  const categories = Array.from(categoryMap, ([name, subCategoriesSet]) => ({
+  const categories = Array.from(categoryMap, ([name, { subCategories, type }]) => ({
     name,
-    subCategories: Array.from(subCategoriesSet),
+    subCategories: Array.from(subCategories),
+    type, // Either "primary" or "secondary"
   }));
 
   return <ProductsLayout categories={categories} products={products} />;

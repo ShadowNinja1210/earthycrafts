@@ -8,10 +8,15 @@ export default function Explore() {
   const { primaryCategories, secondaryCategories } = useCategoriesLinks();
 
   return (
-    <div className="grid gap-6 p-6 md:w-[800px] lg:w-[900px]">
+    <div
+      style={{
+        zIndex: 1000000,
+      }}
+      className="grid gap-6 p-6 md:w-[800px] lg:w-[900px]"
+    >
       <div className="grid gap-4">
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-medium">Primary Categories</h3>
+          <h3 className="text-lg font-medium">Shop by Space</h3>
           <Button variant="link" size="sm">
             View all
           </Button>
@@ -47,7 +52,7 @@ export default function Explore() {
       </div>
       <div className="grid gap-4">
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-medium">Secondary Categories</h3>
+          <h3 className="text-lg font-medium">Shop by Collection</h3>
           <Button variant="link" size="sm">
             View all
           </Button>

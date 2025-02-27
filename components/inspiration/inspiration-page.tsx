@@ -1,15 +1,13 @@
 "use client";
 
 import type { IGallery } from "@/lib/schema";
-import { imgPlaceholder } from "@/public/assets/some-data";
 import { useQuery } from "@tanstack/react-query";
-import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import StoneSlide from "./components/stone-slide";
 import { Button } from "../ui/button";
+import { PinterestPin, PinterestSkeleton } from "../gallery-grid";
+import { useEffect, useState } from "react";
 
 export default function InspirationPage() {
   const { data: images = [], isLoading } = useQuery<IGallery[]>({
@@ -20,22 +18,30 @@ export default function InspirationPage() {
     },
   });
 
-  const containerRef = useRef(null);
+  const [visibleImages, setVisibleImages] = useState(images);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+  useEffect(() => {
+    const updateVisibleImages = () => {
+      const width = window.innerWidth;
+      if (width < 640) {
+        // Small devices
+        setVisibleImages(images.slice(0, 5));
+      } else if (width < 1024) {
+        // Medium devices
+        setVisibleImages(images.slice(0, 9));
+      } else {
+        // Large devices
+        setVisibleImages(images.slice(0, 9));
+      }
+    };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
+    updateVisibleImages(); // Initial check
+    window.addEventListener("resize", updateVisibleImages);
+
+    return () => {
+      window.removeEventListener("resize", updateVisibleImages);
+    };
+  }, [images]);
 
   return (
     <div className=" space-y-16 lg:px-16 md:px-8 px-4 py-4 min-h-screen ">
@@ -55,41 +61,15 @@ export default function InspirationPage() {
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-center">Gallery</h1>
 
         {isLoading ? (
-          <p className="text-center min-h-96 flex items-center justify-center w-full">Loading...</p>
-        ) : images.length <= 0 || !images ? (
-          <p className="text-center min-h-96 flex items-center justify-center w-full">No Results</p>
+          <PinterestSkeleton />
+        ) : visibleImages.length <= 0 || !images ? (
+          <p className="text-center min-h-screen content-center w-full">No Results</p>
         ) : (
-          <motion.div
-            ref={containerRef}
-            className="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[minmax(200px,auto)]"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {images?.map((image: IGallery) => (
-              <motion.div
-                key={image.id}
-                variants={itemVariants}
-                className={`relative overflow-hidden group rounded-2xl ${
-                  image.aspect === "landscape" ? "row-span-2" : "row-span-1"
-                }`}
-              >
-                <Link href={image.productLink} className="block w-full h-full">
-                  <Image
-                    src={image.image || imgPlaceholder}
-                    alt={`Design showcase ${image.id}`}
-                    placeholder="blur"
-                    blurDataURL={imgPlaceholder}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                  />
-
-                  <div className="absolute inset-0 transition-all duration-300 group-hover:bg-black/30" />
-                </Link>
-              </motion.div>
+          <div className="pinterest-grid columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
+            {visibleImages.map((image) => (
+              <PinterestPin key={image._id.toString()} image={{ ...image, _id: image._id.toString() }} />
             ))}
-          </motion.div>
+          </div>
         )}
 
         <Link href="/gallery" className="mx-auto text-base font-medium flex items-center mt-6">

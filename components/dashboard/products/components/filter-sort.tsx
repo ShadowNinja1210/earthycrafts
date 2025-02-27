@@ -37,8 +37,9 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
   });
   const [sortOption, setSortOption] = useState<string>("");
   const [mergedSecondaryCategories, setMergedSecondaryCategories] = useState<string[]>([]);
+  const [mergedPrimaryCategories, setMergedPrimaryCategories] = useState<string[]>([]);
 
-  const { secondaryCategories, subCategories } = useProductData(products);
+  const { primaryCategories, secondaryCategories, subCategories } = useProductData(products);
 
   useEffect(() => {
     applyFilterSort();
@@ -47,7 +48,10 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
   useEffect(() => {
     const merged = [...new Set([...staticSecondaryCategories, ...secondaryCategories])];
     setMergedSecondaryCategories(merged);
-  }, [secondaryCategories]);
+
+    const primaryCategories = staticPrimaryCategories.map((category) => lowerCase(category));
+    setMergedPrimaryCategories(primaryCategories);
+  }, [secondaryCategories, primaryCategories]);
 
   const handleFilterChange = (key: string, value: any) => {
     if (key === "primaryCategories" || key === "subCategories" || key === "secondaryCategories") {
@@ -125,7 +129,7 @@ export default function FilterSort({ products, onFilterSort }: FilterSortProps) 
             <div className="space-y-2">
               <h3 className="text-sm font-medium">Categories</h3>
               <div className="space-y-1">
-                {staticPrimaryCategories.map((category) => (
+                {mergedPrimaryCategories.map((category) => (
                   <div key={category} className="flex items-center capitalize">
                     <Checkbox
                       id={`category-${category}`}

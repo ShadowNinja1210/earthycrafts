@@ -63,7 +63,7 @@ export const editProduct = async (data: any, id: string) => {
   return response.json();
 };
 
-export const updateStatus = async (status: string, id: string) => {
+export const updateStatus = async (status: "Delivered" | "Cancelled" | "Pending", id: string) => {
   const response = await fetch(`/api/customization/${id}`, {
     method: "PATCH",
     headers: {
@@ -76,6 +76,7 @@ export const updateStatus = async (status: string, id: string) => {
     throw new Error("Failed to update the product status");
   }
 
+  console.log(response);
   return response.ok;
 };
 

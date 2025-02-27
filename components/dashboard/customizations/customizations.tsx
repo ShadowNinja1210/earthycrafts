@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { DateRange } from "react-day-picker";
@@ -14,59 +14,59 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ICustomization } from "@/lib/schema";
 import { updateStatus } from "@/lib/api";
 import { toast } from "@/hooks/use-toast";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export default function CustomizationsPage({ customizations }: { customizations: ICustomization[] }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [dateRange, setDateRange] = useState<DateRange | undefined>();
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
-  const [statusFilter, setStatusFilter] = useState<"All" | "Pending" | "Delivered" | "Cancelled">("All");
+  const [statusFilter, setStatusFilter] = useState<"" | "Pending" | "Delivered" | "Cancelled">("");
 
-  const filteredCustomizations =
-    customizations.length > 0
-      ? customizations
-          ?.filter((customization) => {
-            const searchLower = searchTerm.toLowerCase();
-            return (
-              customization.name.toLowerCase().includes(searchLower) ||
-              customization.email.toLowerCase().includes(searchLower) ||
-              customization.phone.includes(searchTerm)
-            );
-          })
-          ?.filter((customization) => {
-            if (!dateRange?.from || !dateRange?.to) return true;
-            const customizationDate = customization.createdAt;
-            return customizationDate && customizationDate >= dateRange.from && customizationDate <= dateRange.to;
-          })
-          ?.filter((customization) => {
-            if (statusFilter === "All") return true;
-            return customization.status === statusFilter;
-          })
-          ?.sort((a, b) => {
-            if (a.status === "Pending" && b.status !== "Pending") return -1;
-            if (a.status !== "Pending" && b.status === "Pending") return 1;
-            if (!a.createdAt || !b.createdAt) return 0;
-            return sortOrder === "asc"
-              ? a.createdAt.getTime() - b.createdAt.getTime()
-              : b.createdAt.getTime() - a.createdAt.getTime();
-          })
-      : [];
+  const queryClient = useQueryClient();
 
-  const handleStatusUpdate = async (id: string, newStatus: "Delivered" | "Cancelled") => {
-    const updated = await updateStatus(newStatus, id);
+  const filteredCustomizations = useMemo(() => {
+    return customizations
+      ?.map((customization) => ({
+        ...customization,
+        createdAt: customization.createdAt ? new Date(customization.createdAt) : null,
+      }))
+      .filter((customization) => {
+        if (!dateRange?.from || !dateRange?.to) return true;
+        if (statusFilter) return customization.status === statusFilter;
+        return (
+          customization.createdAt &&
+          customization.createdAt >= dateRange.from &&
+          customization.createdAt <= dateRange.to
+        );
+      })
+      .sort((a, b) => {
+        if (a.status === "Pending" && b.status !== "Pending") return -1;
+        if (a.status !== "Pending" && b.status === "Pending") return 1;
+        if (!a.createdAt || !b.createdAt) return 0;
+        return sortOrder === "asc"
+          ? a.createdAt.getTime() - b.createdAt.getTime()
+          : b.createdAt.getTime() - a.createdAt.getTime();
+      });
+  }, [customizations, dateRange, sortOrder, statusFilter]);
 
-    if (updated) {
+  const handleStatusUpdate = useMutation({
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["dashboardProducts"] }); // Refresh products list
       toast({
         title: "Status updated",
-        description: `Customization status has been updated to ${newStatus.toLowerCase()}`,
+        description: `Customization status has been updated.`,
       });
-    } else {
+    },
+    onError: () => {
       toast({
         title: "Failed to update status",
         description: "An error occurred while updating the customization status",
         variant: "destructive",
       });
-    }
-  };
+    },
+    mutationFn: ({ newStatus, id }: { newStatus: "Delivered" | "Cancelled" | "Pending"; id: string }) =>
+      updateStatus(newStatus, id),
+  });
 
   return (
     <div className="container mx-auto py-10">
@@ -110,7 +110,7 @@ export default function CustomizationsPage({ customizations }: { customizations:
           <Button variant="outline" onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}>
             Sort {sortOrder === "asc" ? "↑" : "↓"}
           </Button>
-          <Select onValueChange={(value: "All" | "Pending" | "Delivered" | "Cancelled") => setStatusFilter(value)}>
+          <Select onValueChange={(value: "Pending" | "Delivered" | "Cancelled") => setStatusFilter(value)}>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Filter by status" />
             </SelectTrigger>
@@ -158,24 +158,21 @@ export default function CustomizationsPage({ customizations }: { customizations:
               </TableCell>
               <TableCell>{customization.createdAt?.toLocaleDateString()}</TableCell>
               <TableCell>
-                {customization.status === "Pending" && (
-                  <>
-                    <Button
-                      size="sm"
-                      onClick={() => handleStatusUpdate(customization._id.toString(), "Delivered")}
-                      className="mr-2"
-                    >
-                      Deliver
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="destructive"
-                      onClick={() => handleStatusUpdate(customization._id.toString(), "Cancelled")}
-                    >
-                      Cancel
-                    </Button>
-                  </>
-                )}
+                <Select
+                  value={customization.status}
+                  onValueChange={(status: "Delivered" | "Cancelled" | "Pending") =>
+                    handleStatusUpdate.mutate({ newStatus: status, id: customization._id.toString() })
+                  }
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Update status" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Delivered">Delivered</SelectItem>
+                    <SelectItem value="Cancelled">Cancelled</SelectItem>
+                    <SelectItem value="Pending">Pending</SelectItem>
+                  </SelectContent>
+                </Select>
               </TableCell>
             </TableRow>
           ))}

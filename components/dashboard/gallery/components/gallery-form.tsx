@@ -46,8 +46,12 @@ export default function GalleryForm({
                     </SelectTrigger>
 
                     <SelectContent>
-                      <SelectItem value="landscape">Landscape</SelectItem>
-                      <SelectItem value="portrait">Portrait</SelectItem>
+                      <SelectItem onSelect={(value) => form.setValue("aspect", value)} value="landscape">
+                        Landscape
+                      </SelectItem>
+                      <SelectItem onSelect={(value) => form.setValue("aspect", value)} value="portrait">
+                        Portrait
+                      </SelectItem>
                     </SelectContent>
                   </Select>
                 </FormControl>
@@ -63,9 +67,9 @@ export default function GalleryForm({
             name="productCode"
             render={({ field }) => (
               <FormItem>
-                <FormLabel htmlFor="productLink">Product Link</FormLabel>
+                <FormLabel htmlFor="productCode">Product Code</FormLabel>
                 <FormControl>
-                  <Input {...field} id="productLink" type="text" />
+                  <Input {...field} id="productCode" type="text" />
                 </FormControl>
 
                 <FormMessage />

@@ -54,10 +54,11 @@ export default function DashboardProducts() {
   const [filteredSortedProducts, setFilteredSortedProducts] = useState<INewProduct[]>(products || []); // Filtered and Sorted Products
 
   // Getting the  subcategories, and stone names from the fetched products
-  const { secondaryCategories, subCategories, stoneNames } = useProductData(products);
+  const { primaryCategories, secondaryCategories, subCategories, stoneNames } = useProductData(products);
 
   // Merge the arrays
   const mergedSecondaryCategories = [...new Set([...staticSecondaryCategories, ...secondaryCategories])];
+  const mergedPrimaryCategories = [...new Set([...staticPrimaryCategories, ...primaryCategories])];
 
   // Giving toast When there's an error while fetching the products
   if (productError) {
@@ -118,7 +119,7 @@ export default function DashboardProducts() {
                 <DialogDescription>Fill in the details for adding a new product.</DialogDescription>
               </DialogHeader>
               <ProductsForm
-                primaryCategories={staticPrimaryCategories}
+                primaryCategories={mergedPrimaryCategories}
                 secondaryCategories={mergedSecondaryCategories}
                 subCategories={subCategories}
                 stoneNames={stoneNames}
@@ -158,7 +159,7 @@ export default function DashboardProducts() {
                     </DialogHeader>
                     <ProductsForm
                       setOpen={() => setAddOpen(false)}
-                      primaryCategories={staticPrimaryCategories}
+                      primaryCategories={mergedPrimaryCategories}
                       secondaryCategories={mergedSecondaryCategories}
                       subCategories={subCategories}
                       stoneNames={stoneNames}
@@ -330,7 +331,7 @@ export default function DashboardProducts() {
             <DialogDescription>Edit the details for {`${product.name}`}</DialogDescription>
           </DialogHeader>
           <ProductsForm
-            primaryCategories={staticPrimaryCategories}
+            primaryCategories={mergedPrimaryCategories}
             secondaryCategories={mergedSecondaryCategories}
             edit={product}
             stoneNames={stoneNames}

@@ -248,7 +248,7 @@ export interface ICustomization extends Document {
   email: string;
   phone: string;
   message: string;
-  status: "Pending" | "Delivered";
+  status: "Pending" | "Delivered" | "Cancelled";
   url: string;
   createdAt?: Date;
   updatedAt?: Date;

@@ -71,7 +71,7 @@ export function SearchableMultiDropdown({
             />
             <CommandEmpty>
               No item found.
-              <Button variant="outline" size="sm" className="mt-2 w-full" onClick={handleAdd}>
+              <Button variant="outline" type="button" size="sm" className="mt-2 w-full" onClick={handleAdd}>
                 <Plus className="mr-2 h-4 w-4" />
                 Add &quot;{search}&quot;
               </Button>

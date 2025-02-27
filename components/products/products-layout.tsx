@@ -26,6 +26,7 @@ import { useSearchParams } from "next/navigation";
 export type ICategory = {
   name: string;
   subCategories: string[];
+  type: string;
 };
 
 interface ProductsLayoutProps {
@@ -52,6 +53,8 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedSubCategory, setSelectedSubCategory] = useState<string>("");
   const [open, setOpen] = useState(true);
+
+  console.log(categories);
 
   const filteredProducts = products.filter((product) => {
     const normalizedCategory = kebabCase(selectedCategory || "");
@@ -95,9 +98,9 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
           </SidebarHeader>
           <SidebarContent className="">
             <SidebarMenu className=" ">
-              {categories.map(
+              {categories.sort().map(
                 (category) =>
-                  category.subCategories.length !== 0 && (
+                  category.type === "primary" && (
                     <Collapsible
                       className="group/collapsible"
                       defaultOpen={false}
@@ -158,7 +161,13 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
                         }}
                       >
                         <Link href={`/products?category=${kebabCase(category.name)}`} className=" capitalize">
-                          {lowerCase(category.name)}
+                          {category.name === "tukdi art"
+                            ? "Artisan Stone Mosaic"
+                            : category.name === "bali marble" ||
+                              category.name === "bali stone" ||
+                              category.name === "bali"
+                            ? "Bali Stone"
+                            : lowerCase(category.name)}
                         </Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>

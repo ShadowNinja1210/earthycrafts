@@ -34,7 +34,7 @@ export async function POST(req: Request) {
     await connectDB(); // Connect to the database
 
     const body = await req.json(); // Get the request body
-    const { image, productCode } = body; // Get the title and content from the request body
+    const { image, productCode, aspect } = body; // Get the title and content from the request body
 
     // Check if the title & content is not provided (Return an error if the title is not provided)
     if (!image && !productCode) {
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
     }
 
     // Create a new gallery post
-    const gallery = await Gallery.create({ productLink: `/products/${kebabCase(productCode)}`, image });
+    const gallery = await Gallery.create({ productLink: `/products/${kebabCase(productCode)}`, image, aspect });
 
     return NextResponse.json(gallery);
   } catch (error) {

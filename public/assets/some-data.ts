@@ -7,7 +7,7 @@ export const stonesLink = [
     url: "/stones/agra-red",
   },
   {
-    name: "Bali Marble",
+    name: "Bali Stone",
     image: "/images/stones/bali-marble.jpeg",
     url: "/stones/bali-marble",
   },
@@ -64,7 +64,7 @@ export const stones = [
       "Versatile usage in monuments, landscaping, and architectural decor",
     ],
     images: [
-      { url: "/images/stones/agra-red-stone.webp", main: true },
+      { url: "/images/stones/agra-red.jpeg", main: true },
       { url: "", main: false },
       { url: "", main: false },
       { url: "", main: false },
@@ -73,7 +73,7 @@ export const stones = [
   },
 
   {
-    name: "Bali Marble",
+    name: "Bali Stone",
     description: [
       "Bali Marble is an elegant and luxurious natural stone known for its smooth texture and sophisticated veining. Extracted from premium quarries, this marble is highly valued for its timeless appeal and versatility in interior decor.",
       "Favored for countertops, flooring, and statement walls, Bali Marble seamlessly blends with both classic and contemporary architectural styles. Its naturally cool surface makes it an excellent choice for warm climates.",
@@ -86,7 +86,7 @@ export const stones = [
       "Enhances the aesthetic appeal of any space",
     ],
     images: [
-      { url: "/images/stones/bali-marble-stone.webp", main: true },
+      { url: "/images/stones/bali-marble.jpeg", main: true },
       { url: "", main: false },
       { url: "", main: false },
       { url: "", main: false },
@@ -128,7 +128,7 @@ export const stones = [
       "Symbolizes traditional Indian craftsmanship",
     ],
     images: [
-      { url: "/images/stones/blue-pottery.webp", main: true },
+      { url: "/images/stones/blue-pottery.jpeg", main: true },
       { url: "", main: false },
       { url: "", main: false },
       { url: "", main: false },

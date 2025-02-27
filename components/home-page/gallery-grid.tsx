@@ -1,31 +1,19 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
-import { imgPlaceholder } from "@/public/assets/some-data";
-import Image from "next/image";
-import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
+import type { IGallery } from "@/lib/schema";
+import { PinterestPin, PinterestSkeleton } from "../gallery-grid";
+import { useEffect, useState } from "react";
 
 export default function GalleryGrid() {
-  const images = useMemo(
-    () => [
-      { id: 1, image: "", aspect: "portrait", productLink: "/" },
-      { id: 2, image: "", aspect: "portrait", productLink: "/" },
-      { id: 3, image: "", aspect: "landscape", productLink: "/" },
-      { id: 4, image: "", aspect: "landscape", productLink: "/" },
-      { id: 5, image: "", aspect: "portrait", productLink: "/" },
-      { id: 6, image: "", aspect: "landscape", productLink: "/" },
-      { id: 7, image: "", aspect: "landscape", productLink: "/" },
-      { id: 8, image: "", aspect: "landscape", productLink: "/" },
-      { id: 9, image: "", aspect: "landscape", productLink: "/" },
-      { id: 10, image: "", aspect: "portrait", productLink: "/" },
-      { id: 11, image: "", aspect: "landscape", productLink: "/" },
-      { id: 12, image: "", aspect: "landscape", productLink: "/" },
-      { id: 13, image: "", aspect: "landscape", productLink: "/" },
-      { id: 14, image: "", aspect: "landscape", productLink: "/" },
-      { id: 15, image: "", aspect: "landscape", productLink: "/" },
-    ],
-    []
-  );
+  const { data: images = [], isLoading } = useQuery<IGallery[]>({
+    queryKey: ["gallery-images"],
+    queryFn: async () => {
+      const response = await fetch("/api/gallery");
+      if (response.status === 404) return [];
+      return response.json();
+    },
+  });
 
   const [visibleImages, setVisibleImages] = useState(images);
 
@@ -37,10 +25,10 @@ export default function GalleryGrid() {
         setVisibleImages(images.slice(0, 5));
       } else if (width < 1024) {
         // Medium devices
-        setVisibleImages(images.slice(0, 10));
+        setVisibleImages(images.slice(0, 9));
       } else {
         // Large devices
-        setVisibleImages(images.slice(0, 14));
+        setVisibleImages(images.slice(0, 12));
       }
     };
 
@@ -58,29 +46,15 @@ export default function GalleryGrid() {
         We help your space sing with a mix of personal and aesthetic design that is stylish and functional.
       </h1>
 
-      <div className="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[minmax(200px,auto)]">
-        {visibleImages.map((image) => (
-          <Link
-            href={image.productLink}
-            key={image.id}
-            className={`relative overflow-hidden group rounded-2xl ${
-              image.aspect === "landscape" ? "row-span-2" : "row-span-1"
-            }`}
-          >
-            <Image
-              src={image.image || imgPlaceholder}
-              alt={`Design showcase ${image.id}`}
-              placeholder="blur"
-              blurDataURL={imgPlaceholder}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 50vw, 25vw"
-            />
-
-            <div className="absolute inset-0 transition-all duration-300 group-hover:bg-black/30" />
-          </Link>
-        ))}
-      </div>
+      {isLoading ? (
+        <PinterestSkeleton />
+      ) : (
+        <div className="pinterest-grid columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
+          {visibleImages.map((image) => (
+            <PinterestPin key={image._id.toString()} image={{ ...image, _id: image._id.toString() }} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
