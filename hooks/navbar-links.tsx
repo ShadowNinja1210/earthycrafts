@@ -104,7 +104,7 @@ export default function useCategoriesLinks() {
         id: 16,
         title: "Handicrafts",
         description: "Temperature-controlled wine storage room",
-        image: "",
+        image: "/images/sub-categories/handicrafts.jpg",
         type: "Secondary Category",
         link: "/products?category=handicrafts",
       },

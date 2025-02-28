@@ -73,7 +73,7 @@ const categories3 = [
     id: 4,
     title: "Handicrafts",
     description: "Handmade with love.",
-    videoUrl: "",
+    videoUrl: "/images/sub-categories/handicrafts.jpg",
     link: "/products/handicrafts",
   },
 ];
