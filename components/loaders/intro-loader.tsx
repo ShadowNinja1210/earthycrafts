@@ -13,7 +13,11 @@ export default function IntroLoader() {
       const isPortrait = window.innerHeight > window.innerWidth;
       console.log("Screen orientation:", isPortrait ? "Portrait" : "Landscape");
       console.log("Screen size:", window.innerWidth, "x", window.innerHeight);
-      setVideoSrc(isPortrait ? "/videos/intro-portrait.mp4" : "/videos/intro-landscape.mp4");
+      setVideoSrc(
+        isPortrait
+          ? "/videos/intro-portrait.mp4"
+          : "https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvyDC6bq7204QxyMCSseTql85UNaPzVoBt1IgpE"
+      );
     };
 
     const timeout = setTimeout(() => {

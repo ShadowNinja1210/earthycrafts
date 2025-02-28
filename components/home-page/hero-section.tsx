@@ -19,7 +19,7 @@ export default function HeroSection() {
     <main className="relative">
       {/* Landscape Intro Video */}
       <BackgroundVideo
-        src="/videos/intro-landscape.MP4"
+        src="https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvyDC6bq7204QxyMCSseTql85UNaPzVoBt1IgpE"
         className="md:absolute md:block hidden top-0 right-0 brightness-75 z-0"
       />
 
