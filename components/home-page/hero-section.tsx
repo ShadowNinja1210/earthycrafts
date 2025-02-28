@@ -25,7 +25,7 @@ export default function HeroSection() {
 
       {/* Portrait Intro Video */}
       <BackgroundVideo
-        src="/videos/intro-portrait.mp4"
+        src="https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvyB0lthvV9ITr7yklD1YGSQtmnX4g863vZubdo"
         className="md:hidden absolute top-0 right-0 brightness-75 z-0"
       />
 

@@ -15,7 +15,7 @@ export default function IntroLoader() {
       console.log("Screen size:", window.innerWidth, "x", window.innerHeight);
       setVideoSrc(
         isPortrait
-          ? "/videos/intro-portrait.mp4"
+          ? "https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvyB0lthvV9ITr7yklD1YGSQtmnX4g863vZubdo"
           : "https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvyDC6bq7204QxyMCSseTql85UNaPzVoBt1IgpE"
       );
     };
