@@ -18,7 +18,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import ProductsForm from "./components/products-form";
-import mongoose from "mongoose";
+import { ObjectId } from "mongoose";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -31,7 +31,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { toast } from "@/hooks/use-toast";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { fetchAllProducts } from "@/lib/api";
 import { useState } from "react";
 import FilterSort from "./components/filter-sort";
@@ -70,26 +70,28 @@ export default function DashboardProducts() {
   }
 
   // Function to delete the product
-  const handleDelete = async (id: mongoose.Types.ObjectId) => {
-    const res = await fetch(`/api/product/${id}`, {
-      method: "DELETE",
-    });
-
-    if (!res.ok) {
+  const handleDelete = useMutation<void, unknown, ObjectId>({
+    mutationKey: ["dashboardProducts"],
+    mutationFn: async (id) => {
+      const res = await fetch(`/api/product/${id}`, {
+        method: "DELETE",
+      });
+      return res.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Success",
+        description: "Product deleted successfully",
+      });
+    },
+    onError: () => {
       toast({
         title: "Error!!!",
         description: "Failed to delete the product",
         variant: "destructive",
       });
-    } else {
-      toast({
-        title: "Success",
-        description: "Product deleted successfully",
-      });
-    }
-
-    console.log(res);
-  };
+    },
+  });
 
   return (
     <main className="container">
