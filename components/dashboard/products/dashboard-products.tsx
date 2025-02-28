@@ -18,7 +18,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import ProductsForm from "./components/products-form";
-import { ObjectId } from "mongoose";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -31,7 +30,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { toast } from "@/hooks/use-toast";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { fetchAllProducts } from "@/lib/api";
 import { useState } from "react";
 import FilterSort from "./components/filter-sort";
@@ -47,6 +46,7 @@ export default function DashboardProducts() {
     queryKey: ["dashboardProducts"],
     queryFn: fetchAllProducts,
   });
+  const queryClient = useQueryClient();
 
   // UseStates
   const [addOpen, setAddOpen] = useState(false); // Add Dialog
@@ -70,7 +70,7 @@ export default function DashboardProducts() {
   }
 
   // Function to delete the product
-  const handleDelete = useMutation<void, unknown, ObjectId>({
+  const handleDelete = useMutation<void, unknown, string>({
     mutationKey: ["dashboardProducts"],
     mutationFn: async (id) => {
       const res = await fetch(`/api/product/${id}`, {
@@ -79,6 +79,7 @@ export default function DashboardProducts() {
       return res.json();
     },
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["dashboardProducts"] });
       toast({
         title: "Success",
         description: "Product deleted successfully",
@@ -307,7 +308,7 @@ export default function DashboardProducts() {
 
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={() => handleDelete(product._id)}>Delete</AlertDialogAction>
+            <AlertDialogAction onClick={() => handleDelete.mutate(product._id.toString())}>Delete</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
