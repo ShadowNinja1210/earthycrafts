@@ -18,15 +18,26 @@ export default function HeroSection() {
   return (
     <main className="relative">
       {/* Landscape Intro Video */}
+
+      {/* <Image
+        src="https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvyo6Msd3btLYOjF6kAM8qWUucgPDpH2b3ZofTC"
+        width={1400}
+        height={1400}
+        alt="Earthycrafts logo"
+        className="md:absolute md:block hidden top-0 right-0 brightness-75 w-screen h-screen z-0"
+      /> */}
+
       <BackgroundVideo
-        src="https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvyDC6bq7204QxyMCSseTql85UNaPzVoBt1IgpE"
+        src="https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvycvd2SwJuyfq493Yi7VxRAZmMlNvjh6CD5LP8"
         className="md:absolute md:block hidden top-0 right-0 brightness-75 z-0"
+        format="webm"
       />
 
       {/* Portrait Intro Video */}
       <BackgroundVideo
-        src="https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvyB0lthvV9ITr7yklD1YGSQtmnX4g863vZubdo"
+        src="https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvyvnez94u9dIKFSu3x2U5kXC7s6GO4jaWgZEqT"
         className="md:hidden absolute top-0 right-0 brightness-75 z-0"
+        format="webm"
       />
 
       <div className="z-10 text-white drop-shadow-lg h-screen flex flex-col gap-2 items-center justify-center text-center">

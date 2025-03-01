@@ -33,8 +33,6 @@ export default function ProductCarousel2() {
     sliderRef.current?.slickPrev();
   };
 
-  console.log("Products outside the fetch", products);
-
   const settings = {
     dots: true,
     speed: 500,

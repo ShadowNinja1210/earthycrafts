@@ -15,7 +15,6 @@ export function FileUpload({ onChange, value }: { onChange: (url?: string) => vo
         method: "DELETE",
       });
       if (res.ok) {
-        console.log("File deleted successfully, changing state", value, url);
         onChange("");
       }
     } catch (error) {
@@ -53,10 +52,9 @@ export function FileUpload({ onChange, value }: { onChange: (url?: string) => vo
         endpoint="imageUploader"
         onClientUploadComplete={(res) => {
           onChange(res[0]?.url);
-          console.log("Client upload complete", res[0]?.url);
         }}
         onUploadError={(error: Error) => {
-          console.log(error);
+          console.error(error);
         }}
       />
     </>

@@ -4,8 +4,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-import { INewProduct } from "@/lib/schema";
-import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { ArrowLeftCircle, ArrowRightCircle } from "lucide-react";
 import { useRef } from "react";
@@ -13,16 +11,6 @@ import { stonesLink } from "@/public/assets/some-data";
 import { StoneCard } from "../stones-page";
 
 export default function StoneSlide() {
-  const { data: products } = useQuery<INewProduct[]>({
-    queryKey: ["featured-products"],
-    queryFn: async () => {
-      const res = await fetch("/api/product/featured");
-      const products = await res.json();
-
-      return products.slice(0, 5);
-    },
-  });
-
   const sliderRef = useRef<Slider | null>(null);
 
   const next = () => {
@@ -32,8 +20,6 @@ export default function StoneSlide() {
   const previous = () => {
     sliderRef.current?.slickPrev();
   };
-
-  console.log("Products outside the fetch", products);
 
   const settings = {
     dots: true,

@@ -37,7 +37,7 @@ export default function CustomizationForm() {
     mutationKey: ["customization"],
     mutationFn: async (formData: CustomizationFormValues) => customizationPost(formData),
     onSuccess: () => {
-      console.log("Customization request added successfully!");
+      console.info("Customization request added successfully!");
       form.reset();
       // You can refetch queries or update UI here
     },
@@ -63,8 +63,6 @@ export default function CustomizationForm() {
 
   const onSubmit = (values: z.infer<typeof customFormSchema>) => {
     customizationMutate.mutate(values);
-
-    console.log(values);
   };
 
   return (
@@ -121,7 +119,7 @@ export default function CustomizationForm() {
                     Contact Number
                   </FormLabel>
                   <FormControl>
-                    <Input type="text" placeholder="Enter your contact number" {...field} />
+                    <Input type="text" placeholder="Enter your contact number" {...field} value={field.value} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

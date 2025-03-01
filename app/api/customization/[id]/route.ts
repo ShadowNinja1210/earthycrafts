@@ -8,10 +8,10 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
 
     const body = await req.json();
 
-    const { status } = body;
+    const { orderStatus } = body;
     const { id } = params;
 
-    if (!status) {
+    if (!orderStatus) {
       return NextResponse.json(
         { message: "Please provide all the details" },
         {
@@ -20,7 +20,7 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
       );
     }
 
-    const customization = await Customization.findByIdAndUpdate(id, { status }, { new: true });
+    const customization = await Customization.findByIdAndUpdate(id, { orderStatus: orderStatus }, { new: true });
 
     return NextResponse.json(customization, { status: 200 });
   } catch (error) {

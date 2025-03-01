@@ -9,7 +9,7 @@ export const stonesLink = [
   {
     name: "Bali Stone",
     image: "/images/stones/bali-marble.jpeg",
-    url: "/stones/bali-marble",
+    url: "/stones/bali-stone",
   },
   {
     name: "Beslana",
@@ -27,9 +27,9 @@ export const stonesLink = [
     url: "/stones/white-marble",
   },
   {
-    name: "Tukdi Art",
+    name: "Artisan Stone Mosaic",
     image: "/images/stones/tukdi-art.jpg",
-    url: "/stones/tukdi-art",
+    url: "/stones/artisan-stone-mosaic",
   },
 ];
 
@@ -63,12 +63,7 @@ export const stones = [
       "Minimal maintenance required, ensuring long-lasting beauty",
       "Versatile usage in monuments, landscaping, and architectural decor",
     ],
-    images: [
-      { url: "/images/stones/agra-red.jpeg", main: true },
-      { url: "", main: false },
-      { url: "", main: false },
-      { url: "", main: false },
-    ],
+    images: [{ url: "/images/stones/agra-red.jpeg", main: true }],
     products: ["AG006", "AG007", "AG008", "AG009"],
   },
 
@@ -85,13 +80,8 @@ export const stones = [
       "Easy to clean and maintain",
       "Enhances the aesthetic appeal of any space",
     ],
-    images: [
-      { url: "/images/stones/bali-marble.jpeg", main: true },
-      { url: "", main: false },
-      { url: "", main: false },
-      { url: "", main: false },
-    ],
-    products: ["BM101", "BM102", "BM103"],
+    images: [{ url: "/images/stones/bali-marble.jpeg", main: true }],
+    products: ["BB015", "AF015", "BW009", "BB014"],
   },
   {
     name: "Beslana",
@@ -106,13 +96,8 @@ export const stones = [
       "Requires minimal maintenance",
       "Ideal for heritage and contemporary projects",
     ],
-    images: [
-      { url: "/images/stones/beslana.jpeg", main: true },
-      { url: "", main: false },
-      { url: "", main: false },
-      { url: "", main: false },
-    ],
-    products: ["BS201", "BS202", "BS203"],
+    images: [{ url: "/images/stones/beslana.jpeg", main: true }],
+    products: ["SP001", "SP006", "BT008", "BW008"],
   },
   {
     name: "Blue Pottery",
@@ -127,13 +112,8 @@ export const stones = [
       "Delicate yet highly aesthetic",
       "Symbolizes traditional Indian craftsmanship",
     ],
-    images: [
-      { url: "/images/stones/blue-pottery.jpeg", main: true },
-      { url: "", main: false },
-      { url: "", main: false },
-      { url: "", main: false },
-    ],
-    products: ["BP301", "BP302", "BP303"],
+    images: [{ url: "/images/stones/blue-pottery.jpeg", main: true }],
+    products: ["BP006", "BP007", "BP016", "CH001"],
   },
   {
     name: "White Marble",
@@ -148,19 +128,14 @@ export const stones = [
       "Naturally cool, making it suitable for hot climates",
       "A timeless choice for both modern and traditional designs",
     ],
-    images: [
-      { url: "/images/stones/white-marble.jpeg", main: true },
-      { url: "", main: false },
-      { url: "", main: false },
-      { url: "", main: false },
-    ],
-    products: ["AF004", "AF007", "BW004", "CH007"],
+    images: [{ url: "/images/stones/white-marble.jpeg", main: true }],
+    products: ["TB001", "AF007", "BW004", "CH007"],
   },
   {
-    name: "Tukdi Art",
+    name: "Artisan Stone Mosaic",
     description: [
-      "Tukdi Art is an exquisite form of stonework that involves intricate carving and inlay techniques. A true testament to craftsmanship, it is widely used in decorative elements and artistic architecture.",
-      "Perfect for accent walls, tabletops, and luxury interiors, Tukdi Art stonework adds a regal touch to any space, making it a favorite among designers and architects.",
+      "Artisan Stone Mosaic is an exquisite form of stonework that involves intricate carving and inlay techniques. A true testament to craftsmanship, it is widely used in decorative elements and artistic architecture.",
+      "Perfect for accent walls, tabletops, and luxury interiors, Artisan Stone Mosaic stonework adds a regal touch to any space, making it a favorite among designers and architects.",
     ],
     characteristics: [
       "Highly detailed and handcrafted stonework",
@@ -169,12 +144,7 @@ export const stones = [
       "A perfect blend of art and architecture",
       "Rare and exclusive craftsmanship",
     ],
-    images: [
-      { url: "/images/stones/tukdi-art.jpg", main: true },
-      { url: "", main: false },
-      { url: "", main: false },
-      { url: "", main: false },
-    ],
-    products: ["TA501", "TA502", "TA503"],
+    images: [{ url: "/images/stones/tukdi-art.jpg", main: true }],
+    products: ["TA002", "TA003", "TA001", "TA006"],
   },
 ];

@@ -60,7 +60,6 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
 
     // Check if required fields are provided
     if (!title && !content) {
-      console.log("Missing required fields:", { title, content }); // Log missing fields
       return NextResponse.json({ message: "Missing required fields" }, { status: 400 });
     }
 
@@ -87,9 +86,6 @@ export async function DELETE(req: Request, { params }: { params: { id: string } 
 
     const { id } = params;
 
-    console.log("Received ID:", `"${id}"`); // Log the ID with quotes for debugging
-    console.log("Is valid ObjectId:", Types.ObjectId.isValid(id)); // Check validity
-
     // Validate the ID format
     if (!Types.ObjectId.isValid(id)) {
       return NextResponse.json({ message: "Invalid ID format" }, { status: 400 });
@@ -100,8 +96,6 @@ export async function DELETE(req: Request, { params }: { params: { id: string } 
     if (!deletedBlog) {
       return NextResponse.json({ message: "Blog post not found" }, { status: 404 });
     }
-
-    console.log(`Blog post with ID ${id} deleted.`); // Log successful deletion
 
     return NextResponse.json({ message: "Blog post deleted successfully" }, { status: 200 });
   } catch (error) {

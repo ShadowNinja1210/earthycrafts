@@ -24,7 +24,7 @@ export default function ContactPage() {
     mutationFn: async (formData: { name: string; email: string; phone: string; message: string }) =>
       enquiryPost(formData),
     onSuccess: () => {
-      console.log("Enquiry added successfully!");
+      console.info("Enquiry added successfully!");
       setFormData({ name: "", email: "", phone: "", message: "" });
       // You can refetch queries or update UI here
     },

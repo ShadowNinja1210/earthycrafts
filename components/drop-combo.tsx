@@ -37,11 +37,6 @@ export function DropCombo({
     return items?.filter((item) => item.toLowerCase().includes(search.toLowerCase())) ?? [];
   }, [items, search]);
 
-  useEffect(() => {
-    console.log("Items: ", items);
-    console.log("filteredItems: ", filteredItems);
-  }, [items, search, filteredItems]);
-
   const handleSelect = (currentValue: string) => {
     setValue(currentValue);
     setOpen(false);

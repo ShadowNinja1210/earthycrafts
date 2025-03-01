@@ -44,11 +44,11 @@ export async function POST(req: Request) {
       );
     }
 
-    const newCustomization = Customization.create({
+    const newCustomization = await Customization.create({
       name,
       email,
       phone,
-      status: "Pending",
+      orderStatus: "Pending",
       url,
       message,
     });

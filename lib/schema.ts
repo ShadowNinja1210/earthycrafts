@@ -248,7 +248,7 @@ export interface ICustomization extends Document {
   email: string;
   phone: string;
   message: string;
-  status: "Pending" | "Delivered" | "Cancelled";
+  orderStatus: "Pending" | "Delivered" | "Cancelled";
   url: string;
   createdAt?: Date;
   updatedAt?: Date;
@@ -267,6 +267,12 @@ const CustomizationSchema: Schema = new Schema(
     phone: {
       type: String,
       required: true,
+    },
+    orderStatus: {
+      type: String,
+      required: true,
+      enum: ["Pending", "Delivered", "Cancelled"],
+      default: "Pending",
     },
     message: {
       type: String,

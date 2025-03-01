@@ -15,8 +15,6 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
 
     const product = await NewProduct.findOne({ productCode: camelCase(id).toUpperCase() }); // Query the product
 
-    console.log(camelCase(id).toUpperCase());
-
     if (!product) {
       return NextResponse.json(
         { message: "Product not found" },
@@ -53,8 +51,6 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
       new: true, // Return the updated product
       runValidators: true, // Ensure Mongoose validators run
     });
-
-    console.log(updatedProduct);
 
     if (!updatedProduct) {
       return NextResponse.json(

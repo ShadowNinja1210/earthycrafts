@@ -26,8 +26,6 @@ export default function SearchComponent() {
       return;
     }
 
-    console.log("Searching products for ", query);
-
     const results = products.filter((product: INewProduct) => {
       const normalizedQuery = kebabCase(query);
 

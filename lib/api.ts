@@ -63,20 +63,19 @@ export const editProduct = async (data: any, id: string) => {
   return response.json();
 };
 
-export const updateStatus = async (status: "Delivered" | "Cancelled" | "Pending", id: string) => {
+export const updateStatus = async (orderStatus: "Delivered" | "Cancelled" | "Pending", id: string) => {
   const response = await fetch(`/api/customization/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ status }),
+    body: JSON.stringify({ orderStatus }),
   });
 
   if (!response.ok) {
     throw new Error("Failed to update the product status");
   }
 
-  console.log(response);
   return response.ok;
 };
 
@@ -140,7 +139,6 @@ export const getStoneInfo = async (stoneName: string) => {
   // }
 
   // const data = await res.json();
-  console.log(stoneName);
 
   const data = stones.find((stone) => lowerCase(stone.name) === lowerCase(stoneName));
 

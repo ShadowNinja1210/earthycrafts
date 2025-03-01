@@ -10,7 +10,6 @@ export default function GalleryPage() {
     queryFn: async () => {
       const response = await fetch("/api/gallery");
       if (response.status === 404) return [];
-      console.log(response.json());
       return response.json();
     },
   });

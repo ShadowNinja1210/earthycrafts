@@ -7,9 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useFieldArray } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
-import { useChangeStore } from "@/hooks/use-store";
 import { toast } from "@/hooks/use-toast";
-import { useEffect, useState } from "react";
 import { IBlog } from "@/lib/schema";
 import {
   AlertDialog,
@@ -21,6 +19,7 @@ import {
   AlertDialogTrigger,
   AlertDialogDescription,
 } from "@/components/ui/alert-dialog";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 const blogSchema = z.object({
   title: z.string(),
@@ -28,9 +27,15 @@ const blogSchema = z.object({
 });
 
 export default function BlogPage() {
-  const [blogs, setBlogs] = useState<IBlog[]>([]); // State to store blogs
+  const { data: blogs = [], isLoading } = useQuery<IBlog[]>({
+    queryKey: ["blogs"],
+    queryFn: async () => {
+      const res = await fetch("/api/blog");
+      return res.json();
+    },
+  });
 
-  const { setChange, change } = useChangeStore(); // Custom store to trigger re-fetching blogs
+  const queryClient = useQueryClient();
 
   // Form hook with zod resolver
   const form = useForm<z.infer<typeof blogSchema>>({
@@ -48,80 +53,86 @@ export default function BlogPage() {
     name: "content",
   });
 
-  // Submit form
-  function onSubmit(values: z.infer<typeof blogSchema>) {
-    try {
-      // Add blog to database
-      const addBlogs = async () => {
-        const res = await fetch("/api/blog", {
-          method: "POST",
-          body: JSON.stringify(values),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+  const onSubmit = useMutation({
+    // Mutation key
+    mutationKey: ["blogs"],
 
-        // Check if blog was created successfully
-        if (res.ok) {
-          setChange(!change);
-          form.reset();
-          toast({
-            title: "Blog created successfully",
-            description: "Your blog has been created successfully.",
-          });
-        } else {
-          toast({
-            title: "Failed to create blog",
-            description: "An error occurred while creating your blog.",
-            variant: "destructive",
-          });
-        }
-      };
-
-      // Call addBlogs function to create blog in database
-      addBlogs();
-    } catch (error) {
-      console.error("Error creating blog:", error);
-    }
-  }
-
-  // Delete blog
-  const handleDelete = async (id: string) => {
-    try {
-      const res = await fetch(`/api/blog${id}`, {
-        method: "DELETE",
-        body: JSON.stringify({ id }),
+    // Create mutation function
+    mutationFn: async (values: z.infer<typeof blogSchema>) => {
+      const res = await fetch("/api/blog", {
+        method: "POST",
+        body: JSON.stringify(values),
         headers: {
           "Content-Type": "application/json",
         },
       });
+      return res.json();
+    },
 
-      if (res.ok) {
-        setChange(!change);
-        toast({
-          title: "Blog deleted successfully",
-          description: "Your blog has been deleted successfully.",
+    // Success message
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["blogs"] });
+      form.reset();
+      toast({
+        title: "Blog created successfully",
+        description: "Your blog has been created successfully.",
+      });
+    },
+
+    // Error message
+    onError: () => {
+      toast({
+        title: "Failed to create blog",
+        description: "An error occurred while creating your blog.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleDelete = useMutation({
+    // Mutation key
+    mutationKey: ["blogs"],
+
+    // Delete mutation function
+    mutationFn: async (id: string) => {
+      try {
+        const res = await fetch(`/api/blog${id}`, {
+          method: "DELETE",
+          body: JSON.stringify({ id }),
+          headers: {
+            "Content-Type": "application/json",
+          },
         });
-      } else {
-        toast({
-          title: "Failed to delete blog",
-          description: "An error occurred while deleting your blog.",
-          variant: "destructive",
-        });
+        if (res.status === 404) {
+          return [];
+        }
+        return res.json();
+      } catch (error) {
+        console.error("Error deleting blog:", error);
+        return null;
       }
-    } catch (error) {
-      console.error("Error deleting blog:", error);
-    }
-  };
+    },
+    // Success message
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["blogs"] });
+      toast({
+        title: "Blog deleted successfully",
+        description: "Your blog has been deleted successfully.",
+      });
+    },
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      const response = await fetch("/api/blog");
-      const data = await response.json();
-      setBlogs(data);
-    };
-    fetchBlogs();
-  }, [change]);
+    // Error message
+    onError: () => {
+      toast({
+        title: "Failed to delete blog",
+        description: "An error occurred while deleting your blog.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  console.log("Blogs:", blogs);
+  console.log("Blogs length:", blogs.length);
 
   return (
     <div className="px-4 w-full py-4">
@@ -129,7 +140,7 @@ export default function BlogPage() {
 
       {/* Blog Form */}
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={form.handleSubmit((values) => onSubmit.mutate(values))} className="space-y-4">
           <h2 className="text-2xl font-bold">Create a Blog</h2>
           {/* Blog Title */}
           <FormField
@@ -189,12 +200,14 @@ export default function BlogPage() {
       <div className="mt-10">
         <h2 className="text-2xl font-bold">All Blogs</h2>
         <div className="mt-4 space-y-4">
-          {!blogs ? (
+          {isLoading ? (
+            "Loading..."
+          ) : !blogs.length || blogs.length === 0 ? (
             <div className="text-center content-center">
               <p>No blogs found</p>
             </div>
           ) : (
-            blogs.map((blog) => (
+            blogs?.map((blog) => (
               <div key={blog.id} className="border p-4 rounded-lg">
                 <div className="flex justify-between">
                   <h3 className="text-xl font-semibold">{blog.title}</h3>
@@ -209,7 +222,7 @@ export default function BlogPage() {
                       <AlertDialogFooter>
                         <AlertDialogCancel>Cancel</AlertDialogCancel>
                         <AlertDialogAction asChild>
-                          <Button variant="destructive" onClick={() => handleDelete(blog.id)}>
+                          <Button variant="destructive" onClick={() => handleDelete.mutate(blog.id)}>
                             Delete
                           </Button>
                         </AlertDialogAction>

@@ -59,7 +59,6 @@ export default function GalleryDialog({
           "Content-Type": "application/json",
         },
       });
-      console.log(response.status);
       return response.json();
     },
     onSuccess: () => {
@@ -84,14 +83,12 @@ export default function GalleryDialog({
           "Content-Type": "application/json",
         },
       });
-      console.log(response.status);
       return response.json();
     },
   });
 
   const onSubmit = (values: z.infer<typeof GalleryFormSchema>) => {
     try {
-      console.log(values);
       if (edit) {
         editImage.mutate({ ...values, id: edit._id.toString() });
         return;

@@ -11,12 +11,10 @@ export default function IntroLoader() {
   useEffect(() => {
     const updateVideoSource = () => {
       const isPortrait = window.innerHeight > window.innerWidth;
-      console.log("Screen orientation:", isPortrait ? "Portrait" : "Landscape");
-      console.log("Screen size:", window.innerWidth, "x", window.innerHeight);
       setVideoSrc(
         isPortrait
-          ? "https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvyB0lthvV9ITr7yklD1YGSQtmnX4g863vZubdo"
-          : "https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvyDC6bq7204QxyMCSseTql85UNaPzVoBt1IgpE"
+          ? "https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvyvnez94u9dIKFSu3x2U5kXC7s6GO4jaWgZEqT"
+          : "https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvycvd2SwJuyfq493Yi7VxRAZmMlNvjh6CD5LP8"
       );
     };
 

@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-const BackgroundVideo = ({ src, className }: { src: string; className?: string }) => {
+const BackgroundVideo = ({ src, className, format }: { src: string; className?: string; format?: string }) => {
   return (
     <video
       className={cn(" top-0 left-0 w-screen h-screen object-cover -z-10", className)}
@@ -8,9 +8,10 @@ const BackgroundVideo = ({ src, className }: { src: string; className?: string }
       muted
       loop
       playsInline
+      controls={false}
       preload="auto"
     >
-      <source src={src} type="video/mp4" />
+      <source src={src} type={`video/${format}`} />
       Your browser does not support the video tag.
     </video>
   );

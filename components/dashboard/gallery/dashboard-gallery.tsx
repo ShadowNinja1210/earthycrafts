@@ -36,7 +36,6 @@ export default function DashboardGallery() {
       const response = await fetch(`/api/gallery/${_id}`, {
         method: "DELETE",
       });
-      console.log(response.status);
       return response.json();
     },
     onSuccess: () => {

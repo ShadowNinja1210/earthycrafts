@@ -54,8 +54,6 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
   const [selectedSubCategory, setSelectedSubCategory] = useState<string>("");
   const [open, setOpen] = useState(true);
 
-  console.log(categories);
-
   const filteredProducts = products.filter((product) => {
     const normalizedCategory = kebabCase(selectedCategory || "");
     const normalizedSubCategory = kebabCase(selectedSubCategory || "");
