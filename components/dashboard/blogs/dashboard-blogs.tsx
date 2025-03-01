@@ -131,9 +131,6 @@ export default function BlogPage() {
     },
   });
 
-  console.log("Blogs:", blogs);
-  console.log("Blogs length:", blogs.length);
-
   return (
     <div className="px-4 w-full py-4">
       <h1 className="text-3xl font-bold uppercase mb-6 underline">Blogs</h1>

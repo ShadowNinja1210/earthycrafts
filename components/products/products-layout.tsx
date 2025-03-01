@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { INewProduct } from "@/lib/schema";
@@ -22,6 +22,7 @@ import { kebabCase, lowerCase } from "lodash";
 import { Separator } from "../ui/separator";
 import { Button } from "../ui/button";
 import { useSearchParams } from "next/navigation";
+import { Skeleton } from "../ui/skeleton";
 
 export type ICategory = {
   name: string;
@@ -42,8 +43,8 @@ function FilterParams({ setSelectedCategory, setSelectedSubCategory }: any) {
   const urlSubCategory = searchParams.get("subCategory");
 
   useEffect(() => {
-    if (urlCategory) setSelectedCategory(urlCategory);
-    if (urlSubCategory) setSelectedSubCategory(urlSubCategory);
+    if (urlCategory) setSelectedCategory(lowerCase(urlCategory));
+    if (urlSubCategory) setSelectedSubCategory(lowerCase(urlSubCategory));
   }, [urlCategory, urlSubCategory, setSelectedCategory, setSelectedSubCategory]);
 
   return null;
@@ -74,6 +75,12 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
     );
   });
 
+  // useEffect(() => {
+  //   console.log("filteredProducts", filteredProducts);
+  //   console.log("selectedCategory", selectedCategory);
+  //   console.log("selectedSubCategory", selectedSubCategory);
+  // }, [filteredProducts, selectedCategory, selectedSubCategory]);
+
   return (
     <main>
       <Suspense fallback={<div>Loading filters...</div>}>
@@ -82,20 +89,22 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
       <SidebarProvider open={open} onOpenChange={setOpen} className=" bg-sidebar-primary-foreground">
         <Sidebar className=" inset-y-[71px]   z-10">
           <SidebarHeader>
-            <Button
-              variant="ghost"
-              onClick={() => {
-                setSelectedCategory("");
-                setSelectedSubCategory("");
-              }}
-              className="text-2xl font-semibold"
-            >
-              All Products
-            </Button>
+            <Link href="/products">
+              <Button
+                variant="ghost"
+                onClick={() => {
+                  setSelectedCategory("");
+                  setSelectedSubCategory("");
+                }}
+                className="text-2xl font-semibold w-full"
+              >
+                All Products
+              </Button>
+            </Link>
             <Separator className="border-t " />
           </SidebarHeader>
-          <SidebarContent className="">
-            <SidebarMenu className=" ">
+          <SidebarContent>
+            <SidebarMenu>
               {categories.sort().map(
                 (category) =>
                   category.type === "primary" && (
@@ -133,10 +142,12 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
                                   }}
                                 >
                                   <Link
-                                    href={`/products?subCategory=${kebabCase(subCategory)}`}
+                                    href={`/products?category=${kebabCase(category.name)}&subCategory=${kebabCase(
+                                      subCategory
+                                    )}`}
                                     className=" capitalize"
                                   >
-                                    {lowerCase(subCategory)}
+                                    {subCategory === "artifacts" ? "Artefacts" : lowerCase(subCategory)}
                                   </Link>
                                 </SidebarMenuButton>
                               </SidebarMenuItem>
@@ -198,9 +209,13 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
           </div>
 
           <div className="grid justify-items-center gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Skeleton />}>{filteredProducts.length === 0 && <div>No products found</div>}</Suspense>
+            <Suspense fallback={<Skeleton />}>
               {filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard
+                  key={`${product.name}-${product.id}-${product.primaryCategory}-${product.subCategory}`}
+                  product={product}
+                />
               ))}
             </Suspense>
           </div>
