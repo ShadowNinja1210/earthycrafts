@@ -1,6 +1,8 @@
+import SpinLoader from "@/components/loaders/spin-loader";
 import ProductsLayout from "@/components/products/products-layout";
 import { INewProduct } from "@/lib/schema";
 import { lowerCase } from "lodash";
+import { Suspense } from "react";
 
 export default async function AllProductsPage() {
   let products: INewProduct[] = [];
@@ -51,5 +53,9 @@ export default async function AllProductsPage() {
     type, // Either "primary" or "secondary"
   }));
 
-  return <ProductsLayout categories={categories} products={products} />;
+  return (
+    <Suspense fallback={<SpinLoader size="xl" />}>
+      <ProductsLayout categories={categories} products={products} />;
+    </Suspense>
+  );
 }

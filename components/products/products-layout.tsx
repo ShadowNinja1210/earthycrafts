@@ -55,25 +55,29 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
   const [selectedSubCategory, setSelectedSubCategory] = useState<string>("");
   const [open, setOpen] = useState(true);
 
-  const filteredProducts = products.filter((product) => {
-    const normalizedCategory = kebabCase(selectedCategory || "");
-    const normalizedSubCategory = kebabCase(selectedSubCategory || "");
+  const filteredProducts = useMemo(
+    () =>
+      products.filter((product) => {
+        const normalizedCategory = kebabCase(selectedCategory || "");
+        const normalizedSubCategory = kebabCase(selectedSubCategory || "");
 
-    if (normalizedSubCategory) {
-      // If subCategory is selected, filter by both subCategory and primaryCategory
-      return (
-        kebabCase(product.subCategory || "") === normalizedSubCategory &&
-        product.primaryCategory.some((cat) => kebabCase(cat) === normalizedCategory)
-      );
-    }
+        if (normalizedSubCategory) {
+          // If subCategory is selected, filter by both subCategory and primaryCategory
+          return (
+            kebabCase(product.subCategory || "") === normalizedSubCategory &&
+            product.primaryCategory.some((cat) => kebabCase(cat) === normalizedCategory)
+          );
+        }
 
-    // If only primary category is selected, filter normally
-    return (
-      !selectedCategory ||
-      product.primaryCategory.some((cat) => kebabCase(cat) === normalizedCategory) ||
-      product.secondaryCategory.some((cat) => kebabCase(cat) === normalizedCategory)
-    );
-  });
+        // If only primary category is selected, filter normally
+        return (
+          !selectedCategory ||
+          product.primaryCategory.some((cat) => kebabCase(cat) === normalizedCategory) ||
+          product.secondaryCategory.some((cat) => kebabCase(cat) === normalizedCategory)
+        );
+      }),
+    [products, selectedCategory, selectedSubCategory]
+  );
 
   // useEffect(() => {
   //   console.log("filteredProducts", filteredProducts);
@@ -212,10 +216,7 @@ export default function ProductsLayout({ categories, products }: ProductsLayoutP
             <Suspense fallback={<Skeleton />}>{filteredProducts.length === 0 && <div>No products found</div>}</Suspense>
             <Suspense fallback={<Skeleton />}>
               {filteredProducts.map((product) => (
-                <ProductCard
-                  key={`${product.name}-${product.id}-${product.primaryCategory}-${product.subCategory}`}
-                  product={product}
-                />
+                <ProductCard key={product.id} product={product} />
               ))}
             </Suspense>
           </div>
