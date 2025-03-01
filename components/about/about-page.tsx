@@ -46,7 +46,7 @@ export default function AboutPage() {
           format="webm"
         />
         <BackgroundVideo
-          src="https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvytKDkvEIXghJazymvGju9SwrqWxB5HKNiTM2l"
+          src="https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvyhLOmmWR6GaOA5qigTN7tHsZMKY3dbwJe0QyB"
           className="md:hidden z-50"
           format="webm"
         />
