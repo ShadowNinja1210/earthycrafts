@@ -41,12 +41,14 @@ export default function AboutPage() {
     <main className="min-h-screen bg-transparent overflow-hidden">
       <div className="relative">
         <BackgroundVideo
-          src="https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvyQ9uKFQVhc6DjTvZ0lPJLsfp2b51VigRqI7aM"
+          src="https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvyUPYKmK6fAdBP8qeLX3MNxI1nOzSv0kTb42gQ"
           className="md:block hidden  z-50"
+          format="webm"
         />
         <BackgroundVideo
           src="https://bseuburnlk.ufs.sh/f/qq9xtZ1seAvytKDkvEIXghJazymvGju9SwrqWxB5HKNiTM2l"
           className="md:hidden z-50"
+          format="webm"
         />
       </div>
 

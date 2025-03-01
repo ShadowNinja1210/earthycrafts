@@ -7,7 +7,7 @@ export default function YourSpace() {
         <span>Your space, your</span>
         <span>masterpiece</span>
       </h1>
-      <BackgroundVideo src="/videos/your-space.mp4" className="rounded-3xl h-full" />
+      <BackgroundVideo src="/videos/your-space.mp4" className="rounded-3xl h-full z-0" />
     </section>
   );
 }

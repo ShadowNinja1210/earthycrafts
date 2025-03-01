@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-const BackgroundVideo = ({ src, className, format }: { src: string; className?: string; format?: string }) => {
+const BackgroundVideo = ({ src, className, format = "mp4" }: { src: string; className?: string; format?: string }) => {
   return (
     <video
       className={cn(" top-0 left-0 w-screen h-screen object-cover -z-10", className)}
