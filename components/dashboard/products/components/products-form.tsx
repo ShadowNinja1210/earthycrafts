@@ -39,7 +39,7 @@ const productFormSchema = z.object({
   stoneName: z.string(),
   primaryCategory: z.array(z.string()),
   secondaryCategory: z.array(z.string()),
-  subCategory: z.string(),
+  subCategory: z.string().optional().or(z.literal("")),
   isFeatured: z.boolean(),
   tags: z.array(z.string()),
 });
@@ -310,7 +310,12 @@ export default function ProductsForm({
               <FormItem>
                 <FormLabel>Subcategory</FormLabel>
                 <FormControl>
-                  <SelectField items={subCategories} placeholder="Select Subcategory" {...field} />
+                  <SelectField
+                    items={subCategories}
+                    placeholder="Select Subcategory"
+                    {...field}
+                    value={field.value || ""}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

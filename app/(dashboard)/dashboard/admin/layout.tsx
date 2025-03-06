@@ -11,6 +11,7 @@ import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "@/app/api/uploadthing/core";
 import { Toaster } from "@/components/ui/toaster";
 import { Providers } from "@/components/providers";
+import { BackToTop } from "@/components/back-to-top";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -40,6 +41,7 @@ export default async function RootLayout({
                 <SidebarTrigger />
                 <Toaster />
                 {children}
+                <BackToTop />
               </main>
             </SidebarProvider>
           </Providers>
